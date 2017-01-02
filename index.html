@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,10 +64,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Install Caffe on Ubuntu 16.04" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-网络程序设计总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/02/Install Caffe on Ubuntu 16.04/" class="article-date">
-  <time datetime="2017-01-02T11:53:08.000Z" itemprop="datePublished">2017-01-02</time>
+    <a href="/2017/01/02/网络程序设计总结/" class="article-date">
+  <time datetime="2017-01-02T12:13:39.000Z" itemprop="datePublished">2017-01-02</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/02/Install Caffe on Ubuntu 16.04/">Install Caffe on Ubuntu 16.04</a>
+      <a class="article-title" href="/2017/01/02/网络程序设计总结/">网络程序设计总结</a>
     </h1>
   
 
@@ -86,7 +86,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Install-Caffe-on-Ubuntu-16-04"><a href="#Install-Caffe-on-Ubuntu-16-04" class="headerlink" title="Install Caffe on Ubuntu 16.04"></a>Install Caffe on Ubuntu 16.04</h1><p>这本课程中本人自学了caffe框架的用法。caffe是个很好的工具，特别是针对图像处理相关的卷积神经网络。但是本人的电脑系统为macOS，在参照官方文档时候出现问题并得不到解决，似乎是因为系统版本的缘故。后来就索性安装了一个ubuntu的虚拟机，分配了4G内存，两个core。跑官方mnist的例子需要13分钟左右。<br>caffe在ubuntu系统下的安装比较简单，因为显卡问题我没有装GPU，安装基本参照下面的链接网址。安装时候请注意最好换个源下载，因为官方的源速度实在太慢了。装了大半天基本都是在等待下载。<a href="http://hmybmny.com/2016/09/change-sources/" target="_blank" rel="external">换源方法</a></p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/02/网络程序设计总结/" data-id="cixg1vwvc0003zqfybr20ij57" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-install-caffe" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/02/install-caffe/" class="article-date">
+  <time datetime="2017-01-02T11:56:59.000Z" itemprop="datePublished">2017-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/02/install-caffe/">install caffe</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这本课程中本人自学了caffe框架的用法。caffe是个很好的工具，特别是针对图像处理相关的卷积神经网络。但是本人的电脑系统为macOS，在参照官方文档时候出现问题并得不到解决，似乎是因为系统版本的缘故。后来就索性安装了一个ubuntu的虚拟机，分配了4G内存，两个core。跑官方mnist的例子需要13分钟左右。<br>caffe在ubuntu系统下的安装比较简单，因为显卡问题我没有装GPU，安装基本参照下面的链接网址。安装时候请注意最好换个源下载，因为官方的源速度实在太慢了。装了大半天基本都是在等待下载。<a href="http://hmybmny.com/2016/09/change-sources/" target="_blank" rel="external">换源方法</a></p>
 <h2 id="Install-with-CPU"><a href="#Install-with-CPU" class="headerlink" title="Install with CPU"></a>Install with CPU</h2><h3 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt update</div><div class="line">sudo apt upgrade</div><div class="line">sudo apt install -y build-essential cmake git pkg-config</div><div class="line">sudo apt install -y libprotobuf-dev libleveldb-dev libsnappy-dev \</div><div class="line">                    libopencv-dev libhdf5-serial-dev protobuf-compiler</div><div class="line">sudo apt install -y --no-install-recommends libboost-all-dev</div></pre></td></tr></table></figure>
 <blockquote>
 <p>如果使用 OpenBlas 代替默认的 ATLAS的话，需要将 libatlas-base-dev 改为 libopenblas-dev</p>
@@ -94,28 +130,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt install -y libatlas-base-dev </div><div class="line">sudo apt install -y libgflags-dev libgoogle-glog-dev liblmdb-dev</div><div class="line">sudo apt install -y python-pip python-dev python-numpy python-scipy</div></pre></td></tr></table></figure>
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/</div><div class="line">git clone https://github.com/BVLC/caffe.git</div><div class="line">cd caffe/</div><div class="line">cp Makefile.config.example Makefile.config</div><div class="line">vim Makefile.config</div></pre></td></tr></table></figure>
 <ul>
-<li>取消注释</li>
+<li>取消注释  </li>
 </ul>
-<blockquote>
-<p>CPU_ONLY := 1<br>WITH_PYTHON_LAYER := 1</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CPU_ONLY := 1    </div><div class="line">WITH\_PYTHON\_LAYER := 1</div></pre></td></tr></table></figure>
 <ul>
-<li><p>如果选择 CPU 安装的话，最好使用 OpenBlas 代替默认的 ATLAS，因为 OpenBlas 对 CPU 多线程支持很好，能加快一点速度算一点吧。修改</p>
-<blockquote>
-<p>BLAS := open</p>
-</blockquote>
-</li>
-<li><p>并运行以下命令（使用 OpenBlas 的情况下）</p>
-<blockquote>
-<p>echo ‘export OPENBLAS_NUM_THREADS=4’ &gt;&gt; ~/.bashrc</p>
-</blockquote>
-</li>
-<li><p>修改</p>
-<blockquote>
-<p>INCLUDE_DIRS := $(PYTHON_INCLUDE)  /usr/local/include /usr/include/hdf5/serial<br>LIBRARY_DIRS := $(PYTHON_LIB)  /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial</p>
-</blockquote>
-</li>
+<li>如果选择 CPU 安装的话，最好使用 OpenBlas 代替默认的 ATLAS，因为 OpenBlas 对 CPU 多线程支持很好，能加快一点速度算一点吧。修改<br><code>BLAS := open</code></li>
+<li>并运行以下命令（使用 OpenBlas 的情况下）<br><code>echo &#39;export OPENBLAS_NUM_THREADS=4&#39; &gt;&gt; ~/.bashrc</code></li>
+<li>修改  </li>
 </ul>
+<p><code>INCLUDE_DIRS := $(PYTHON_INCLUDE)  /usr/local/include /usr/include/hdf5/serial</code><br><code>LIBRARY_DIRS := $(PYTHON_LIB)  /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial</code></p>
 <h3 id="安装-make-pycaffe-所需的库"><a href="#安装-make-pycaffe-所需的库" class="headerlink" title="安装 make pycaffe 所需的库"></a>安装 make pycaffe 所需的库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd python</div><div class="line">sudo -H pip2 install -r requirements.txt</div></pre></td></tr></table></figure>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cd ..</div><div class="line">make all -j $(($(nproc) + 1))</div><div class="line">make test</div><div class="line">make runtest</div><div class="line">make pycaffe</div><div class="line">make distribute</div><div class="line"></div><div class="line">#user 是你的用户名</div><div class="line">echo &apos;export PYTHONPATH=/home/user/caffe/python:$PYTHONPATH&apos; &gt;&gt; ~/.bashrc</div></pre></td></tr></table></figure>
 <h3 id="重启终端"><a href="#重启终端" class="headerlink" title="重启终端"></a>重启终端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python</div><div class="line">&gt;&gt;&gt;import caffe </div><div class="line">&gt;&gt;&gt;               # 没报错就成功了</div></pre></td></tr></table></figure>
@@ -125,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/Install Caffe on Ubuntu 16.04/" data-id="cixg12w2u0000uyfypkluovna" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/install-caffe/" data-id="cixg1vwv70001zqfyfp7wzhet" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -162,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/30/new-one/" data-id="cixg12w330003uyfys0nnllx9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/30/new-one/" data-id="cixg1vwvd0004zqfyk4mjnb1y" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -210,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/30/new-article/" data-id="cixg12w300002uyfyvwypfq0a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/30/new-article/" data-id="cixg1vwv90002zqfybgo4kgbi" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -255,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/29/hello-world/" data-id="cixg12w2y0001uyfyw4nb2vs6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/29/hello-world/" data-id="cixg1vwv30000zqfyz79rk39m" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -290,12 +313,16 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/01/02/Install Caffe on Ubuntu 16.04/">Install Caffe on Ubuntu 16.04</a>
+            <a href="/2017/01/02/网络程序设计总结/">网络程序设计总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/02/install-caffe/">install caffe</a>
           </li>
         
           <li>
@@ -323,7 +350,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 BearVic<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

@@ -5,16 +5,39 @@
   
   <title>caffe自定义网络实现图像识别 | Hello World!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="--to make the world&apos;s beauty.">
+  <meta name="description" content="前言caffe是个很好用的机器学习工具，尤其是在图像处理做卷积神经网络方面。要掌握caffe，最主要的要掌握：
+
+数据生成
+网络结构定义
+solver配置文件参数设置
+
+接下来我逐一为大家介绍。
+生成LMDB数据数据下载这次项目是实现500张5个类别.jpg图片的训练和测试识别。在这里为大家提供了数据源的链接：https://pan.baidu.com/s/1MotUe这些数据共有500张图片，分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="caffe自定义网络实现图像识别">
 <meta property="og:url" content="http://yoursite.com/2017/01/02/caffe自定义网络实现图像识别/index.html">
 <meta property="og:site_name" content="Hello World!">
-<meta property="og:description" content="--to make the world&apos;s beauty.">
-<meta property="og:updated_time" content="2017-01-02T12:28:40.000Z">
+<meta property="og:description" content="前言caffe是个很好用的机器学习工具，尤其是在图像处理做卷积神经网络方面。要掌握caffe，最主要的要掌握：
+
+数据生成
+网络结构定义
+solver配置文件参数设置
+
+接下来我逐一为大家介绍。
+生成LMDB数据数据下载这次项目是实现500张5个类别.jpg图片的训练和测试识别。在这里为大家提供了数据源的链接：https://pan.baidu.com/s/1MotUe这些数据共有500张图片，分">
+<meta property="og:image" content="http://yoursite.com/img/result1.jpg">
+<meta property="og:updated_time" content="2017-01-02T17:56:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="caffe自定义网络实现图像识别">
-<meta name="twitter:description" content="--to make the world&apos;s beauty.">
+<meta name="twitter:description" content="前言caffe是个很好用的机器学习工具，尤其是在图像处理做卷积神经网络方面。要掌握caffe，最主要的要掌握：
+
+数据生成
+网络结构定义
+solver配置文件参数设置
+
+接下来我逐一为大家介绍。
+生成LMDB数据数据下载这次项目是实现500张5个类别.jpg图片的训练和测试识别。在这里为大家提供了数据源的链接：https://pan.baidu.com/s/1MotUe这些数据共有500张图片，分">
+<meta name="twitter:image" content="http://yoursite.com/img/result1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hello World!" type="application/atom+xml">
   
@@ -85,11 +108,99 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>caffe是个很好用的机器学习工具，尤其是在图像处理做卷积神经网络方面。要掌握caffe，最主要的要掌握：</p>
+<ul>
+<li>数据生成</li>
+<li>网络结构定义</li>
+<li>solver配置文件参数设置</li>
+</ul>
+<p>接下来我逐一为大家介绍。</p>
+<h2 id="生成LMDB数据"><a href="#生成LMDB数据" class="headerlink" title="生成LMDB数据"></a>生成LMDB数据</h2><h4 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h4><p>这次项目是实现500张5个类别.jpg图片的训练和测试识别。在这里为大家提供了数据源的链接：<a href="https://pan.baidu.com/s/1MotUe" target="_blank" rel="external">https://pan.baidu.com/s/1MotUe</a><br>这些数据共有500张图片，分为大巴车、恐龙、大象、鲜花和马五个类，每个类100张。编号分别以0,1,2,3,4开头，各为一类。</p>
+<h4 id="生成图片清单文件"><a href="#生成图片清单文件" class="headerlink" title="生成图片清单文件"></a>生成图片清单文件</h4><p>创建一个sh脚本文件，调用linux命令生成图片清单(当然你喜欢的话，你也可以自己写)：<br><code>sudo vi examples/images/create_filelist.sh</code></p>
+<p>在这个文件中输入如下代码并保存 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># /usr/bin/env sh</div><div class="line">DATA=/home/hero/caffe/examples/my_first/train</div><div class="line">echo &quot;Create train.txt...&quot;</div><div class="line">rm -rf $DATA/train.txt</div><div class="line">find $DATA -name &apos;*3??.jpg&apos; | cut -d &apos;/&apos; -f8 | sed &quot;s/$/ 1/&quot;&gt;&gt;$DATA/train.txt</div><div class="line">find $DATA -name &apos;*4??.jpg&apos; | cut -d &apos;/&apos; -f8 | sed &quot;s/$/ 2/&quot;&gt;&gt;$DATA/tmp1.txt</div><div class="line">find $DATA -name &apos;*5??.jpg&apos; | cut -d &apos;/&apos; -f8 | sed &quot;s/$/ 3/&quot;&gt;&gt;$DATA/tmp2.txt</div><div class="line">find $DATA -name &apos;*6??.jpg&apos; | cut -d &apos;/&apos; -f8 | sed &quot;s/$/ 4/&quot;&gt;&gt;$DATA/tmp3.txt</div><div class="line">find $DATA -name &apos;*7??.jpg&apos; | cut -d &apos;/&apos; -f8 | sed &quot;s/$/ 0/&quot;&gt;&gt;$DATA/tmp4.txt</div><div class="line">cat $DATA/tmp1.txt&gt;&gt;$DATA/train.txt</div><div class="line">rm -rf $DATA/tmp1.txt</div><div class="line">cat $DATA/tmp2.txt&gt;&gt;$DATA/train.txt</div><div class="line">rm -rf $DATA/tmp2.txt</div><div class="line">cat $DATA/tmp3.txt&gt;&gt;$DATA/train.txt</div><div class="line">rm -rf $DATA/tmp3.txt</div><div class="line">cat $DATA/tmp4.txt&gt;&gt;$DATA/train.txt</div><div class="line">rm -rf $DATA/tmp4.txt</div><div class="line">echo &quot;Done..&quot;</div></pre></td></tr></table></figure>
+<p>运行</p>
+<p><code>sudo sh examples/images/create_filelist.sh</code></p>
+<p>类似的生成相应的测试图片清单（其中相关了命令不在此介绍，可自行百度）。<br>最终生成train.txt文件如下(test.txt类似)：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">370.jpg 1</div><div class="line">386.jpg 1</div><div class="line">398.jpg 1</div><div class="line">364.jpg 1</div><div class="line">389.jpg 1</div><div class="line">352.jpg 1</div><div class="line">...</div></pre></td></tr></table></figure>
+<h4 id="生成lmdb数据文件"><a href="#生成lmdb数据文件" class="headerlink" title="生成lmdb数据文件"></a>生成lmdb数据文件</h4><p>由于参数较多，我们还是创建sh脚本文件运行(这样也比较酷):<br><code>sudo vi examples/images/create_lmdb.sh</code></p>
+<p>编辑并保存:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/en sh</div><div class="line">DATA=/home/hero/caffe/examples/my_first/train</div><div class="line">rm -rf $DATA/img_train_lmdb</div><div class="line">rm -rf $DATA/img_test_lmdb</div><div class="line">/home/hero/caffe/build/tools/convert_imageset --shuffle=true \</div><div class="line">--resize_height=38 --resize_width=38 \</div><div class="line">/home/hero/caffe/examples/my_first/train/ $DATA/train.txt  $DATA/img_train_lmdb</div></pre></td></tr></table></figure>
+<p>其中设置参数shuffle打乱图片顺序，为了快速学习，将图片大小resize成38*38（硬件受限，这样程序跑的快一点）。然后输入<br><code>sudo sh examples/images/create_lmdb.sh</code><br>运行程序，生成所要的数据文件。</p>
+<h4 id="生成图片均值文件"><a href="#生成图片均值文件" class="headerlink" title="生成图片均值文件"></a>生成图片均值文件</h4><p>为了提高速度和精度，我们一般还会计算并让图片减去均值，这个用caffe自带的工具函数就能实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo build/tools/compute_image_mean examples/mnist/mnist_train_lmdb examples/mnist/mean.binaryproto</div></pre></td></tr></table></figure>
+<p>第一个参数：examples/mnist/mnist_train_lmdb， 表示需要计算均值的数据，格式为lmdb的训练数据。<br>第二个参数：examples/mnist/mean.binaryproto， 计算出来的结果保存文件。</p>
+<h2 id="网络层layer介绍"><a href="#网络层layer介绍" class="headerlink" title="网络层layer介绍"></a>网络层layer介绍</h2><p>这个部分我们就简绍卷积神经网络中最主要的两个层卷积(convolution)层和池化(pooling)层。</p>
+<h4 id="Convolution层"><a href="#Convolution层" class="headerlink" title="Convolution层"></a>Convolution层</h4><p>就是卷积层，是卷积神经网络（CNN）的核心层。<br>示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">layer &#123;</div><div class="line">  name: &quot;conv1&quot;</div><div class="line">  type: &quot;Convolution&quot;</div><div class="line">  bottom: &quot;data&quot;</div><div class="line">  top: &quot;conv1&quot;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 1</div><div class="line">  &#125;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 2</div><div class="line">  &#125;</div><div class="line">  convolution_param &#123;</div><div class="line">    num_output: 20</div><div class="line">    kernel_size: 5</div><div class="line">    stride: 1</div><div class="line">    weight_filler &#123;</div><div class="line">      type: &quot;xavier&quot;</div><div class="line">    &#125;</div><div class="line">    bias_filler &#123;</div><div class="line">      type: &quot;constant&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主要参数介绍:  </p>
+<ul>
+<li><p>num_output: 卷积核（filter)的个数</p>
+</li>
+<li><p>kernel_size: 卷积核的大小。如果卷积核的长和宽不等，需要用kernel_h和kernel_w分别设定</p>
+</li>
+</ul>
+<p>其它参数：</p>
+<ul>
+<li><p>stride: 卷积核的步长，默认为1。也可以用stride_h和stride_w来设置。</p>
+</li>
+<li><p>pad: 扩充边缘，默认为0，不扩充。 扩充的时候是左右、上下对称的，比如卷积核的大小为5*5，那么pad设置为2，则四个边缘都扩充2个像素，即宽度和高度都扩充了4个像素,这样卷积运算之后的特征图就不会变小。也可以通过pad_h和pad_w来分别设定。</p>
+</li>
+<li><p>weight_filler: 权值初始化。 默认为“constant”,值全为0，很多时候我们用”xavier”算法来进行初始化，也可以设置为”gaussian”</p>
+</li>
+<li><p>bias_filler: 偏置项的初始化。一般设置为”constant”,值全为0。</p>
+</li>
+<li><p>bias_term: 是否开启偏置项，默认为true, 开启</p>
+</li>
+<li><p>group: 分组，默认为1组。如果大于1，我们限制卷积的连接操作在一个子集内。如果我们根据图像的通道来分组，那么第i个输出分组只能与第i个输入分组进行连接。</p>
+</li>
+</ul>
+<h4 id="Pooling层"><a href="#Pooling层" class="headerlink" title="Pooling层"></a>Pooling层</h4><p>也叫池化层，为了减少运算量和数据维度而设置的一种层。<br>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">layer &#123;</div><div class="line">  name: &quot;pool1&quot;</div><div class="line">  type: &quot;Pooling&quot;</div><div class="line">  bottom: &quot;conv1&quot;</div><div class="line">  top: &quot;pool1&quot;</div><div class="line">  pooling_param &#123;</div><div class="line">    pool: MAX</div><div class="line">    kernel_size: 3</div><div class="line">    stride: 2</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主要参数介绍：</p>
+<ul>
+<li>kernel_size: 池化的核大小。也可以用kernel_h和kernel_w分别设定。</li>
+</ul>
+<p>其它参数：</p>
+<ul>
+<li><p>pool: 池化方法，默认为MAX。目前可用的方法有MAX, AVE, 或STOCHASTIC</p>
+</li>
+<li><p>pad: 和卷积层的pad的一样，进行边缘扩充。默认为0</p>
+</li>
+<li><p>stride: 池化的步长，默认为1。一般我们设置为2，即不重叠。也可以用stride_h和stride_w来设置。</p>
+</li>
+</ul>
+<p>pooling层的运算方法基本是和卷积层是一样的。</p>
+<h3 id="我的网络模型"><a href="#我的网络模型" class="headerlink" title="我的网络模型"></a>我的网络模型</h3><p>包括一个数据层，两个卷积层，两个池化层和两个全连接层。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div></pre></td><td class="code"><pre><div class="line">name: &quot;MY_FIRST_quick&quot;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;my_first&quot;</div><div class="line">  type: &quot;Data&quot;</div><div class="line">  top: &quot;data&quot;</div><div class="line">  top: &quot;label&quot;</div><div class="line">  include &#123;</div><div class="line">    phase: TRAIN</div><div class="line">  &#125;</div><div class="line">  transform_param &#123;</div><div class="line">    scale: 0.00390625</div><div class="line">    mean_file: &quot;examples/my_first/mean.binaryproto&quot;</div><div class="line">  &#125;</div><div class="line">  data_param &#123;</div><div class="line">    source: &quot;examples/my_first/train/img_train_lmdb&quot;</div><div class="line">    batch_size: 10</div><div class="line">    backend: LMDB</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;my_first&quot;</div><div class="line">  type: &quot;Data&quot;</div><div class="line">  top: &quot;data&quot;</div><div class="line">  top: &quot;label&quot;</div><div class="line">  include &#123;</div><div class="line">    phase: TEST</div><div class="line">  &#125;</div><div class="line">  transform_param &#123;</div><div class="line">    scale: 0.00390625</div><div class="line">    mean_file: &quot;examples/my_first/mean.binaryproto&quot;</div><div class="line">  &#125;</div><div class="line">  data_param &#123;</div><div class="line">    source: &quot;examples/my_first/test/img_test_lmdb&quot;</div><div class="line">    batch_size: 10</div><div class="line">    backend: LMDB</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;conv1&quot;</div><div class="line">  type: &quot;Convolution&quot;</div><div class="line">  bottom: &quot;data&quot;</div><div class="line">  top: &quot;conv1&quot;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 1</div><div class="line">  &#125;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 2</div><div class="line">  &#125;</div><div class="line">  convolution_param &#123;</div><div class="line">    num_output: 55</div><div class="line">    pad: 2</div><div class="line">    kernel_size: 5</div><div class="line">    stride: 1</div><div class="line">    weight_filler &#123;</div><div class="line">      type: &quot;xavier&quot;</div><div class="line">    &#125;</div><div class="line">    bias_filler &#123;</div><div class="line">      type: &quot;constant&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;pool1&quot;</div><div class="line">  type: &quot;Pooling&quot;</div><div class="line">  bottom: &quot;conv1&quot;</div><div class="line">  top: &quot;pool1&quot;</div><div class="line">  pooling_param &#123;</div><div class="line">    pool: MAX</div><div class="line">    kernel_size: 3</div><div class="line">    stride: 2</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;conv2&quot;</div><div class="line">  type: &quot;Convolution&quot;</div><div class="line">  bottom: &quot;pool1&quot;</div><div class="line">  top: &quot;conv2&quot;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 1</div><div class="line">  &#125;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 2</div><div class="line">  &#125;</div><div class="line">  convolution_param &#123;</div><div class="line">    num_output: 27</div><div class="line">    kernel_size: 5</div><div class="line">    stride: 1</div><div class="line">    weight_filler &#123;</div><div class="line">      type: &quot;xavier&quot;</div><div class="line">    &#125;</div><div class="line">    bias_filler &#123;</div><div class="line">      type: &quot;constant&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;pool2&quot;</div><div class="line">  type: &quot;Pooling&quot;</div><div class="line">  bottom: &quot;conv2&quot;</div><div class="line">  top: &quot;pool2&quot;</div><div class="line">  pooling_param &#123;</div><div class="line">    pool: AVE</div><div class="line">    kernel_size: 3</div><div class="line">    stride: 2</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;ip1&quot;</div><div class="line">  type: &quot;InnerProduct&quot;</div><div class="line">  bottom: &quot;pool2&quot;</div><div class="line">  top: &quot;ip1&quot;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 1</div><div class="line">  &#125;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 2</div><div class="line">  &#125;</div><div class="line">  inner_product_param &#123;</div><div class="line">    num_output: 500</div><div class="line">    weight_filler &#123;</div><div class="line">      type: &quot;xavier&quot;</div><div class="line">    &#125;</div><div class="line">    bias_filler &#123;</div><div class="line">      type: &quot;constant&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;relu1&quot;</div><div class="line">  type: &quot;ReLU&quot;</div><div class="line">  bottom: &quot;ip1&quot;</div><div class="line">  top: &quot;ip1&quot;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;ip2&quot;</div><div class="line">  type: &quot;InnerProduct&quot;</div><div class="line">  bottom: &quot;ip1&quot;</div><div class="line">  top: &quot;ip2&quot;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 1</div><div class="line">  &#125;</div><div class="line">  param &#123;</div><div class="line">    lr_mult: 2</div><div class="line">  &#125;</div><div class="line">  inner_product_param &#123;</div><div class="line">    num_output: 5</div><div class="line">    weight_filler &#123;</div><div class="line">      type: &quot;xavier&quot;</div><div class="line">    &#125;</div><div class="line">    bias_filler &#123;</div><div class="line">      type: &quot;constant&quot;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;accuracy&quot;</div><div class="line">  type: &quot;Accuracy&quot;</div><div class="line">  bottom: &quot;ip2&quot;</div><div class="line">  bottom: &quot;label&quot;</div><div class="line">  top: &quot;accuracy&quot;</div><div class="line">  include &#123;</div><div class="line">    phase: TEST</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">layer &#123;</div><div class="line">  name: &quot;loss&quot;</div><div class="line">  type: &quot;SoftmaxWithLoss&quot;</div><div class="line">  bottom: &quot;ip2&quot;</div><div class="line">  bottom: &quot;label&quot;</div><div class="line">  top: &quot;loss&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="solver文件介绍"><a href="#solver文件介绍" class="headerlink" title="solver文件介绍"></a>solver文件介绍</h2><p>solver文件可以算是caffe里最核心的文件了，它就相当于是电脑的CPU，控制着整个网络的运行。<br>在每一次的迭代过程中，solver做了这几步工作：</p>
+<ul>
+<li>1、调用forward算法来计算最终的输出值，以及对应的loss</li>
+<li>2、调用backward算法来计算每层的梯度</li>
+<li>3、根据选用的slover方法，利用梯度进行参数更新</li>
+<li>4、记录并保存每次迭代的学习率、快照，以及对应的状态。</li>
+</ul>
+<p>以我的solver文件为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># The train/test net protocol buffer definition</div><div class="line">net: &quot;examples/my_first/my_first_quick_train_test.prototxt&quot;</div><div class="line"># test_iter specifies how many forward passes the test should carry out.</div><div class="line">test_iter: 50</div><div class="line"># Carry out testing every 1000 training iterations.</div><div class="line">test_interval: 1000</div><div class="line"># The base learning rate, momentum and the weight decay of the network.</div><div class="line">base_lr: 0.0001</div><div class="line">momentum: 0.9</div><div class="line">weight_decay: 0.004</div><div class="line"># The learning rate policy</div><div class="line">lr_policy: &quot;fixed&quot;</div><div class="line"># Display every 100 iterations</div><div class="line">display: 100</div><div class="line"># The maximum number of iterations</div><div class="line">max_iter: 10000</div><div class="line"># snapshot intermediate results</div><div class="line">#snapshot: 5000</div><div class="line">#snapshot_format: HDF5</div><div class="line">#snapshot_prefix: &quot;examples/my_first/my_first_quick&quot;</div><div class="line"># solver mode: CPU or GPU</div><div class="line">solver_mode: CPU</div></pre></td></tr></table></figure>
+<p>lr_policy可以设置为下面这些值，相应的学习率的计算为：</p>
+<ul>
+<li>fixed:　　 保持base_lr不变.</li>
+<li>step: 　　 如果设置为step,则还需要设置一个stepsize, 返回 base_lr * gamma ^ (floor(iter / stepsize)),其中iter表示当前的迭代次数</li>
+<li>exp: 　　返回base_lr * gamma ^ iter， iter为当前迭代次数</li>
+<li>inv:　　 如果设置为inv,还需要设置一个power, 返回base_lr <em> (1 + gamma </em> iter) ^ (- power)</li>
+<li>multistep: 如果设置为multistep,则还需要设置一个stepvalue。这个参数和step很相似，step是均匀等间隔变化，而multistep则是根据 stepvalue值变化</li>
+<li>poly: 　　 学习率进行多项式误差, 返回 base_lr (1 - iter/max_iter) ^ (power)</li>
+<li>sigmoid:　学习率进行sigmod衰减，返回 base_lr ( 1/(1 + exp(-gamma * (iter - stepsize))))</li>
+</ul>
+<h2 id="训练及结果"><a href="#训练及结果" class="headerlink" title="训练及结果"></a>训练及结果</h2><p>同样编写sh脚本文件在终端运行程序，可以看到网络模型的运行过程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env sh</div><div class="line">set -e</div><div class="line"></div><div class="line">TOOLS=./build/tools</div><div class="line"></div><div class="line">$TOOLS/caffe train \</div><div class="line">  --solver=examples/my_first/my_first_quick_solver.prototxt $@</div></pre></td></tr></table></figure>
+<p>结果如下图所示：<br><img src="/img/result1.jpg" alt="运行结果"></p>
+<h2 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h2><p>caffe本身是简单易用的，但是若对神经网络本身算法原理一窍不通，就无法设置合适的参数，来提高图片识别的准确度。因此，在熟练使用工具的基础上，还要加强对算法原理的了解掌握，这两者是相辅相成的关系。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/caffe自定义网络实现图像识别/" data-id="cixg2d7xs00012ifyll9p0fyz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/caffe自定义网络实现图像识别/" data-id="cixge1wjl00005yfyd35m8e1n" class="article-share-link">Share</a>
       
       
     </footer>

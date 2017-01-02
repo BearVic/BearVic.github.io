@@ -5,16 +5,18 @@
   
   <title>网络程序设计总结 | Hello World!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="--to make the world&apos;s beauty.">
+  <meta name="description" content="前言当初抱着对时下热门的机器学习、神经网络等知识的好奇心，选了孟宁老师的网络程序设计。老实说，对一个自习能力极差又零基础的人而言，孟宁老师的授课方式一开始真没适应过来。学得慢，代码写的慢，好不容易有点微小的成果，没来得及pull request，别人就已经上传了，写的还比我的好。导致的后果就是所谓的课程零贡献，不知道会不会挂科。但是上课的意义就是为了让学生学到东西，通过这门课，我学到了很多，包括对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络程序设计总结">
 <meta property="og:url" content="http://yoursite.com/2017/01/02/网络程序设计总结/index.html">
 <meta property="og:site_name" content="Hello World!">
-<meta property="og:description" content="--to make the world&apos;s beauty.">
-<meta property="og:updated_time" content="2017-01-02T12:14:21.000Z">
+<meta property="og:description" content="前言当初抱着对时下热门的机器学习、神经网络等知识的好奇心，选了孟宁老师的网络程序设计。老实说，对一个自习能力极差又零基础的人而言，孟宁老师的授课方式一开始真没适应过来。学得慢，代码写的慢，好不容易有点微小的成果，没来得及pull request，别人就已经上传了，写的还比我的好。导致的后果就是所谓的课程零贡献，不知道会不会挂科。但是上课的意义就是为了让学生学到东西，通过这门课，我学到了很多，包括对">
+<meta property="og:image" content="http://yoursite.com/img/pic1.jpg">
+<meta property="og:updated_time" content="2017-01-02T16:50:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络程序设计总结">
-<meta name="twitter:description" content="--to make the world&apos;s beauty.">
+<meta name="twitter:description" content="前言当初抱着对时下热门的机器学习、神经网络等知识的好奇心，选了孟宁老师的网络程序设计。老实说，对一个自习能力极差又零基础的人而言，孟宁老师的授课方式一开始真没适应过来。学得慢，代码写的慢，好不容易有点微小的成果，没来得及pull request，别人就已经上传了，写的还比我的好。导致的后果就是所谓的课程零贡献，不知道会不会挂科。但是上课的意义就是为了让学生学到东西，通过这门课，我学到了很多，包括对">
+<meta name="twitter:image" content="http://yoursite.com/img/pic1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hello World!" type="application/atom+xml">
   
@@ -85,11 +87,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当初抱着对时下热门的机器学习、神经网络等知识的好奇心，选了孟宁老师的网络程序设计。<br>老实说，对一个自习能力极差又零基础的人而言，孟宁老师的授课方式一开始真没适应过来。学得慢，代码写的慢，好不容易有点微小的成果，没来得及pull request，别人就已经上传了，写的还比我的好。导致的后果就是所谓的课程零贡献，不知道会不会挂科。<br>但是上课的意义就是为了让学生学到东西，通过这门课，我学到了很多，包括对机器学习、神经网络的认识很理解，以及对一些机器学习基本框架的使用，包括caffe、tensorflow、keras、tklearn。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>人工神经网络</strong>（Artificial Neural Networks，简写为ANNs）也简称为神经网络（NNs）或称作连接模型（Connection Model），它是一种模仿动物神经网络行为特征，进行分布式并行信息处理的算法数学模型。这种网络依靠系统的复杂程度，通过调整内部大量节点之间相互连接的关系，从而达到处理信息的目的。<br><strong>人工神经网络</strong>：是一种应用类似于大脑神经突触联接的结构进行信息处理的数学模型。在工程与学术界也常直接简称为“神经网络”或类神经网络。<br>这是百度百科上对<a href="http://baike.baidu.com/link?url=r_O_Nntz8sbG4-PyjU-res4SzpwUBvUzHcPFU-eIkTY-rbxw3ptj_ZW7XYUb1ytB9C1_Co30gxVjRQuGXPIAj97IJ6iu4mbJ0FqmipZ6E2qpO-9VBLyJrOp-_cJedL__" target="_blank" rel="external">神经网络</a>的定义。机器学习是个很神奇的东西，而神经网络就是其中的典型代表。在我看来，一个人对事物的认知不可能将每个事物都高清无码地存储在记忆中。类似于图像JPEG压缩存储中，只存储人类敏感部分的色素一样，人们对一个事物的认识是通过学习它的特征，通过事物之间的特征联系，来识别不同的事物。<br>在机器学习中，我们会定义很多权值参数，我们用计算机学习的过程，就是确定每个权值参数的值，以更好地让计算机能通过这些权值来判断出不同的事物，进而进行不能的选择操作。<br><img src="/img/pic1.jpg" alt="卷积神经网络"><br>如图所示，作为一个工程实践人员，我们要做的就是定义好最适合的神经网络以供机器学习的训练测试，并提供给定格式的数据输入，接收数据输出。<br>在这篇文章里，我会介绍机器学习框架caffe、tensorflow、keras和sklearn的大致用法。然后再介绍课程所做的对血常规检验报告的OCR识别、深度学习与分析。</p>
+<h2 id="框架介绍及相关项目"><a href="#框架介绍及相关项目" class="headerlink" title="框架介绍及相关项目"></a>框架介绍及相关项目</h2><p>因为内容比较多，我将所要介绍的框架写在了不同的博文上，以下提供链接。  </p>
+<blockquote>
+<p>caffe<br>tensorflow<br>keras<br>tklearn</p>
+</blockquote>
+<h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><h2 id="对血常规检验报告的OCR识别、深度学习与分析"><a href="#对血常规检验报告的OCR识别、深度学习与分析" class="headerlink" title="对血常规检验报告的OCR识别、深度学习与分析"></a>对血常规检验报告的OCR识别、深度学习与分析</h2><h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><h3 id="文件介绍"><a href="#文件介绍" class="headerlink" title="文件介绍"></a>文件介绍</h3><h3 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h3><h3 id="成功展示"><a href="#成功展示" class="headerlink" title="成功展示"></a>成功展示</h3><h2 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/网络程序设计总结/" data-id="cixg2d7xz00062ifyke27w4z0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/网络程序设计总结/" data-id="cixge1wjz00075yfyxuleruzh" class="article-share-link">Share</a>
       
       
     </footer>

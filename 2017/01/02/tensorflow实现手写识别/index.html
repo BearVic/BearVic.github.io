@@ -18,7 +18,7 @@
 
 使用图 (graph) 来表示计">
 <meta property="og:image" content="http://yoursite.com/img/digits_predict_res.jpg">
-<meta property="og:updated_time" content="2017-01-03T02:59:41.000Z">
+<meta property="og:updated_time" content="2017-01-03T16:39:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tensorflow实现手写识别">
 <meta name="twitter:description" content="前言看过一段时间tensorflow的教程，看代码能知个大概，也算入了门。当时学的时候发现最蛋疼的就是如何调输入数据的格式了。自学能力差到一定的极致，就是看了几天教程这一个问题还是没得到解决。但是我还是对A1课程上的手写识别做了简单的训练预测。代表我入门过。（仅仅是入门，代码简单大神再见）  
@@ -63,9 +63,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -113,11 +113,11 @@
 <h4 id="数据预测"><a href="#数据预测" class="headerlink" title="数据预测"></a>数据预测</h4><p>代码如下：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">print (&quot;train beginning...&quot;)</div><div class="line">sess.run(train_step, feed_dict=&#123;x: train_data, y_: train_labels&#125;)</div><div class="line">&apos;&apos;&apos; 进行模型评估 &apos;&apos;&apos;</div><div class="line"># 判断预测标签和实际标签是否匹配</div><div class="line">correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))</div><div class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, &quot;float&quot;))</div><div class="line"># 计算所学习到的模型在测试数据集上面的正确率</div><div class="line">print(sess.run(accuracy, feed_dict=&#123;x: test_data, y_: test_labels&#125;))</div><div class="line">print (&quot;ok&quot;)</div></pre></td></tr></table></figure>
 <h4 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h4><p><img src="/img/digits_predict_res.jpg" alt="简单网络手写识别结果"><br>因为使用了最简单的网络，重点在于入门，所以准确率很低，才61%，也无伤大雅吧（尴尬的笑）。</p>
-<h2 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h2>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/tensorflow实现手写识别/" data-id="cixhql1gs0007f6fy6q3rynlc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/tensorflow实现手写识别/" data-id="cixhqshwg0006gqfyg81m2iym" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -127,7 +127,7 @@
 <nav id="article-nav">
   
     <a href="/2017/01/03/keras实现性别预测/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           keras实现性别预测
@@ -137,7 +137,7 @@
   
   
     <a href="/2017/01/02/caffe自定义网络模型实现图像识别/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">caffe自定义网络模型实现图像识别</div>
     </a>
   
@@ -170,7 +170,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -207,7 +207,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 BearVic<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

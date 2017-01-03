@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -97,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/03/keras实现性别预测/" data-id="cixhql1gk0004f6fy81bjim4z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/03/keras实现性别预测/" data-id="cixhqshwc0003gqfynwfd2swa" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -146,11 +146,11 @@
 <h4 id="数据预测"><a href="#数据预测" class="headerlink" title="数据预测"></a>数据预测</h4><p>代码如下：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">print (&quot;train beginning...&quot;)</div><div class="line">sess.run(train_step, feed_dict=&#123;x: train_data, y_: train_labels&#125;)</div><div class="line">&apos;&apos;&apos; 进行模型评估 &apos;&apos;&apos;</div><div class="line"># 判断预测标签和实际标签是否匹配</div><div class="line">correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))</div><div class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, &quot;float&quot;))</div><div class="line"># 计算所学习到的模型在测试数据集上面的正确率</div><div class="line">print(sess.run(accuracy, feed_dict=&#123;x: test_data, y_: test_labels&#125;))</div><div class="line">print (&quot;ok&quot;)</div></pre></td></tr></table></figure>
 <h4 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h4><p><img src="/img/digits_predict_res.jpg" alt="简单网络手写识别结果"><br>因为使用了最简单的网络，重点在于入门，所以准确率很低，才61%，也无伤大雅吧（尴尬的笑）。</p>
-<h2 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h2>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/tensorflow实现手写识别/" data-id="cixhql1gs0007f6fy6q3rynlc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/tensorflow实现手写识别/" data-id="cixhqshwg0006gqfyg81m2iym" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -269,7 +269,7 @@
 <h2 id="训练及结果"><a href="#训练及结果" class="headerlink" title="训练及结果"></a>训练及结果</h2><p>同样编写sh脚本文件在终端运行程序，可以看到网络模型的运行过程。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env sh</div><div class="line">set -e</div><div class="line"></div><div class="line">TOOLS=./build/tools</div><div class="line"></div><div class="line">$TOOLS/caffe train \</div><div class="line">  --solver=examples/my_first/my_first_quick_solver.prototxt $@</div></pre></td></tr></table></figure>
 <p>结果如下图所示：<br><img src="/img/result1.jpg" alt="运行结果"></p>
-<h2 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h2><p>caffe本身是简单易用的，但是若对神经网络本身算法原理一窍不通，就无法设置合适的参数，来提高图片识别的准确度。因此，在熟练使用工具的基础上，还要加强对算法原理的了解掌握，这两者是相辅相成的关系。</p>
+<h2 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h2><p>caffe本身是简单易用的，但是若对神经网络本身算法原理一窍不通，就无法设置合适的参数，来提高图片识别的准确度。因此，在熟练使用工具的基础上，还要加强对算法原理的了解掌握，这两者是相辅相成的关系。  </p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://github.com/manutdzou/manutdzou.github.io/blob/master/_posts/%E7%A7%91%E7%A0%94/2016-05-15-Caffe-Usage.md" target="_blank" rel="external">https://github.com/manutdzou/manutdzou.github.io/blob/master/_posts/%E7%A7%91%E7%A0%94/2016-05-15-Caffe-Usage.md</a></li>
 </ul>
@@ -277,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/caffe自定义网络模型实现图像识别/" data-id="cixhql1gf0001f6fy72d6gn40" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/caffe自定义网络模型实现图像识别/" data-id="cixhqshwa0002gqfybq2b2fms" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -329,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/caffe实现性别预测/" data-id="cixhql1g60000f6fyh3dmnnl2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/caffe实现性别预测/" data-id="cixhqshw10000gqfypxl8fb23" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -420,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/网络程序设计总结/" data-id="cixhql1gw0008f6fy29xu61gq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/网络程序设计总结/" data-id="cixhqshwh0007gqfystpy2f1z" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -478,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/install-caffe/" data-id="cixhql1gj0003f6fykqisv85n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/install-caffe/" data-id="cixhqshwe0004gqfye87irz1o" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -515,7 +515,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/30/new-one/" data-id="cixhql1gr0006f6fyef5eyztz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/30/new-one/" data-id="cixhqshwn0008gqfyh164hhhx" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -563,7 +563,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/30/new-article/" data-id="cixhql1gp0005f6fywkl8kuln" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/30/new-article/" data-id="cixhqshwf0005gqfywyawr7xt" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -608,7 +608,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/29/hello-world/" data-id="cixhql1gi0002f6fyvykeldob" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/29/hello-world/" data-id="cixhqshw50001gqfygd7cln3y" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -643,7 +643,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -680,7 +680,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 BearVic<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

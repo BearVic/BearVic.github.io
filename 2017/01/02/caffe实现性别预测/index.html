@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/img/data_sex.jpg">
 <meta property="og:image" content="http://yoursite.com/img/sex_predic_res1.jpg">
 <meta property="og:image" content="http://yoursite.com/img/sex_predic_res1.jpg">
-<meta property="og:updated_time" content="2017-01-03T02:30:01.000Z">
+<meta property="og:updated_time" content="2017-01-03T16:34:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="caffe实现性别预测">
 <meta name="twitter:description" content="前言在自定义网络模型实现图像识别中介绍了caffe的基本用法，关于caffe的介绍在此不再赘述。介绍这篇文章之前首先特别感谢夏天大神的指导交流。这篇文章中使用了caffe的python接口，数据为数组元素而非图像，依然有参考价值。  
@@ -111,11 +111,14 @@
 <h3 id="训练及预测"><a href="#训练及预测" class="headerlink" title="训练及预测"></a>训练及预测</h3><p>训练和预测的python代码很简单，如下所示：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#根据配置文件开始训练模型</div><div class="line">solver = caffe.get_solver(&quot;train.prototxt&quot;)</div><div class="line">solver.solve()</div><div class="line"></div><div class="line">net = caffe.Net(&quot;model_prod.prototxt&quot;,&quot;_iter_500000.caffemodel&quot;, caffe.TEST)</div><div class="line"></div><div class="line">total,success = get_data_from_lmdb_evalue(&quot;test_data_lmdb/&quot;)</div><div class="line">print &quot;accuracy:&quot;, success*100/total,&quot;%&quot;</div></pre></td></tr></table></figure>
 <p>网络模型定义了两个全连接层，relu激发函数，学习率变化策略使用了inv，数据较少，迭代次数都调到上万。训练时准确度到过80+，实际预测准确度最终达到71%。<br>结果如下所示：<br><img src="/img/sex_predic_res1.jpg" alt="训练结果"><br><img src="/img/sex_predic_res1.jpg" alt="预测结果">  </p>
-<h2 id="心得总结"><a href="#心得总结" class="headerlink" title="心得总结"></a>心得总结</h2>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://nbviewer.jupyter.org/github/joyofdata/joyofdata-articles/blob/master/deeplearning-with-caffe/Neural-Networks-with-Caffe-on-the-GPU.ipynb" target="_blank" rel="external">http://nbviewer.jupyter.org/github/joyofdata/joyofdata-articles/blob/master/deeplearning-with-caffe/Neural-Networks-with-Caffe-on-the-GPU.ipynb</a></li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/caffe实现性别预测/" data-id="cixhltrot0000ugfy01a5e75k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/caffe实现性别预测/" data-id="cixhql1g60000f6fyh3dmnnl2" class="article-share-link">Share</a>
       
       
     </footer>

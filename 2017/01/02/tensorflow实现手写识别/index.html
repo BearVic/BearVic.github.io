@@ -5,16 +5,27 @@
   
   <title>tensorflow实现手写识别 | Hello World!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="--to make the world&apos;s beauty.">
+  <meta name="description" content="前言看过一段时间tensorflow的教程，看代码能知个大概，也算入了门。当时学的时候发现最蛋疼的就是如何调输入数据的格式了。自学能力差到一定的极致，就是看了几天教程这一个问题还是没得到解决。但是我还是对A1课程上的手写识别做了简单的训练预测。代表我入门过。（仅仅是入门，代码简单大神再见）  
+简介使用 TensorFlow, 你必须明白 TensorFlow:
+
+使用图 (graph) 来表示计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tensorflow实现手写识别">
 <meta property="og:url" content="http://yoursite.com/2017/01/02/tensorflow实现手写识别/index.html">
 <meta property="og:site_name" content="Hello World!">
-<meta property="og:description" content="--to make the world&apos;s beauty.">
-<meta property="og:updated_time" content="2017-01-02T12:29:27.000Z">
+<meta property="og:description" content="前言看过一段时间tensorflow的教程，看代码能知个大概，也算入了门。当时学的时候发现最蛋疼的就是如何调输入数据的格式了。自学能力差到一定的极致，就是看了几天教程这一个问题还是没得到解决。但是我还是对A1课程上的手写识别做了简单的训练预测。代表我入门过。（仅仅是入门，代码简单大神再见）  
+简介使用 TensorFlow, 你必须明白 TensorFlow:
+
+使用图 (graph) 来表示计">
+<meta property="og:image" content="http://yoursite.com/img/digits_predict_res.jpg">
+<meta property="og:updated_time" content="2017-01-03T02:59:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tensorflow实现手写识别">
-<meta name="twitter:description" content="--to make the world&apos;s beauty.">
+<meta name="twitter:description" content="前言看过一段时间tensorflow的教程，看代码能知个大概，也算入了门。当时学的时候发现最蛋疼的就是如何调输入数据的格式了。自学能力差到一定的极致，就是看了几天教程这一个问题还是没得到解决。但是我还是对A1课程上的手写识别做了简单的训练预测。代表我入门过。（仅仅是入门，代码简单大神再见）  
+简介使用 TensorFlow, 你必须明白 TensorFlow:
+
+使用图 (graph) 来表示计">
+<meta name="twitter:image" content="http://yoursite.com/img/digits_predict_res.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hello World!" type="application/atom+xml">
   
@@ -85,11 +96,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看过一段时间tensorflow的教程，看代码能知个大概，也算入了门。当时学的时候发现最蛋疼的就是如何调输入数据的格式了。自学能力差到一定的极致，就是看了几天教程这一个问题还是没得到解决。但是我还是对A1课程上的手写识别做了简单的训练预测。代表我入门过。（仅仅是入门，代码简单大神再见）  </p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>使用 TensorFlow, 你必须明白 TensorFlow:</p>
+<ul>
+<li>使用图 (graph) 来表示计算任务.</li>
+<li>在被称之为 会话 (Session) 的上下文 (context) 中执行图.</li>
+<li>使用 tensor 表示数据.</li>
+<li>通过 变量 (Variable) 维护状态.</li>
+<li>使用 feed 和 fetch 可以为任意的操作(arbitrary operation) 赋值或者从其中获取数据.  </li>
+</ul>
+<p>从我个人理解出发，tensorflow的框架使用也大致分为三个部分：网络结构定义，数据格式调整及输入，数据预测。python只是tensorflow的一个数据输入接口，实际做训练预测都是通过C语言来实现的，这是为了提高速度和效率。接下来就分这三个模块介绍下我的代码。  </p>
+<h4 id="网络结构定义"><a href="#网络结构定义" class="headerlink" title="网络结构定义"></a>网络结构定义</h4><p>代码如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">x = tf.placeholder(tf.float32, [None, 400])  # 图像输入向量</div><div class="line">W = tf.Variable(tf.zeros([400, 10]))  # 权重，初始化值为全零</div><div class="line">b = tf.Variable(tf.zeros([10]))  # 偏置，初始化值为全零</div><div class="line"># 进行模型计算，y是预测，y_ 是实际</div><div class="line">y = tf.nn.softmax(tf.matmul(x, W) + b)</div><div class="line">y_ = tf.placeholder(&quot;float&quot;, [None, 10])</div><div class="line"># 计算交叉熵</div><div class="line">cross_entropy = -tf.reduce_sum(y_ * tf.log(y))</div><div class="line"># 接下来使用BP算法来进行微调,以0.01的学习速率</div><div class="line">train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)</div><div class="line"># 上面设置好了模型，添加初始化创建变量的操作</div><div class="line">init = tf.initialize_all_variables()</div><div class="line"># 启动创建的模型，并初始化变量</div><div class="line">sess = tf.Session()</div><div class="line">sess.run(init)</div></pre></td></tr></table></figure>
+<h4 id="数据格式调整及输入"><a href="#数据格式调整及输入" class="headerlink" title="数据格式调整及输入"></a>数据格式调整及输入</h4><p>代码如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># 从老师提供的csv数据文件中读取数据</div><div class="line">data_matrix = np.loadtxt(open(&apos;data.csv&apos;, &apos;rb&apos;), delimiter=&apos;,&apos;)</div><div class="line">data_labels = np.loadtxt(open(&apos;dataLabels.csv&apos;, &apos;rb&apos;))</div><div class="line">data_indice = range(5000)</div><div class="line">random.shuffle(data_indice)</div><div class="line">train_data = []</div><div class="line">test_data = []</div><div class="line">labels = []</div><div class="line">train_labels = []</div><div class="line">test_labels = []</div><div class="line"># 需要将数据转换成one hot向量形式</div><div class="line">for i in range(data_labels.size):</div><div class="line">    labels.append([0] * 10)</div><div class="line">    labels[i][int(data_labels[i])] = 1</div><div class="line">count = 0</div><div class="line">for i in data_indice:</div><div class="line">    if (count &lt; 4500):</div><div class="line">        train_data.append(data_matrix[i])</div><div class="line">        train_labels.append(labels[i])</div><div class="line">    else:</div><div class="line">        test_data.append(data_matrix[i])</div><div class="line">        test_labels.append(labels[i])</div><div class="line">    count += 1</div></pre></td></tr></table></figure>
+<h4 id="数据预测"><a href="#数据预测" class="headerlink" title="数据预测"></a>数据预测</h4><p>代码如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">print (&quot;train beginning...&quot;)</div><div class="line">sess.run(train_step, feed_dict=&#123;x: train_data, y_: train_labels&#125;)</div><div class="line">&apos;&apos;&apos; 进行模型评估 &apos;&apos;&apos;</div><div class="line"># 判断预测标签和实际标签是否匹配</div><div class="line">correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))</div><div class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, &quot;float&quot;))</div><div class="line"># 计算所学习到的模型在测试数据集上面的正确率</div><div class="line">print(sess.run(accuracy, feed_dict=&#123;x: test_data, y_: test_labels&#125;))</div><div class="line">print (&quot;ok&quot;)</div></pre></td></tr></table></figure>
+<h4 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h4><p><img src="/img/digits_predict_res.jpg" alt="简单网络手写识别结果"><br>因为使用了最简单的网络，重点在于入门，所以准确率很低，才61%，也无伤大雅吧（尴尬的笑）。</p>
+<h2 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/tensorflow实现手写识别/" data-id="cixgwac2r0006szfy6ujdqjlh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/02/tensorflow实现手写识别/" data-id="cixgxktul0006zzfyxmkljgjt" class="article-share-link">Share</a>
       
       
     </footer>

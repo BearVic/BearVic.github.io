@@ -1,11 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <title>网络程序设计总结 | Hello World!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言当初抱着对时下热门的机器学习、神经网络等知识的好奇心，选了孟宁老师的网络程序设计。老实说，对一个自学能力极差又零基础的人而言，孟宁老师的授课方式一开始真没适应过来。学得慢，代码写的慢，好不容易有点微小的成果，没来得及pull request，别人就已经上传了，写的还比我的好。导致的后果就是所谓的课程零贡献，不知道会不会挂科。但是上课的意义就是为了让学生学到东西，通过这门课，我学到了很多，包括对">
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言当初抱着对时下热门的机器学习、神经网络等知识的好奇心，选了孟宁老师的网络程序设计。老实说，对一个自学能力极差又零基础的人而言，孟宁老师的授课方式一开始真没适应过来。学得慢，代码写的慢，好不容易有点微小的成果，没来得及pull request，别人就已经上传了，写的还比我的好。导致的后果就是所谓的课程零贡献，不知道会不会挂科。但是上课的意义就是为了让学生学到东西，通过这门课，我学到了很多，包括对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络程序设计总结">
 <meta property="og:url" content="http://yoursite.com/2017/01/02/网络程序设计总结/index.html">
@@ -18,84 +97,245 @@
 <meta property="og:image" content="http://yoursite.com/img/qiegehoutupian.jpg">
 <meta property="og:image" content="http://yoursite.com/img/shujushibie.jpg">
 <meta property="og:image" content="http://yoursite.com/img/zuihoujieguo.jpg">
-<meta property="og:updated_time" content="2017-01-03T16:36:30.000Z">
+<meta property="og:updated_time" content="2017-01-05T02:33:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络程序设计总结">
 <meta name="twitter:description" content="前言当初抱着对时下热门的机器学习、神经网络等知识的好奇心，选了孟宁老师的网络程序设计。老实说，对一个自学能力极差又零基础的人而言，孟宁老师的授课方式一开始真没适应过来。学得慢，代码写的慢，好不容易有点微小的成果，没来得及pull request，别人就已经上传了，写的还比我的好。导致的后果就是所谓的课程零贡献，不知道会不会挂科。但是上课的意义就是为了让学生学到东西，通过这门课，我学到了很多，包括对">
 <meta name="twitter:image" content="http://yoursite.com/img/pic1.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="Hello World!" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
 
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '1234',
+      author: '拯救世界大英雄'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/02/网络程序设计总结/"/>
+
+
+
+
+
+  <title> 网络程序设计总结 | Hello World! </title>
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hello World!</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-网络程序设计总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/02/网络程序设计总结/" class="article-date">
-  <time datetime="2017-01-02T12:13:39.000Z" itemprop="datePublished">2017-01-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      网络程序设计总结
-    </h1>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
   
 
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello World!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/02/网络程序设计总结/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="BearVic">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hello World!">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hello World!" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                网络程序设计总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-02T20:13:39+08:00">
+                2017-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/02/网络程序设计总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/网络程序设计总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当初抱着对时下热门的机器学习、神经网络等知识的好奇心，选了孟宁老师的网络程序设计。<br>老实说，对一个自学能力极差又零基础的人而言，孟宁老师的授课方式一开始真没适应过来。学得慢，代码写的慢，好不容易有点微小的成果，没来得及pull request，别人就已经上传了，写的还比我的好。导致的后果就是所谓的课程零贡献，不知道会不会挂科。<br>但是上课的意义就是为了让学生学到东西，通过这门课，我学到了很多，包括对机器学习、神经网络的认识很理解，以及对一些机器学习基本框架的使用，包括caffe、tensorflow、keras。</p>
 <h2 id="课程目标"><a href="#课程目标" class="headerlink" title="课程目标"></a>课程目标</h2><p>通过实现一个医学辅助诊断的专家系统原型。具体为实现对血常规检测报告OCR识别结果，预测患者的年龄和性别，学习机器学习的常见算法框架，重点分析神经网路，理解和掌握常用算法框架工具的使用。</p>
-<h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><strong>人工神经网络</strong>（Artificial Neural Networks，简写为ANNs）也简称为神经网络（NNs）或称作连接模型（Connection Model），它是一种模仿动物神经网络行为特征，进行分布式并行信息处理的算法数学模型。这种网络依靠系统的复杂程度，通过调整内部大量节点之间相互连接的关系，从而达到处理信息的目的。<br><strong>人工神经网络</strong>：是一种应用类似于大脑神经突触联接的结构进行信息处理的数学模型。在工程与学术界也常直接简称为“神经网络”或类神经网络。<br>这是百度百科上对<a href="http://baike.baidu.com/link?url=r_O_Nntz8sbG4-PyjU-res4SzpwUBvUzHcPFU-eIkTY-rbxw3ptj_ZW7XYUb1ytB9C1_Co30gxVjRQuGXPIAj97IJ6iu4mbJ0FqmipZ6E2qpO-9VBLyJrOp-_cJedL__" target="_blank" rel="external">神经网络</a>的定义。机器学习是个很神奇的东西，而神经网络就是其中的典型代表。在我看来，一个人对事物的认知不可能将每个事物都高清无码地存储在记忆中。类似于图像JPEG压缩存储中，只存储人类敏感部分的色素一样，人们对一个事物的认识是通过学习它的特征，通过事物之间的特征联系，来识别不同的事物。<br>在机器学习中，我们会定义很多权值参数，我们用计算机学习的过程，就是确定每个权值参数的值，以更好地让计算机能通过这些权值来判断出不同的事物，进而进行不能的选择操作。<br><img src="/img/pic1.jpg" alt="卷积神经网络"><br>如图所示，作为一个工程实践人员，我们要做的就是定义好最适合的神经网络以供机器学习的训练测试，并提供给定格式的数据输入，接收数据输出。<br>在这篇文章里，我会介绍机器学习框架caffe、tensorflow、keras和sklearn的大致用法。然后再介绍课程所做的对血常规检验报告的OCR识别、深度学习与分析。</p>
+<h2 id="神经网络介绍"><a href="#神经网络介绍" class="headerlink" title="神经网络介绍"></a>神经网络介绍</h2><p><strong>人工神经网络</strong>（Artificial Neural Networks，简写为ANNs）也简称为神经网络（NNs）或称作连接模型（Connection Model），它是一种模仿动物神经网络行为特征，进行分布式并行信息处理的算法数学模型。这种网络依靠系统的复杂程度，通过调整内部大量节点之间相互连接的关系，从而达到处理信息的目的。<br><strong>人工神经网络</strong>：是一种应用类似于大脑神经突触联接的结构进行信息处理的数学模型。在工程与学术界也常直接简称为“神经网络”或类神经网络。<br>这是百度百科上对<a href="http://baike.baidu.com/link?url=r_O_Nntz8sbG4-PyjU-res4SzpwUBvUzHcPFU-eIkTY-rbxw3ptj_ZW7XYUb1ytB9C1_Co30gxVjRQuGXPIAj97IJ6iu4mbJ0FqmipZ6E2qpO-9VBLyJrOp-_cJedL__" target="_blank" rel="external">神经网络</a>的定义。机器学习是个很神奇的东西，而神经网络就是其中的典型代表。在我看来，一个人对事物的认知不可能将每个事物都高清无码地存储在记忆中。类似于图像JPEG压缩存储中，只存储人类敏感部分的色素一样，人们对一个事物的认识是通过学习它的特征，通过事物之间的特征联系，来识别不同的事物。<br>在机器学习中，我们会定义很多权值参数，我们用计算机学习的过程，就是确定每个权值参数的值，以更好地让计算机能通过这些权值来判断出不同的事物，进而进行不能的选择操作。<br><img src="/img/pic1.jpg" alt="卷积神经网络"><br>如图所示，作为一个工程实践人员，我们要做的就是定义好最适合的神经网络以供机器学习的训练测试，并提供给定格式的数据输入，接收数据输出。<br>在这篇文章里，我会介绍简单介绍时下流行的机器学习框架caffe、tensorflow、keras。然后再介绍课程所做的对血常规检验报告的OCR识别、深度学习与分析。</p>
 <h2 id="我的工作（项目贡献）"><a href="#我的工作（项目贡献）" class="headerlink" title="我的工作（项目贡献）"></a>我的工作（项目贡献）</h2><p>本来应该是项目贡献的模块。虽然既没有pull request，也没有分享过PPT。但我自己还是自学了很多内容，因此改为我的工作模块。<br>除了学习课程中的OCR图像识别相关内容，我也很认真地学习了caffe,tensorflow,keras等时下比较热门的机器学习框架，并做了一些相关的项目。我对这门课程付出的努力主要就体现在这些项目上了。内容比较多，我将所要介绍的框架写在了不同的博文上，以下提供链接。  </p>
 <blockquote>
 <p><a href="https://bearvic.github.io/2017/01/02/install-caffe/" target="_blank" rel="external">caffe安装</a><br><a href="https://bearvic.github.io/2017/01/02/caffe%E5%AE%9E%E7%8E%B0%E6%80%A7%E5%88%AB%E9%A2%84%E6%B5%8B/" target="_blank" rel="external">caffe性别预测</a><br><a href="https://bearvic.github.io/2017/01/02/caffe%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E5%AE%9E%E7%8E%B0%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/" target="_blank" rel="external">caffe自定义网络模型图像识别</a><br><a href="https://bearvic.github.io/2017/01/02/tensorflow%E5%AE%9E%E7%8E%B0%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/" target="_blank" rel="external">tensorflow实现简单手写识别</a><br><a href="https://bearvic.github.io/2017/01/03/keras%E5%AE%9E%E7%8E%B0%E6%80%A7%E5%88%AB%E9%A2%84%E6%B5%8B/" target="_blank" rel="external">keras实现性别预测</a>  </p>
@@ -151,120 +391,349 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/02/网络程序设计总结/" data-id="cixhqshwh0007gqfystpy2f1z" class="article-share-link">Partager</a>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/02/install-caffe/" rel="next" title="install caffe">
+                <i class="fa fa-chevron-left"></i> install caffe
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/02/caffe实现性别预测/" rel="prev" title="caffe实现性别预测">
+                caffe实现性别预测 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
       
       
     </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
-  
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-<nav id="article-nav">
-  
-    <a href="/2017/01/02/caffe实现性别预测/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
+      <div class="ds-thread" data-thread-key="2017/01/02/网络程序设计总结/"
+           data-title="网络程序设计总结" data-url="http://yoursite.com/2017/01/02/网络程序设计总结/">
+      </div>
+    
+  </div>
+
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="<%- page.path %>" data-title="<%- page.title %>" data-url="<%- page.permalink %>"></div> <!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"bearvic"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+        </div>
         
-          caffe实现性别预测
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="BearVic" />
+          <p class="site-author-name" itemprop="name">BearVic</p>
+          <p class="site-description motion-element" itemprop="description">--to make the world's beauty.</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程目标"><span class="nav-number">2.</span> <span class="nav-text">课程目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络介绍"><span class="nav-number">3.</span> <span class="nav-text">神经网络介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的工作（项目贡献）"><span class="nav-number">4.</span> <span class="nav-text">我的工作（项目贡献）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目地址"><span class="nav-number">5.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对血常规检验报告的OCR识别、深度学习与分析"><span class="nav-number">6.</span> <span class="nav-text">对血常规检验报告的OCR识别、深度学习与分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行环境"><span class="nav-number">6.1.</span> <span class="nav-text">运行环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行"><span class="nav-number">6.1.1.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件介绍"><span class="nav-number">6.2.</span> <span class="nav-text">文件介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view-py"><span class="nav-number">6.2.1.</span> <span class="nav-text">view.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#imageFilter-py"><span class="nav-number">6.2.2.</span> <span class="nav-text">imageFilter.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ocr函数-模块主函数返回识别数据"><span class="nav-number">6.2.3.</span> <span class="nav-text">ocr函数 - 模块主函数返回识别数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#perspect函数做-初步的矫正图片"><span class="nav-number">6.2.4.</span> <span class="nav-text">perspect函数做 - 初步的矫正图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter函数-过滤掉不合格的或非报告图片"><span class="nav-number">6.2.5.</span> <span class="nav-text">filter函数 - 过滤掉不合格的或非报告图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autocut函数-将图片中性别、年龄、日期和各项目名称数据分别剪切出来"><span class="nav-number">6.2.6.</span> <span class="nav-text">autocut函数 - 将图片中性别、年龄、日期和各项目名称数据分别剪切出来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#classifier-py"><span class="nav-number">6.2.7.</span> <span class="nav-text">classifier.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#imgproc-py"><span class="nav-number">6.2.8.</span> <span class="nav-text">imgproc.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#digits"><span class="nav-number">6.2.9.</span> <span class="nav-text">digits</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要知识介绍"><span class="nav-number">6.3.</span> <span class="nav-text">主要知识介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图像处理-透视变换"><span class="nav-number">6.3.1.</span> <span class="nav-text">图像处理 - 透视变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ocr图像识别"><span class="nav-number">6.3.2.</span> <span class="nav-text">ocr图像识别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用机器学习框架进行性别预测"><span class="nav-number">6.3.3.</span> <span class="nav-text">使用机器学习框架进行性别预测</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成果展示"><span class="nav-number">6.4.</span> <span class="nav-text">成果展示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人心得"><span class="nav-number">7.</span> <span class="nav-text">个人心得</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2017/01/02/install-caffe/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">install caffe</div>
-    </a>
-  
-</nav>
+    </main>
 
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
-    </div>
-  </div>
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BearVic</span>
+</div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/01/03/keras实现性别预测/">keras实现性别预测</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/02/tensorflow实现手写识别/">tensorflow实现手写识别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/02/caffe自定义网络模型实现图像识别/">caffe自定义网络模型实现图像识别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/02/caffe实现性别预测/">caffe实现性别预测</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/02/网络程序设计总结/">网络程序设计总结</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
 
-  
-</aside>
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 BearVic<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+
+
+
+
   
-</nav>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
     
+  
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"BearVic"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
 
-  </div>
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
 </body>
 </html>

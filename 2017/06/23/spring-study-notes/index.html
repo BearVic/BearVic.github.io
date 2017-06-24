@@ -1,0 +1,751 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="spring," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="spring+spring mvc+hibernate实现简单登录注册网站spring的一些概念依赖注入依赖注入(Dependency Injection, DI)也被称为控制反转(Inversion of Control, IoC)。
+简单介绍如果调用者采用new方法创建被调用者以实现两个或多个对象的组合，简单说就是一个类的一段方法代码里若需要new很多个对象，就会导致代码耦合度高难调试。为此，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring study notes">
+<meta property="og:url" content="http://yoursite.com/2017/06/23/spring-study-notes/index.html">
+<meta property="og:site_name" content="Hello World!">
+<meta property="og:description" content="spring+spring mvc+hibernate实现简单登录注册网站spring的一些概念依赖注入依赖注入(Dependency Injection, DI)也被称为控制反转(Inversion of Control, IoC)。
+简单介绍如果调用者采用new方法创建被调用者以实现两个或多个对象的组合，简单说就是一个类的一段方法代码里若需要new很多个对象，就会导致代码耦合度高难调试。为此，">
+<meta property="og:image" content="http://yoursite.com/Users/victor/Desktop/wenjianjiegou.png">
+<meta property="og:updated_time" content="2017-06-24T14:23:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring study notes">
+<meta name="twitter:description" content="spring+spring mvc+hibernate实现简单登录注册网站spring的一些概念依赖注入依赖注入(Dependency Injection, DI)也被称为控制反转(Inversion of Control, IoC)。
+简单介绍如果调用者采用new方法创建被调用者以实现两个或多个对象的组合，简单说就是一个类的一段方法代码里若需要new很多个对象，就会导致代码耦合度高难调试。为此，">
+<meta name="twitter:image" content="http://yoursite.com/Users/victor/Desktop/wenjianjiegou.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '1234',
+      author: '拯救世界大英雄'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/23/spring-study-notes/"/>
+
+
+
+
+
+  <title> spring study notes | Hello World! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello World!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/23/spring-study-notes/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="BearVic">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hello World!">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hello World!" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                spring study notes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-23T14:16:22+08:00">
+                2017-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/23/spring-study-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/23/spring-study-notes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="spring-spring-mvc-hibernate实现简单登录注册网站"><a href="#spring-spring-mvc-hibernate实现简单登录注册网站" class="headerlink" title="spring+spring mvc+hibernate实现简单登录注册网站"></a>spring+spring mvc+hibernate实现简单登录注册网站</h1><h2 id="spring的一些概念"><a href="#spring的一些概念" class="headerlink" title="spring的一些概念"></a>spring的一些概念</h2><h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><p>依赖注入(Dependency Injection, DI)也被称为控制反转(Inversion of Control, IoC)。</p>
+<h4 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h4><p>如果调用者采用new方法创建被调用者以实现两个或多个对象的组合，简单说就是一个类的一段方法代码里若需要new很多个对象，就会导致代码耦合度高难调试。为此，引入了依赖注入的概念（传统方法有使用工厂模式，还是麻烦）,<br>即一个类不需要查找或实例化（new）它们所依赖的类，对象间的依赖关系是在对象创建时由负责协调项目中各个对象的外部容器（spring）来提供并管理。也就是强调了对象间的某种依赖关系是由容器在运行期间注入调用者的，控制程序间关系的实现交给外部的容器来完成。<br>就我的理解，说白了，就是把类对象转化成全局变量放在一个仓库中由spring进行统一的管理。</p>
+<h4 id="最直观的表现"><a href="#最直观的表现" class="headerlink" title="最直观的表现"></a>最直观的表现</h4><p>定义处:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@Repository</div><div class="line">public interface UserRepository extends JpaRepository&lt;UserEntity,Integer&gt; &#123;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>使用处:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    @Autowired</div><div class="line">    UserRepository userRepository;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>通过annotation的方式，<strong><em>@Repository</em></strong> 把其下定义的接口丢入仓库，再由 <strong><em>@Autowired</em></strong> 自动装配到需要使用到的代码部分。</p>
+<h3 id="spring-ApplicationContext容器"><a href="#spring-ApplicationContext容器" class="headerlink" title="spring ApplicationContext容器"></a>spring ApplicationContext容器</h3><p><a href="http://wiki.jikexueyuan.com/project/spring/ioc-container/spring-application-context-container.html" target="_blank" rel="external">Spring ApplicationContext 容器(极客学院)</a></p>
+<h3 id="spring-aop"><a href="#spring-aop" class="headerlink" title="spring aop"></a>spring aop</h3><p>AOP（Aspect Oriented Programming），即面向切面编程，可以说是OOP（Object Oriented Programming，面向对象编程）的补充和完善。</p>
+<p>简单的说，就是定义一些方法As并规定一些条件，另外的某些类某些方法Bs若满足这些条件，此前定义的那些方法As就会自动执行。</p>
+<h2 id="简单登录注册网站的实现"><a href="#简单登录注册网站的实现" class="headerlink" title="简单登录注册网站的实现"></a>简单登录注册网站的实现</h2><p><a href="https://my.oschina.net/gaussik/blog/385697" target="_blank" rel="external">参考的这个网站</a></p>
+<h3 id="相关环境"><a href="#相关环境" class="headerlink" title="相关环境"></a>相关环境</h3><ul>
+<li>intellij idea 2016</li>
+<li>spring + spring mvc + hibernate</li>
+<li>JDK 1.8</li>
+<li>mysql</li>
+<li>maven</li>
+<li>tomcat</li>
+</ul>
+<h3 id="spring环境配置"><a href="#spring环境配置" class="headerlink" title="spring环境配置"></a>spring环境配置</h3><h4 id="通过maven导入依赖的包"><a href="#通过maven导入依赖的包" class="headerlink" title="通过maven导入依赖的包"></a>通过maven导入依赖的包</h4><p>创建maven web项目后，编辑<strong><em>pom.xml</em></strong>文件，导入spring项目所需依赖的包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;</div><div class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</div><div class="line">  &lt;groupId&gt;com.vic&lt;/groupId&gt;</div><div class="line">  &lt;artifactId&gt;springlogin&lt;/artifactId&gt;</div><div class="line">  &lt;packaging&gt;war&lt;/packaging&gt;</div><div class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</div><div class="line">  &lt;name&gt;springlogin Maven Webapp&lt;/name&gt;</div><div class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</div><div class="line"></div><div class="line">  &lt;properties&gt;</div><div class="line">    &lt;spring.version&gt;4.2.6.RELEASE&lt;/spring.version&gt;</div><div class="line">    &lt;hibernate.version&gt;5.1.0.Final&lt;/hibernate.version&gt;</div><div class="line">  &lt;/properties&gt;</div><div class="line"></div><div class="line">  &lt;dependencies&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework.data&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-data-jpa&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;1.10.1.RELEASE&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">  &lt;/dependencies&gt;</div><div class="line">  &lt;build&gt;</div><div class="line">    &lt;finalName&gt;springlogin&lt;/finalName&gt;</div><div class="line">    &lt;plugins&gt;</div><div class="line">      &lt;plugin&gt;</div><div class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</div><div class="line">        &lt;configuration&gt;</div><div class="line">          &lt;source&gt;1.8&lt;/source&gt;</div><div class="line">          &lt;target&gt;1.8&lt;/target&gt;</div><div class="line">        &lt;/configuration&gt;</div><div class="line">      &lt;/plugin&gt;</div><div class="line">    &lt;/plugins&gt;</div><div class="line">  &lt;/build&gt;</div><div class="line">&lt;/project&gt;</div></pre></td></tr></table></figure>
+<p>以上主要是通过解析 <strong><dependencies></dependencies></strong> 标签导入依赖包。</p>
+<h4 id="在web-xml中注册servlet"><a href="#在web-xml中注册servlet" class="headerlink" title="在web.xml中注册servlet"></a>在web.xml中注册servlet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;servlet&gt;</div><div class="line">        &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</div><div class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">    &lt;/servlet&gt;</div><div class="line"></div><div class="line">    &lt;servlet-mapping&gt;</div><div class="line">        &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;url-pattern&gt;/&lt;/url-pattern&gt;</div><div class="line">    &lt;/servlet-mapping&gt;</div></pre></td></tr></table></figure>
+<h4 id="在WEB-INF文件夹下新建mvc-dispatcher-servlet-xml配置文件"><a href="#在WEB-INF文件夹下新建mvc-dispatcher-servlet-xml配置文件" class="headerlink" title="在WEB-INF文件夹下新建mvc-dispatcher-servlet.xml配置文件"></a>在WEB-INF文件夹下新建mvc-dispatcher-servlet.xml配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!--指明 controller 所在包，并扫描其中的注解--&gt;</div><div class="line">    &lt;context:component-scan base-package=&quot;com.vic.controller&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;!-- 静态资源(js、image等)的访问 --&gt;</div><div class="line">    &lt;mvc:default-servlet-handler/&gt;</div><div class="line"></div><div class="line">    &lt;!-- 开启注解 --&gt;</div><div class="line">    &lt;mvc:annotation-driven/&gt;</div><div class="line"></div><div class="line">    &lt;!--ViewResolver 视图解析器--&gt;</div><div class="line">    &lt;!--用于支持Servlet、JSP视图解析--&gt;</div><div class="line">    &lt;bean id=&quot;jspViewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;</div><div class="line">        &lt;property name=&quot;viewClass&quot; value=&quot;org.springframework.web.servlet.view.JstlView&quot;/&gt;</div><div class="line">        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/pages/&quot;/&gt;</div><div class="line">        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!--数据库配置--&gt;</div><div class="line">    &lt;bean id=&quot;entityManagerFactory&quot; class=&quot;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&quot;&gt;</div><div class="line">        &lt;property name=&quot;persistenceUnitName&quot; value=&quot;defaultPersistenceUnit&quot;/&gt;</div><div class="line">        &lt;property name=&quot;packagesToScan&quot; value=&quot;com.vic.model&quot; /&gt;</div><div class="line">        &lt;property name=&quot;jpaVendorAdapter&quot;&gt;</div><div class="line">            &lt;bean class=&quot;org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter&quot;/&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;property name=&quot;jpaProperties&quot;&gt;</div><div class="line">            &lt;props&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql://localhost:3306/(database name)?useSSL=false&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.connection.username&quot;&gt;(username)&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.connection.password&quot;&gt;(password)&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.show_sql&quot;&gt;false&lt;/prop&gt;</div><div class="line">                ...</div><div class="line">                ...</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!-- 表示JPA Repository所在的包 --&gt;</div><div class="line">    &lt;jpa:repositories base-package=&quot;com.vic.repository&quot;/&gt;</div><div class="line"></div><div class="line"></div><div class="line">    &lt;!-- 事务管理 --&gt;</div><div class="line">    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.jpa.JpaTransactionManager&quot;&gt;</div><div class="line">        &lt;property name=&quot;entityManagerFactory&quot; ref=&quot;entityManagerFactory&quot;/&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!-- 开启事务管理注解 --&gt;</div><div class="line">    &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;</div></pre></td></tr></table></figure>
+<h4 id="我的文件结构"><a href="#我的文件结构" class="headerlink" title="我的文件结构"></a>我的文件结构</h4><p><img src="/Users/victor/Desktop/wenjianjiegou.png" alt="我的文件结构"></p>
+<h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><ul>
+<li>首先在mysql里创建所需的表，然后在项目中<br><strong><em>Add Frameword Support–&gt;J2EE Persistence</em></strong>    </li>
+<li>项目左侧会出现<strong><em>Persistence</em></strong>，右键<br><strong><em>Generate Persistence Mapping–&gt;By Database Schema</em></strong>    </li>
+<li>再进行相关设置，最后idea就会根据数据库中的表自动生成model中对应的entity类。</li>
+</ul>
+<h3 id="repository"><a href="#repository" class="headerlink" title="repository"></a>repository</h3><p>在repository包中新建UserRepository接口，放进仓库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@Repository</div><div class="line">public interface UserRepository extends JpaRepository&lt;UserEntity,Integer&gt; &#123;</div><div class="line"></div><div class="line"></div><div class="line">    @Query(value = &quot;select * from user u where u.username=?1&quot;,nativeQuery = true)</div><div class="line">    UserEntity findByUsername(String username);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>JpaRepository</em></strong>本身就提供一些基本的数据库操作方法，例如</p>
+<ul>
+<li>findAll()</li>
+<li>saveAndFlush(entity)</li>
+<li>…</li>
+</ul>
+<p>我们还可以在接口内自定义数据库操作方法，如上所示。</p>
+<p><code>@Query(value = &quot;select * from user u where u.username=?1&quot;,nativeQuery = true)</code><br>其中<strong><em>@Query</em></strong>支持原生的mysql语句操作。</p>
+<h3 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h3><p>在controller包中新建LoginController</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">@Controller</div><div class="line">public class LoginController &#123;</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    UserRepository userRepository;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/&quot;, method = RequestMethod.GET)</div><div class="line">    public String index() &#123;</div><div class="line">        return &quot;index&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/login&quot;,method = RequestMethod.GET)</div><div class="line">    public String login()&#123;</div><div class="line">        return &quot;/login&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/loginG&quot;, method = RequestMethod.GET)</div><div class="line">    public String loginG(@RequestParam(&quot;username&quot;) String username,</div><div class="line">                        @RequestParam(&quot;password&quot;) String password) &#123;</div><div class="line">        UserEntity user = userRepository.findByUsername(username);</div><div class="line">        if (user == null)</div><div class="line">            return &quot;/loginfail&quot;;</div><div class="line">        else if (!user.getPassword().equals(password))</div><div class="line">            return &quot;/loginfail&quot;;</div><div class="line">        else</div><div class="line">            return &quot;/loginsuccess&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/signup&quot;, method = RequestMethod.GET)</div><div class="line">    public String signUp() &#123;</div><div class="line">        return &quot;/addUser&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/signupP&quot;, method = RequestMethod.POST)</div><div class="line">    public String signUPP(@ModelAttribute(&quot;user&quot;) UserEntity userEntity) &#123;</div><div class="line">        userRepository.saveAndFlush(userEntity);</div><div class="line">        return &quot;/loginsuccess&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>首先需要<strong><em>@Controller</em></strong>注明控制器</li>
+<li>接着通过<strong><em>@Autowired</em></strong>从仓库中取到<strong><em>userRepository</em></strong>对象</li>
+<li>然后通过<strong><em>@RequestMapping</em></strong>将http请求映射到对应函数方法</li>
+<li>最后return到相应的.jsp网页</li>
+</ul>
+<p>（note. 数据库相关操作由<strong><em>userRepository</em></strong>完成）</p>
+<h4 id="login-jsp"><a href="#login-jsp" class="headerlink" title="login.jsp"></a>login.jsp</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;title&gt;Login Page&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;form action=&quot;/loginG&quot; method=&quot;get&quot;&gt;</div><div class="line">    &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; placeholder=&quot;username&quot;&gt;</div><div class="line">    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;password&quot;&gt;</div><div class="line">    &lt;button type=&quot;submit&quot;&gt;login&lt;/button&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;a href=&quot;/signup&quot; type=&quot;button&quot;&gt;sign up&lt;/a&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="前端向后端传值的方法"><a href="#前端向后端传值的方法" class="headerlink" title="前端向后端传值的方法"></a>前端向后端传值的方法</h3><h4 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h4><p>举个栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value = &quot;/.../&#123;id&#125;&quot;, method = RequestMethod.GET)</div><div class="line">    public String Func(@PathVariable int id) &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h4><p>对应括号中的属性名获取值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value = &quot;/loginG&quot;, method = RequestMethod.GET)</div><div class="line">    public String loginG(@RequestParam(&quot;username&quot;) String username,</div><div class="line">                        @RequestParam(&quot;password&quot;) String password) &#123;</div><div class="line">        UserEntity user = userRepository.findByUsername(username);</div><div class="line">        if (user == null)</div><div class="line">            return &quot;/loginfail&quot;;</div><div class="line">        else if (!user.getPassword().equals(password))</div><div class="line">            return &quot;/loginfail&quot;;</div><div class="line">        else</div><div class="line">            return &quot;/loginsuccess&quot;;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="ModelAttribute"><a href="#ModelAttribute" class="headerlink" title="@ModelAttribute"></a>@ModelAttribute</h4><p>直接通过form传递一个entity值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value = &quot;/signupP&quot;, method = RequestMethod.POST)</div><div class="line">    public String signUPP(@ModelAttribute(&quot;user&quot;) UserEntity userEntity) &#123;</div><div class="line">        userRepository.saveAndFlush(userEntity);</div><div class="line">        return &quot;/loginsuccess&quot;;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>界面简陋这里就不献丑了。整个spring框架只是学了点皮毛，参照别人的经验教训恰巧能实现最基本的用户登录注册功能而已。不够系统，spring的很多特性没有涉及，实现功能的很多方法也没掌握。若要进一步深入学习的话，还是要下一番苦功夫，踏踏实实地写一个项目来的实在。</p>
+<p><a href="https://github.com/BearVic/Spring_Hibernate_Login" target="_blank" rel="external">我的github项目地址</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring/" rel="tag"># spring</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/18/软件工程（C编码实践篇）学习总结/" rel="next" title="软件工程（C编码实践篇）学习总结">
+                <i class="fa fa-chevron-left"></i> 软件工程（C编码实践篇）学习总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <!--<div class="ds-thread" data-thread-key="2017/06/23/spring-study-notes/" -->
+      <!--data-title="spring study notes" data-url="http://yoursite.com/2017/06/23/spring-study-notes/">-->
+       <!--</div> -->
+
+      <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="<%- page.path %>" 
+  data-title="<%- page.title %>" data-url="<%- page.permalink %>"></div> <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"bearvic"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+    
+  </div>
+
+  
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="BearVic" />
+          <p class="site-author-name" itemprop="name">BearVic</p>
+          <p class="site-description motion-element" itemprop="description">--to make the world's beauty.</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-spring-mvc-hibernate实现简单登录注册网站"><span class="nav-number">1.</span> <span class="nav-text">spring+spring mvc+hibernate实现简单登录注册网站</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring的一些概念"><span class="nav-number">1.1.</span> <span class="nav-text">spring的一些概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖注入"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单介绍"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">简单介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最直观的表现"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">最直观的表现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring-ApplicationContext容器"><span class="nav-number">1.1.2.</span> <span class="nav-text">spring ApplicationContext容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring-aop"><span class="nav-number">1.1.3.</span> <span class="nav-text">spring aop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单登录注册网站的实现"><span class="nav-number">1.2.</span> <span class="nav-text">简单登录注册网站的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">相关环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring环境配置"><span class="nav-number">1.2.2.</span> <span class="nav-text">spring环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过maven导入依赖的包"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">通过maven导入依赖的包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在web-xml中注册servlet"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">在web.xml中注册servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在WEB-INF文件夹下新建mvc-dispatcher-servlet-xml配置文件"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">在WEB-INF文件夹下新建mvc-dispatcher-servlet.xml配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的文件结构"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">我的文件结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model"><span class="nav-number">1.2.3.</span> <span class="nav-text">model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repository"><span class="nav-number">1.2.4.</span> <span class="nav-text">repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#controller"><span class="nav-number">1.2.5.</span> <span class="nav-text">controller</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#login-jsp"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">login.jsp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端向后端传值的方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">前端向后端传值的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PathVariable"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">@PathVariable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RequestParam"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">@RequestParam</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ModelAttribute"><span class="nav-number">1.2.6.3.</span> <span class="nav-text">@ModelAttribute</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BearVic</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"BearVic"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

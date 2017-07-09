@@ -94,7 +94,7 @@ hexo 基本语法12345678hexo help #查看帮助hexo init #初始化一个目录
 <meta property="og:description" content="hexo 安装指南20分钟教你使用hexo搭建github博客
 hexo官网
 hexo 基本语法12345678hexo help #查看帮助hexo init #初始化一个目录hexo new &amp;quot;postName&amp;quot; #新建文章hexo new page &amp;quot;pageName&amp;quot; #新建页面hexo generate #生成网页，可以在 public 目录查看整">
-<meta property="og:updated_time" content="2017-07-07T16:19:19.000Z">
+<meta property="og:updated_time" content="2017-07-09T03:33:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo Guidebook">
 <meta name="twitter:description" content="hexo 安装指南20分钟教你使用hexo搭建github博客
@@ -410,6 +410,21 @@ hexo 基本语法12345678hexo help #查看帮助hexo init #初始化一个目录
 <li>第二行为对齐方式：|:—–|左对齐，|:—–:|居中，|—–:|右对齐</li>
 <li>每列的宽度是根据对应列里最长的文本来决定</li>
 </ul>
+<h2 id="hexo-显示标签页tags"><a href="#hexo-显示标签页tags" class="headerlink" title="hexo 显示标签页tags"></a>hexo 显示标签页tags</h2><ul>
+<li>这是你要发布的新文章，注意tags就是该文章的标签</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 一个人的狂欢</div><div class="line">date: 2016-11-11 13:09:04</div><div class="line">tags: [journal,think]</div><div class="line">---</div></pre></td></tr></table></figure>
+<ul>
+<li>在命令行中输入 <code>$ hexo new page tags</code></li>
+<li>这时会在在sources/tags里面有个index.md的文件，打开这个文件编辑</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: tags</div><div class="line">date: 2016-11-11 21:40:58</div><div class="line">type: &quot;tags&quot;</div><div class="line">---</div></pre></td></tr></table></figure>
+<p>type: 改成tags</p>
+<ul>
+<li>在主题配置文件中，在menu项下，要把tags页打开，如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  home: /</div><div class="line">  categories: /categories</div><div class="line">  #about: /about</div><div class="line">  archives: /archives</div><div class="line">  tags: /tags    //确保标签页已打开</div><div class="line">  #schedule: /schedule     </div><div class="line">  #commonweal: /404.html</div></pre></td></tr></table></figure>
+<p>参考自知乎<br><a href="https://www.zhihu.com/question/29017171/answer/130891344" target="_blank" rel="external">hexo 下的分类和表签无法显示，怎么解决？</a></p>
 
       
     </div>
@@ -544,7 +559,7 @@ var duoshuoQuery = {short_name:"bearvic"};
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -555,7 +570,7 @@ var duoshuoQuery = {short_name:"bearvic"};
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -590,7 +605,7 @@ var duoshuoQuery = {short_name:"bearvic"};
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-安装指南"><span class="nav-number">1.</span> <span class="nav-text">hexo 安装指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-基本语法"><span class="nav-number">2.</span> <span class="nav-text">hexo 基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo显示表格"><span class="nav-number">3.</span> <span class="nav-text">hexo显示表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">3.1.</span> <span class="nav-text">说明</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-安装指南"><span class="nav-number">1.</span> <span class="nav-text">hexo 安装指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-基本语法"><span class="nav-number">2.</span> <span class="nav-text">hexo 基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo显示表格"><span class="nav-number">3.</span> <span class="nav-text">hexo显示表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">3.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-显示标签页tags"><span class="nav-number">4.</span> <span class="nav-text">hexo 显示标签页tags</span></a></li></ol></div>
             
 
           </div>

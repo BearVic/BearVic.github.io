@@ -98,7 +98,7 @@ HelloWorld入门示例废话不多说，先来个Hello World。
 Vue.js——60分钟快速入门官方中文教程
 HelloWorld入门示例废话不多说，先来个Hello World。
 1234567891011121314151617181920&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html">
-<meta property="og:updated_time" content="2017-07-30T02:50:45.000Z">
+<meta property="og:updated_time" content="2017-07-30T02:52:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue.js Study Notes">
 <meta name="twitter:description" content="概述本篇为vue.js的简单入门。vue.js是时下热门的javascript MVVM(Model-View-ViewModel)库，简单好用。
@@ -487,61 +487,7 @@ HelloWorld入门示例废话不多说，先来个Hello World。
 <h2 id="Watchers"><a href="#Watchers" class="headerlink" title="Watchers"></a>Watchers</h2><p>虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的 watcher 。这是为什么 Vue 提供一个更通用的方法通过 watch 选项，来响应数据的变化。当你想要在数据变化响应时，执行异步操作或开销较大的操作，这是很有用的。</p>
 <p>使用 watch 选项允许我们执行异步操作（访问一个 API），限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这是计算属性无法做到的。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://cn.vuejs.org/v2/guide/computed.html#Computed-属性-vs-Watched-属性" target="_blank" rel="external">以上分析参考自官方对计算属性的介绍</a></p>
-<h2 id="代码效果"><a href="#代码效果" class="headerlink" title="代码效果"></a>代码效果</h2><p><div class="page-bar"><br>    <ul><br>        <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li><br>        <li v-if="cur==1"><a class="banclick">上一页</a></li><br>        <li v-for="index in indexs" v-bind:class="{ 'active': cur == index}"><br>            <a v-on:click="btnClick(index)"></a><br>        </li><br>        <li v-if="cur!=all"><a v-on:click="cur++,pageClick()">下一页</a></li><br>        <li v-if="cur == all"><a class="banclick">下一页</a></li><br>        <li><a>共<i></i>页</a></li><br>    </ul><br></div></p>
-<script type="text/javascript">
-    var pageBar = new Vue({
-        el: '.page-bar',
-        data: {
-            all: 8, //总页数
-            cur: 1//当前页码
-        },
-//        watch: {
-//            cur: function(oldValue , newValue){
-//                console.log(arguments);
-//            }
-//        },
-        methods: {
-            btnClick: function(data){//页码点击事件
-                if(data != this.cur){
-                    this.cur = data
-                }
-            },
-//            pageClick: function(){
-//                console.log('现在在'+this.cur+'页');
-//            }
-        },
-
-        computed: {
-            indexs: function(){
-                var left = 1;
-                var right = this.all;
-                var ar = [];
-                if(this.all>= 5){
-                    if(this.cur > 3 && this.cur < this.all-2){
-                        left = this.cur - 2
-                        right = this.cur + 2
-                    }else{
-                        if(this.cur<=3){
-                            left = 1
-                            right = 5
-                        }else{
-                            right = this.all
-                            left = this.all -4
-                        }
-                    }
-                }
-                while (left <= right){
-                    ar.push(left)
-                    left ++
-                }
-                return ar
-            }
-
-        }
-    })
-</script>
-
-
+<h2 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h2><p>thank you!~</p>
 
       
     </div>
@@ -707,7 +653,7 @@ HelloWorld入门示例废话不多说，先来个Hello World。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HelloWorld入门示例"><span class="nav-number">2.</span> <span class="nav-text">HelloWorld入门示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码说明"><span class="nav-number">2.1.</span> <span class="nav-text">代码说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-js常用指令"><span class="nav-number">3.</span> <span class="nav-text">Vue.js常用指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格创建的例子"><span class="nav-number">4.</span> <span class="nav-text">表格创建的例子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分页的例子"><span class="nav-number">5.</span> <span class="nav-text">分页的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#computed"><span class="nav-number">5.1.</span> <span class="nav-text">computed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computed-vs-Methods"><span class="nav-number">5.2.</span> <span class="nav-text">Computed vs Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computed-vs-Watched"><span class="nav-number">5.3.</span> <span class="nav-text">Computed vs Watched</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Watchers"><span class="nav-number">5.4.</span> <span class="nav-text">Watchers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">5.5.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码效果"><span class="nav-number">5.6.</span> <span class="nav-text">代码效果</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HelloWorld入门示例"><span class="nav-number">2.</span> <span class="nav-text">HelloWorld入门示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码说明"><span class="nav-number">2.1.</span> <span class="nav-text">代码说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-js常用指令"><span class="nav-number">3.</span> <span class="nav-text">Vue.js常用指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格创建的例子"><span class="nav-number">4.</span> <span class="nav-text">表格创建的例子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分页的例子"><span class="nav-number">5.</span> <span class="nav-text">分页的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#computed"><span class="nav-number">5.1.</span> <span class="nav-text">computed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computed-vs-Methods"><span class="nav-number">5.2.</span> <span class="nav-text">Computed vs Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computed-vs-Watched"><span class="nav-number">5.3.</span> <span class="nav-text">Computed vs Watched</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Watchers"><span class="nav-number">5.4.</span> <span class="nav-text">Watchers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">5.5.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-END"><span class="nav-number">5.6.</span> <span class="nav-text">THE END</span></a></li></ol></li></ol></div>
             
 
           </div>

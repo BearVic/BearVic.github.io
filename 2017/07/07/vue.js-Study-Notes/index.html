@@ -98,7 +98,7 @@ HelloWorld入门示例废话不多说，先来个Hello World。
 Vue.js——60分钟快速入门官方中文教程
 HelloWorld入门示例废话不多说，先来个Hello World。
 1234567891011121314151617181920&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html">
-<meta property="og:updated_time" content="2017-07-30T02:48:01.000Z">
+<meta property="og:updated_time" content="2017-07-30T02:50:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue.js Study Notes">
 <meta name="twitter:description" content="概述本篇为vue.js的简单入门。vue.js是时下热门的javascript MVVM(Model-View-ViewModel)库，简单好用。
@@ -487,63 +487,7 @@ HelloWorld入门示例废话不多说，先来个Hello World。
 <h2 id="Watchers"><a href="#Watchers" class="headerlink" title="Watchers"></a>Watchers</h2><p>虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的 watcher 。这是为什么 Vue 提供一个更通用的方法通过 watch 选项，来响应数据的变化。当你想要在数据变化响应时，执行异步操作或开销较大的操作，这是很有用的。</p>
 <p>使用 watch 选项允许我们执行异步操作（访问一个 API），限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这是计算属性无法做到的。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://cn.vuejs.org/v2/guide/computed.html#Computed-属性-vs-Watched-属性" target="_blank" rel="external">以上分析参考自官方对计算属性的介绍</a></p>
-<h2 id="代码效果"><a href="#代码效果" class="headerlink" title="代码效果"></a>代码效果</h2><script type="text/javascript" src="https://unpkg.com/vue"></script>
-<style>
-    .page-bar{
-        margin:40px;
-    }
-    ul,li{
-        margin: 0px;
-        padding: 0px;
-    }
-    li{
-        list-style: none
-    }
-    .page-bar li:first-child>a {
-        margin-left: 0px
-    }
-    .page-bar a{
-        border: 1px solid #ddd;
-        text-decoration: none;
-        position: relative;
-        float: left;
-        padding: 6px 12px;
-        margin-left: -1px;
-        line-height: 1.42857143;
-        color: #337ab7;
-        cursor: pointer
-    }
-    .page-bar a:hover{
-        background-color: #eee;
-    }
-    .page-bar a.banclick{
-        cursor:not-allowed;
-    }
-    .page-bar .active a{
-        color: #fff;
-        cursor: default;
-        background-color: #337ab7;
-        border-color: #337ab7;
-    }
-    .page-bar i{
-        font-style:normal;
-        color: #d44950;
-        margin: 0px 4px;
-        font-size: 12px;
-    }
-</style>
-<div class="page-bar">
-    <ul>
-        <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li>
-        <li v-if="cur==1"><a class="banclick">上一页</a></li>
-        <li v-for="index in indexs" v-bind:class="{ 'active': cur == index}">
-            <a v-on:click="btnClick(index)"></a>
-        </li>
-        <li v-if="cur!=all"><a v-on:click="cur++,pageClick()">下一页</a></li>
-        <li v-if="cur == all"><a class="banclick">下一页</a></li>
-        <li><a>共<i></i>页</a></li>
-    </ul>
-</div>
+<h2 id="代码效果"><a href="#代码效果" class="headerlink" title="代码效果"></a>代码效果</h2><p><div class="page-bar"><br>    <ul><br>        <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li><br>        <li v-if="cur==1"><a class="banclick">上一页</a></li><br>        <li v-for="index in indexs" v-bind:class="{ 'active': cur == index}"><br>            <a v-on:click="btnClick(index)"></a><br>        </li><br>        <li v-if="cur!=all"><a v-on:click="cur++,pageClick()">下一页</a></li><br>        <li v-if="cur == all"><a class="banclick">下一页</a></li><br>        <li><a>共<i></i>页</a></li><br>    </ul><br></div></p>
 <script type="text/javascript">
     var pageBar = new Vue({
         el: '.page-bar',

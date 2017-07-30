@@ -98,7 +98,7 @@ HelloWorld入门示例废话不多说，先来个Hello World。
 Vue.js——60分钟快速入门官方中文教程
 HelloWorld入门示例废话不多说，先来个Hello World。
 1234567891011121314151617181920&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html">
-<meta property="og:updated_time" content="2017-07-30T02:44:29.000Z">
+<meta property="og:updated_time" content="2017-07-30T02:48:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue.js Study Notes">
 <meta name="twitter:description" content="概述本篇为vue.js的简单入门。vue.js是时下热门的javascript MVVM(Model-View-ViewModel)库，简单好用。
@@ -391,7 +391,6 @@ HelloWorld入门示例废话不多说，先来个Hello World。
 </table>
 <h1 id="表格创建的例子"><a href="#表格创建的例子" class="headerlink" title="表格创建的例子"></a>表格创建的例子</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;xiaodemo&lt;/title&gt;</div><div class="line"></div><div class="line">    &lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;fieldset&gt;</div><div class="line">        &lt;legend&gt;</div><div class="line">            Create New Person</div><div class="line">        &lt;/legend&gt;</div><div class="line">        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">            &lt;label&gt;Name:&lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; v-model=&quot;newPerson.name&quot;/&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">            &lt;label&gt;Age:&lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; v-model=&quot;newPerson.age&quot;/&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">            &lt;label&gt;Gender:&lt;/label&gt;</div><div class="line">            &lt;select v-model=&quot;newPerson.gender&quot;&gt;</div><div class="line">                &lt;option value=&quot;Male&quot;&gt;Male&lt;/option&gt;</div><div class="line">                &lt;option value=&quot;Female&quot;&gt;Female&lt;/option&gt;</div><div class="line">            &lt;/select&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">            &lt;button v-on:click=&quot;createPerson&quot;&gt;Create&lt;/button&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/fieldset&gt;</div><div class="line">    &lt;table&gt;</div><div class="line">        &lt;thead&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;th&gt;Name&lt;/th&gt;</div><div class="line">            &lt;th&gt;Age&lt;/th&gt;</div><div class="line">            &lt;th&gt;Gender&lt;/th&gt;</div><div class="line">            &lt;th&gt;Delete&lt;/th&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">        &lt;/thead&gt;</div><div class="line">        &lt;tbody&gt;</div><div class="line">        &lt;tr v-for=&quot;person in people&quot;&gt;</div><div class="line">            &lt;td&gt;&#123;&#123;person.name&#125;&#125;&lt;/td&gt;</div><div class="line">            &lt;td&gt;&#123;&#123;person.age&#125;&#125;&lt;/td&gt;</div><div class="line">            &lt;td&gt;&#123;&#123;person.gender&#125;&#125;&lt;/td&gt;</div><div class="line">            &lt;td :class=&quot;&apos;text-center&apos;&quot;&gt;</div><div class="line">                &lt;button @click=&quot;deletePerson($index)&quot;&gt;Delete&lt;/button&gt;</div><div class="line">            &lt;/td&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">        &lt;/tbody&gt;</div><div class="line">    &lt;/table&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var vm = new Vue(&#123;</div><div class="line">        el: &quot;#app&quot;,</div><div class="line">        data: &#123;</div><div class="line">            newPerson: &#123;</div><div class="line">                name: &apos;&apos;,</div><div class="line">                age: 0,</div><div class="line">                gender: &apos;Male&apos;</div><div class="line">            &#125;,</div><div class="line">            people: [&#123;</div><div class="line">                name: &apos;Jack&apos;,</div><div class="line">                age: 30,</div><div class="line">                gender: &apos;Male&apos;</div><div class="line">            &#125;, &#123;</div><div class="line">                name: &apos;Tracy&apos;,</div><div class="line">                age: 22,</div><div class="line">                gender: &apos;Female&apos;</div><div class="line">            &#125;]</div><div class="line">        &#125;,</div><div class="line">        methods: &#123;</div><div class="line">            createPerson: function () &#123;</div><div class="line">                this.people.push(this.newPerson);</div><div class="line">                this.newPerson = &#123;name: &apos;&apos;, age: 0, gender: &apos;Male&apos;&#125;</div><div class="line">            &#125;,</div><div class="line">            deletePerson: function (index) &#123;</div><div class="line">                this.people.splice(index, 1);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <script src="https://unpkg.com/vue"></script>
-<body>
 <div id="app">
     <fieldset>
         <legend>
@@ -438,7 +437,6 @@ HelloWorld入门示例废话不多说，先来个Hello World。
     </table>
 
 </div>
-</body>
 <script>
     var vm = new Vue({
         el: "#app",
@@ -489,7 +487,115 @@ HelloWorld入门示例废话不多说，先来个Hello World。
 <h2 id="Watchers"><a href="#Watchers" class="headerlink" title="Watchers"></a>Watchers</h2><p>虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的 watcher 。这是为什么 Vue 提供一个更通用的方法通过 watch 选项，来响应数据的变化。当你想要在数据变化响应时，执行异步操作或开销较大的操作，这是很有用的。</p>
 <p>使用 watch 选项允许我们执行异步操作（访问一个 API），限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这是计算属性无法做到的。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://cn.vuejs.org/v2/guide/computed.html#Computed-属性-vs-Watched-属性" target="_blank" rel="external">以上分析参考自官方对计算属性的介绍</a></p>
-<h2 id="代码效果"><a href="#代码效果" class="headerlink" title="代码效果"></a>代码效果</h2><html><br><head><br>    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><br>    <meta charset="utf-8"><br>    <title></title><br>    <meta name="keywords" content=""><br>    <meta name="description" content=""><br>    <script type="text/javascript" src="https://unpkg.com/vue"></script><br>    <style><br>        .page-bar{<br>            margin:40px;<br>        }<br>        ul,li{<br>            margin: 0px;<br>            padding: 0px;<br>        }<br>        li{<br>            list-style: none<br>        }<br>        .page-bar li:first-child&gt;a {<br>            margin-left: 0px<br>        }<br>        .page-bar a{<br>            border: 1px solid #ddd;<br>            text-decoration: none;<br>            position: relative;<br>            float: left;<br>            padding: 6px 12px;<br>            margin-left: -1px;<br>            line-height: 1.42857143;<br>            color: #337ab7;<br>            cursor: pointer<br>        }<br>        .page-bar a:hover{<br>            background-color: #eee;<br>        }<br>        .page-bar a.banclick{<br>            cursor:not-allowed;<br>        }<br>        .page-bar .active a{<br>            color: #fff;<br>            cursor: default;<br>            background-color: #337ab7;<br>            border-color: #337ab7;<br>        }<br>        .page-bar i{<br>            font-style:normal;<br>            color: #d44950;<br>            margin: 0px 4px;<br>            font-size: 12px;<br>        }<br>    </style><br></head><br><body><br><div class="page-bar"><br>    <ul><br>        <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li><br>        <li v-if="cur==1"><a class="banclick">上一页</a></li><br>        <li v-for="index in indexs" v-bind:class="{ 'active': cur == index}"><br>            <a v-on:click="btnClick(index)"></a><br>        </li><br>        <li v-if="cur!=all"><a v-on:click="cur++,pageClick()">下一页</a></li><br>        <li v-if="cur == all"><a class="banclick">下一页</a></li><br>        <li><a>共<i></i>页</a></li><br>    </ul><br></div><br><script type="text/javascript"><br>    var pageBar = new Vue({<br>        el: ‘.page-bar’,<br>        data: {<br>            all: 8, //总页数<br>            cur: 1//当前页码<br>        },<br>//        watch: {<br>//            cur: function(oldValue , newValue){<br>//                console.log(arguments);<br>//            }<br>//        },<br>        methods: {<br>            btnClick: function(data){//页码点击事件<br>                if(data != this.cur){<br>                    this.cur = data<br>                }<br>            },<br>//            pageClick: function(){<br>//                console.log(‘现在在’+this.cur+’页’);<br>//            }<br>        },<br><br>        computed: {<br>            indexs: function(){<br>                var left = 1;<br>                var right = this.all;<br>                var ar = [];<br>                if(this.all&gt;= 5){<br>                    if(this.cur &gt; 3 &amp;&amp; this.cur &lt; this.all-2){<br>                        left = this.cur - 2<br>                        right = this.cur + 2<br>                    }else{<br>                        if(this.cur&lt;=3){<br>                            left = 1<br>                            right = 5<br>                        }else{<br>                            right = this.all<br>                            left = this.all -4<br>                        }<br>                    }<br>                }<br>                while (left &lt;= right){<br>                    ar.push(left)<br>                    left ++<br>                }<br>                return ar<br>            }<br><br>        }<br>    })<br></script><br></body><br></html>
+<h2 id="代码效果"><a href="#代码效果" class="headerlink" title="代码效果"></a>代码效果</h2><script type="text/javascript" src="https://unpkg.com/vue"></script>
+<style>
+    .page-bar{
+        margin:40px;
+    }
+    ul,li{
+        margin: 0px;
+        padding: 0px;
+    }
+    li{
+        list-style: none
+    }
+    .page-bar li:first-child>a {
+        margin-left: 0px
+    }
+    .page-bar a{
+        border: 1px solid #ddd;
+        text-decoration: none;
+        position: relative;
+        float: left;
+        padding: 6px 12px;
+        margin-left: -1px;
+        line-height: 1.42857143;
+        color: #337ab7;
+        cursor: pointer
+    }
+    .page-bar a:hover{
+        background-color: #eee;
+    }
+    .page-bar a.banclick{
+        cursor:not-allowed;
+    }
+    .page-bar .active a{
+        color: #fff;
+        cursor: default;
+        background-color: #337ab7;
+        border-color: #337ab7;
+    }
+    .page-bar i{
+        font-style:normal;
+        color: #d44950;
+        margin: 0px 4px;
+        font-size: 12px;
+    }
+</style>
+<div class="page-bar">
+    <ul>
+        <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li>
+        <li v-if="cur==1"><a class="banclick">上一页</a></li>
+        <li v-for="index in indexs" v-bind:class="{ 'active': cur == index}">
+            <a v-on:click="btnClick(index)"></a>
+        </li>
+        <li v-if="cur!=all"><a v-on:click="cur++,pageClick()">下一页</a></li>
+        <li v-if="cur == all"><a class="banclick">下一页</a></li>
+        <li><a>共<i></i>页</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var pageBar = new Vue({
+        el: '.page-bar',
+        data: {
+            all: 8, //总页数
+            cur: 1//当前页码
+        },
+//        watch: {
+//            cur: function(oldValue , newValue){
+//                console.log(arguments);
+//            }
+//        },
+        methods: {
+            btnClick: function(data){//页码点击事件
+                if(data != this.cur){
+                    this.cur = data
+                }
+            },
+//            pageClick: function(){
+//                console.log('现在在'+this.cur+'页');
+//            }
+        },
+
+        computed: {
+            indexs: function(){
+                var left = 1;
+                var right = this.all;
+                var ar = [];
+                if(this.all>= 5){
+                    if(this.cur > 3 && this.cur < this.all-2){
+                        left = this.cur - 2
+                        right = this.cur + 2
+                    }else{
+                        if(this.cur<=3){
+                            left = 1
+                            right = 5
+                        }else{
+                            right = this.all
+                            left = this.all -4
+                        }
+                    }
+                }
+                while (left <= right){
+                    ar.push(left)
+                    left ++
+                }
+                return ar
+            }
+
+        }
+    })
+</script>
 
 
 

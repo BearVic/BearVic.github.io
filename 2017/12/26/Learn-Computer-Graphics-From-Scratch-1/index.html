@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Computer Graphics,," />
 
 
 
@@ -84,25 +84,21 @@
 
 
 
-<meta name="description" content="Git and GitHub
-reference:Version Control with Git  
-Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository.
-123456789101112131415161">
+<meta name="description" content="GeometryPoints, Vectors and NormalsPoints and VectorsHere, a point is a position in a three-dimensional space. A vector, on the other hand, usually means a direction (and some corresponding magnitude,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git&GitHub">
-<meta property="og:url" content="http://yoursite.com/2017/10/30/Git-GitHub/index.html">
+<meta property="og:title" content="Learn Computer Graphics From Scratch (1)">
+<meta property="og:url" content="http://yoursite.com/2017/12/26/Learn-Computer-Graphics-From-Scratch-1/index.html">
 <meta property="og:site_name" content="Vic's Paradise">
-<meta property="og:description" content="Git and GitHub
-reference:Version Control with Git  
-Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository.
-123456789101112131415161">
-<meta property="og:updated_time" content="2017-10-30T17:52:17.000Z">
+<meta property="og:description" content="GeometryPoints, Vectors and NormalsPoints and VectorsHere, a point is a position in a three-dimensional space. A vector, on the other hand, usually means a direction (and some corresponding magnitude,">
+<meta property="og:image" content="http://yoursite.com/Users/victor/BearVic_Blog/source/img/LCGFS/VectorLength.jpg">
+<meta property="og:image" content="http://yoursite.com/Users/victor/BearVic_Blog/source/img/LCGFS/DocProduct.tiff">
+<meta property="og:image" content="http://yoursite.com/Users/victor/BearVic_Blog/source/img/LCGFS/CrossProduct.tiff">
+<meta property="og:image" content="http://yoursite.com/Users/victor/BearVic_Blog/source/img/LCGFS/MX.jpg">
+<meta property="og:updated_time" content="2018-01-05T18:56:24.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git&GitHub">
-<meta name="twitter:description" content="Git and GitHub
-reference:Version Control with Git  
-Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository.
-123456789101112131415161">
+<meta name="twitter:title" content="Learn Computer Graphics From Scratch (1)">
+<meta name="twitter:description" content="GeometryPoints, Vectors and NormalsPoints and VectorsHere, a point is a position in a three-dimensional space. A vector, on the other hand, usually means a direction (and some corresponding magnitude,">
+<meta name="twitter:image" content="http://yoursite.com/Users/victor/BearVic_Blog/source/img/LCGFS/VectorLength.jpg">
 
 
 
@@ -130,13 +126,13 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/30/Git-GitHub/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/26/Learn-Computer-Graphics-From-Scratch-1/"/>
 
 
 
 
 
-  <title> Git&GitHub | Vic's Paradise </title>
+  <title> Learn Computer Graphics From Scratch (1) | Vic's Paradise </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +245,7 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/Git-GitHub/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/26/Learn-Computer-Graphics-From-Scratch-1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="BearVic">
@@ -273,7 +269,7 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
             
             
               
-                Git&GitHub
+                Learn Computer Graphics From Scratch (1)
               
             
           </h1>
@@ -288,8 +284,8 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T01:51:32-04:00">
-                2017-10-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-26T21:32:13-05:00">
+                2017-12-27
               </time>
             
 
@@ -324,28 +320,23 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
       
 
       
-        <h1 id="Git-and-GitHub"><a href="#Git-and-GitHub" class="headerlink" title="Git and GitHub"></a>Git and GitHub</h1><hr>
-<p>reference:<a href="http://swcarpentry.github.io/git-novice/" target="_blank" rel="external">Version Control with Git</a>  </p>
-<h2 id="Git-Basic"><a href="#Git-Basic" class="headerlink" title="Git Basic"></a>Git Basic</h2><p>This part include git init, tracking changes, exploring history, commit changes and remove file in git repository.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">git init  //cd to a dir and runing code to create a git</div><div class="line"></div><div class="line">//git configuration</div><div class="line">git config --global user.name &quot;name&quot;</div><div class="line">git config --global user.email &quot;@.com&quot;</div><div class="line">git config --global color.ui &quot;auto&quot;</div><div class="line"></div><div class="line">git config --list  //list configurations</div><div class="line"></div><div class="line">git status  //tracking changes</div><div class="line">git add mars.txt  //adding a file to staging area</div><div class="line">git commit -m &quot;First commit.&quot;  //commit file from staging area to repository with description(required)</div><div class="line"></div><div class="line">git checkout -- &quot;mars.txt&quot;  //discard changes</div><div class="line">git diff  //review changes</div><div class="line">git log  //commit log</div><div class="line"></div><div class="line">//review difference from history version</div><div class="line">git diff HEAD mars.txt</div><div class="line">git diff HEAD~1 mars.txt</div><div class="line"></div><div class="line">//show history version</div><div class="line">git show HEAD~3 mars.txt</div><div class="line">git show HEAD~3:mars.txt</div><div class="line"></div><div class="line">//rollback to history version</div><div class="line">git checkout HEAD~3 mars.txt</div><div class="line"></div><div class="line">//rm file from repository</div><div class="line">git rm jupiter.txt</div><div class="line">git commit -m &quot;delete jupiter.txt&quot;</div></pre></td></tr></table></figure>
-<h2 id="GitIgnore"><a href="#GitIgnore" class="headerlink" title="GitIgnore"></a>GitIgnore</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mkdir results</div><div class="line">touch a.dat b.dat c.dat results/a.out results/b.out</div><div class="line"></div><div class="line">vim .gitignore</div><div class="line"></div><div class="line">--INSERT--</div><div class="line">*.dat</div><div class="line">results/</div><div class="line">:wq</div><div class="line"></div><div class="line">git add .gitignore</div><div class="line">git commit -m &quot;Add the ignore file&quot;</div></pre></td></tr></table></figure>
-<h2 id="Remote-Repository-from-GitHub"><a href="#Remote-Repository-from-GitHub" class="headerlink" title="Remote Repository from GitHub"></a>Remote Repository from GitHub</h2><h3 id="Working-with-Remote-Repository"><a href="#Working-with-Remote-Repository" class="headerlink" title="Working with Remote Repository"></a>Working with Remote Repository</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://github.com/BearVic/planets.git</div><div class="line">git remote</div><div class="line">git remote -v</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<h3 id="Collaborate-with-Other-People"><a href="#Collaborate-with-Other-People" class="headerlink" title="Collaborate with Other People"></a>Collaborate with Other People</h3><ul>
-<li>Host: Settings -&gt; Collaborators -&gt; add username(partner)</li>
-<li>Partner: verify invitation</li>
-<li>Partner: start to work with the project(see codes below)</li>
-<li>Host: <code>git pull origin master</code></li>
+        <h1 id="Geometry"><a href="#Geometry" class="headerlink" title="Geometry"></a>Geometry</h1><h2 id="Points-Vectors-and-Normals"><a href="#Points-Vectors-and-Normals" class="headerlink" title="Points, Vectors and Normals"></a>Points, Vectors and Normals</h2><h3 id="Points-and-Vectors"><a href="#Points-and-Vectors" class="headerlink" title="Points and Vectors"></a>Points and Vectors</h3><p>Here, a point is a position in a three-dimensional space. A vector, on the other hand, usually means a direction (and some corresponding magnitude, or size) in three-dimensional space.</p>
+<h3 id="Normals"><a href="#Normals" class="headerlink" title="Normals"></a>Normals</h3><p>A normal is the technical term used in Computer Graphics (and Geometry) to describe the orientation of a surface of a geometric object at a point on that surface. Technically, the surface normal to a surface at point PP, can be seen as the vector perpendicular to a plane tangent to the surface at P.</p>
+<h2 id="Coordinate-Systems"><a href="#Coordinate-Systems" class="headerlink" title="Coordinate Systems"></a>Coordinate Systems</h2><h3 id="Cartesian-coordinate-system"><a href="#Cartesian-coordinate-system" class="headerlink" title="Cartesian coordinate system"></a>Cartesian coordinate system</h3><p>For example, consider drawing a number of points on a piece of paper. This piece of paper occupies a two dimensional space, i.e. a plane. We can again draw two axes: one for each dimension. If we use the same x- and y-axes to measure each point drawn on that paper, these two axes are said to define a coordinate system. If these two rulers are <strong>perpendicular</strong> to each other, they define what we call a <strong>Cartesian coordinate system</strong>.</p>
+<h3 id="Euclidean-space"><a href="#Euclidean-space" class="headerlink" title="Euclidean space"></a>Euclidean space</h3><p>The 3D coordinate system is a simple extension of the 2D case. We will just be adding a third axis orthogonal to both the x- and y-axis called the z-axis (representative of depth). In Geometry, this 3D coordinate system defines what is more formally known as <strong>Euclidean space</strong>.</p>
+<h2 id="Math-Operations-on-Points-and-Vectors"><a href="#Math-Operations-on-Points-and-Vectors" class="headerlink" title="Math Operations on Points and Vectors"></a>Math Operations on Points and Vectors</h2><ul>
+<li>Vector Length: <img src="/Users/victor/BearVic_Blog/source/img/LCGFS/VectorLength.jpg" alt="Vector Length"></li>
+<li>Normalizing a Vector</li>
+<li>Dot Product: <img src="/Users/victor/BearVic_Blog/source/img/LCGFS/DocProduct.tiff" alt="Dot Product"></li>
+<li>Cross Product: <img src="/Users/victor/BearVic_Blog/source/img/LCGFS/CrossProduct.tiff" alt="Cross Product"></li>
+<li>Vector/Point Addition and Subtraction</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/wumetal/planets24</div><div class="line"></div><div class="line">git branch</div><div class="line"></div><div class="line">git branch experimental  //new branch</div><div class="line">git checkout experimental  //switch branch</div><div class="line"></div><div class="line">git merge experimental</div><div class="line">//confilct dealing: above &quot;======&quot; is what this branch got, below is the merging one.</div><div class="line">    after alter the conflict, do git add &lt;file&gt;, then git commit w/o any comments.</div><div class="line"></div><div class="line">git branch -d experimental  //delete branch</div></pre></td></tr></table></figure>
-<h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><p>working with others in GitHub</p>
+<h2 id="Matrices"><a href="#Matrices" class="headerlink" title="Matrices"></a>Matrices</h2><h3 id="Matrix-Multiplication"><a href="#Matrix-Multiplication" class="headerlink" title="Matrix Multiplication"></a>Matrix Multiplication</h3><p><img src="/Users/victor/BearVic_Blog/source/img/LCGFS/MX.jpg" alt="Matrix Multiplication"></p>
 <ul>
-<li>visit others’ repository which you want to work with</li>
-<li>fork it and you would see it in your own page</li>
-<li>git clone the one in your own page</li>
-<li>start to work(push and pull)</li>
+<li>Affine Transformations</li>
+<li>projective transformations</li>
 </ul>
-<h2 id="Work-Flow-in-Git"><a href="#Work-Flow-in-Git" class="headerlink" title="Work Flow in Git"></a>Work Flow in Git</h2><p>working area{mars.txt} –add–&gt;staging area{mars.txt}–commit–&gt;repository</p>
-
+<h1 id="TO-BE-CONTINUE…"><a href="#TO-BE-CONTINUE…" class="headerlink" title="TO BE CONTINUE…"></a>TO BE CONTINUE…</h1>
       
     </div>
 
@@ -366,13 +357,19 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Computer-Graphics/" rel="tag"># Computer Graphics,</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/08/SQLite3-NoteBook/" rel="next" title="SQLite3 NoteBook">
-                <i class="fa fa-chevron-left"></i> SQLite3 NoteBook
+              <a href="/2017/11/06/Scientific-Python/" rel="next" title="Scientific Programming with Python">
+                <i class="fa fa-chevron-left"></i> Scientific Programming with Python
               </a>
             
           </div>
@@ -380,10 +377,6 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/06/Scientific-Python/" rel="prev" title="Scientific Programming with Python">
-                Scientific Programming with Python <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -504,7 +497,7 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-and-GitHub"><span class="nav-number">1.</span> <span class="nav-text">Git and GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Basic"><span class="nav-number">1.1.</span> <span class="nav-text">Git Basic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitIgnore"><span class="nav-number">1.2.</span> <span class="nav-text">GitIgnore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remote-Repository-from-GitHub"><span class="nav-number">1.3.</span> <span class="nav-text">Remote Repository from GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Working-with-Remote-Repository"><span class="nav-number">1.3.1.</span> <span class="nav-text">Working with Remote Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collaborate-with-Other-People"><span class="nav-number">1.3.2.</span> <span class="nav-text">Collaborate with Other People</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pull-Request"><span class="nav-number">1.4.</span> <span class="nav-text">Pull Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Work-Flow-in-Git"><span class="nav-number">1.5.</span> <span class="nav-text">Work Flow in Git</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Geometry"><span class="nav-number">1.</span> <span class="nav-text">Geometry</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Points-Vectors-and-Normals"><span class="nav-number">1.1.</span> <span class="nav-text">Points, Vectors and Normals</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Points-and-Vectors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Points and Vectors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Normals"><span class="nav-number">1.1.2.</span> <span class="nav-text">Normals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coordinate-Systems"><span class="nav-number">1.2.</span> <span class="nav-text">Coordinate Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cartesian-coordinate-system"><span class="nav-number">1.2.1.</span> <span class="nav-text">Cartesian coordinate system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Euclidean-space"><span class="nav-number">1.2.2.</span> <span class="nav-text">Euclidean space</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-Operations-on-Points-and-Vectors"><span class="nav-number">1.3.</span> <span class="nav-text">Math Operations on Points and Vectors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrices"><span class="nav-number">1.4.</span> <span class="nav-text">Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Matrix-Multiplication"><span class="nav-number">1.4.1.</span> <span class="nav-text">Matrix Multiplication</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TO-BE-CONTINUE…"><span class="nav-number">2.</span> <span class="nav-text">TO BE CONTINUE…</span></a></li></ol></div>
             
 
           </div>

@@ -1,15 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,36 +37,10 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -65,23 +49,58 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.0.2" rel="stylesheet" type="text/css" />
 
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
   <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
 
 
 <meta name="description" content="To Be -   364824114@qq.com">
@@ -96,27 +115,6 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '1234',
-      author: '拯救世界大英雄'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
 
 
 
@@ -124,13 +122,12 @@
 
 
 
-
-
-  <title> Vic's Paradise </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>Vic's Paradise</title>
   
 
 
@@ -141,39 +138,70 @@
 
 
 
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Vic's Paradise</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Vic's Paradise</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello World!</p>
+      
   </div>
-    
-      <p class="site-subtitle">Hello World!</p>
-    
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -185,31 +213,25 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
         </li>
       
 
@@ -221,9 +243,15 @@
 </nav>
 
 
+  
+
+
 
  </div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
@@ -240,21 +268,24 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/Scientific-Python/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="BearVic">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/Xcode-tips/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Vic's Paradise">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Vic's Paradise" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BearVic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/1.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vic's Paradise">
+    </span>
 
     
       <header class="post-header">
@@ -262,16 +293,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/11/06/Scientific-Python/" itemprop="url">
-                  Scientific Programming with Python
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/01/08/Xcode-tips/" itemprop="url">Xcode tips</a></h1>
         
 
         <div class="post-meta">
@@ -281,13 +304,12 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-06T14:55:12+08:00">
-                2017-11-06
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T19:12:44-05:00">2018-01-08</time>
             
 
+            
             
 
             
@@ -300,8 +322,8 @@
           
 
           
-
           
+
           
 
           
@@ -312,7 +334,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -321,30 +345,26 @@
       
         
           
-          Scientific Programming with PythonLearn from this GitHub
-Create your first package1. Create the following files and directories123456micro/├── micro/│
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/06/Scientific-Python/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>I have to admit that the Xcode is not very human-centered…</p>
+<h2 id="Set-Working-Directory"><a href="#Set-Working-Directory" class="headerlink" title="Set Working Directory"></a>Set Working Directory</h2><p>Product -&gt; Scheme -&gt; Edit Scheme -&gt; Run -&gt; Options -&gt; Working Directory </p>
+
+          
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -354,6 +374,10 @@ Create your first package1. Create the following files and directories123456micr
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -366,21 +390,24 @@ Create your first package1. Create the following files and directories123456micr
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/Git-GitHub/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="BearVic">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/TOEFL-Ten-Thousand-Words-1/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Vic's Paradise">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Vic's Paradise" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BearVic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/1.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vic's Paradise">
+    </span>
 
     
       <header class="post-header">
@@ -388,16 +415,8 @@ Create your first package1. Create the following files and directories123456micr
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/10/30/Git-GitHub/" itemprop="url">
-                  Git&GitHub
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/01/05/TOEFL-Ten-Thousand-Words-1/" itemprop="url">TOEFL Ten Thousand Words (1)</a></h1>
         
 
         <div class="post-meta">
@@ -407,13 +426,12 @@ Create your first package1. Create the following files and directories123456micr
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T13:51:32+08:00">
-                2017-10-30
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T19:23:29-05:00">2018-01-05</time>
             
 
+            
             
 
             
@@ -426,8 +444,8 @@ Create your first package1. Create the following files and directories123456micr
           
 
           
-
           
+
           
 
           
@@ -438,7 +456,9 @@ Create your first package1. Create the following files and directories123456micr
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -447,31 +467,65 @@ Create your first package1. Create the following files and directories123456micr
       
         
           
-          Git and GitHub
-reference:Version Control with Git  
-Git BasicThis part include git init, tracking changes, exploring history, commit changes and remov
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/30/Git-GitHub/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="abjure-v-宣布放弃-放弃权力"><a href="#abjure-v-宣布放弃-放弃权力" class="headerlink" title="abjure v 宣布放弃 放弃权力"></a>abjure v 宣布放弃 放弃权力</h2><p>abandon</p>
+<ul>
+<li>ab =&gt; away    jure =&gt; to swear</li>
+<li>adjure (ad =&gt; to) v 恳求</li>
+<li>conjure v: 1, 恳求（一起发誓） 2, 变魔术（共同的誓言，不揭穿）</li>
+<li>perjure （per =&gt; away, through）v 做伪证（背离誓言） -&gt; n perjury </li>
+</ul>
+<h3 id="antonym"><a href="#antonym" class="headerlink" title="antonym"></a>antonym</h3><ul>
+<li>espouse (e =&gt; 加强) 支持</li>
+<li>spouse 夫妻，配偶</li>
+<li>spawn 卵</li>
+</ul>
+<h3 id="syn"><a href="#syn" class="headerlink" title="syn"></a>syn</h3><ul>
+<li>forgo: (for =&gt; forward 先走一步) 放弃（人间的快乐 世俗的快乐）</li>
+<li>forsake: （for the sake of, 为了原因而放弃） 放弃 </li>
+<li>forswear: (宣誓)放弃</li>
+<li>renounce: (retire + announce) 放弃（权力，信仰）</li>
+<li>relinquish: (re =&gt; back)(link ) (回到以前)（不情愿地）放弃</li>
+</ul>
+<h2 id="abominate-v-痛恨"><a href="#abominate-v-痛恨" class="headerlink" title="abominate v 痛恨"></a>abominate v 痛恨</h2><p>ab =&gt;  away,  omin =&gt; omen(凶兆, Amen) ominous 不吉祥的</p>
+<ul>
+<li>abhor: (hor -&gt; horrible) 厌恶，痛恨 (abhorrent 令人厌恶的)</li>
+<li>detest: (de =&gt; off, deforest, dehydrate) （远离考试）痛恨</li>
+<li>loathe: 痛恨 (-&gt; adj loath, oath 痛恨誓言, loss)</li>
+</ul>
+<h2 id="abstain-v-禁绝-放弃"><a href="#abstain-v-禁绝-放弃" class="headerlink" title="abstain v 禁绝, 放弃"></a>abstain v 禁绝, 放弃</h2><p>abstain from<br>abstinence 禁欲<br>abs后为t或c时，前缀为abs，而不是ab<br>abs =&gt; away (abstract, abscond[（一起离开）潜逃], absolve)<br>tain =&gt; to keep (maintain)    </p>
+<ul>
+<li>detain:(de =&gt; down 留下来) vt 扣留 </li>
+<li>retain: (re =&gt; back 保持回来) vt 保持（意见，想法）</li>
+<li>pertain (+ to): (per =&gt; through) 1 属于 2 关于 (a. pertinent)</li>
+<li>distain: (不保持) 贬低，贬损</li>
+<li>disdain: 轻视 瞧不起</li>
+</ul>
+<h2 id="acerbic-a-酸的，-尖刻的"><a href="#acerbic-a-酸的，-尖刻的" class="headerlink" title="acerbic a 酸的， 尖刻的"></a>acerbic a 酸的， 尖刻的</h2><p>ac/acerb/acr =&gt; 1 sour, 2 sharp<br>acid, ace    </p>
+<ul>
+<li>exacerbate: (ex =&gt; to 加强)(加强) (矛盾)变尖锐</li>
+<li>acrid: 尖刻的， 辛辣的（嘲讽）</li>
+<li>acrimonious: 同上</li>
+<li>acme: [me -&gt; 顶峰 (acne 你-&gt; 粉刺)] 顶峰，顶点 </li>
+<li>acumen: [男人很尖] 精明，敏锐</li>
+</ul>
+<h2 id="affluence-n-富裕，富足"><a href="#affluence-n-富裕，富足" class="headerlink" title="affluence n 富裕，富足"></a>affluence n 富裕，富足</h2>
+          
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -481,6 +535,10 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -493,21 +551,24 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/SQLite3-NoteBook/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="BearVic">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/Learn-Computer-Graphics-From-Scratch-1/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Vic's Paradise">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Vic's Paradise" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BearVic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/1.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vic's Paradise">
+    </span>
 
     
       <header class="post-header">
@@ -515,16 +576,8 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/09/08/SQLite3-NoteBook/" itemprop="url">
-                  SQLite3 NoteBook
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/12/27/Learn-Computer-Graphics-From-Scratch-1/" itemprop="url">Learn Computer Graphics From Scratch (1)</a></h1>
         
 
         <div class="post-meta">
@@ -534,13 +587,12 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T12:51:47+08:00">
-                2017-09-08
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-27T10:32:13-05:00">2017-12-27</time>
             
 
+            
             
 
             
@@ -553,8 +605,8 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
           
 
           
-
           
+
           
 
           
@@ -565,7 +617,9 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -574,30 +628,40 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
       
         
           
-          reference:Python 快速教程（标准库14）：数据库 (sqlite3)
-
+            <h1 id="Geometry"><a href="#Geometry" class="headerlink" title="Geometry"></a>Geometry</h1><h2 id="Points-Vectors-and-Normals"><a href="#Points-Vectors-and-Normals" class="headerlink" title="Points, Vectors and Normals"></a>Points, Vectors and Normals</h2><h3 id="Points-and-Vectors"><a href="#Points-and-Vectors" class="headerlink" title="Points and Vectors"></a>Points and Vectors</h3><p>Here, a point is a position in a three-dimensional space. A vector, on the other hand, usually means a direction (and some corresponding magnitude, or size) in three-dimensional space.</p>
+<h3 id="Normals"><a href="#Normals" class="headerlink" title="Normals"></a>Normals</h3><p>A normal is the technical term used in Computer Graphics (and Geometry) to describe the orientation of a surface of a geometric object at a point on that surface. Technically, the surface normal to a surface at point PP, can be seen as the vector perpendicular to a plane tangent to the surface at P.</p>
+<h2 id="Coordinate-Systems"><a href="#Coordinate-Systems" class="headerlink" title="Coordinate Systems"></a>Coordinate Systems</h2><h3 id="Cartesian-coordinate-system"><a href="#Cartesian-coordinate-system" class="headerlink" title="Cartesian coordinate system"></a>Cartesian coordinate system</h3><p>For example, consider drawing a number of points on a piece of paper. This piece of paper occupies a two dimensional space, i.e. a plane. We can again draw two axes: one for each dimension. If we use the same x- and y-axes to measure each point drawn on that paper, these two axes are said to define a coordinate system. If these two rulers are <strong>perpendicular</strong> to each other, they define what we call a <strong>Cartesian coordinate system</strong>.</p>
+<h3 id="Euclidean-space"><a href="#Euclidean-space" class="headerlink" title="Euclidean space"></a>Euclidean space</h3><p>The 3D coordinate system is a simple extension of the 2D case. We will just be adding a third axis orthogonal to both the x- and y-axis called the z-axis (representative of depth). In Geometry, this 3D coordinate system defines what is more formally known as <strong>Euclidean space</strong>.</p>
+<h2 id="Math-Operations-on-Points-and-Vectors"><a href="#Math-Operations-on-Points-and-Vectors" class="headerlink" title="Math Operations on Points and Vectors"></a>Math Operations on Points and Vectors</h2><ul>
+<li>Vector Length: <img src="/Users/victor/BearVic_Blog/source/img/LCGFS/VectorLength.jpg" alt="Vector Length"></li>
+<li>Normalizing a Vector</li>
+<li>Dot Product: <img src="/Users/victor/BearVic_Blog/source/img/LCGFS/DocProduct.tiff" alt="Dot Product"></li>
+<li>Cross Product: <img src="/Users/victor/BearVic_Blog/source/img/LCGFS/CrossProduct.tiff" alt="Cross Product"></li>
+<li>Vector/Point Addition and Subtraction</li>
+</ul>
+<h2 id="Matrices"><a href="#Matrices" class="headerlink" title="Matrices"></a>Matrices</h2><h3 id="Matrix-Multiplication"><a href="#Matrix-Multiplication" class="headerlink" title="Matrix Multiplication"></a>Matrix Multiplication</h3><p><img src="/Users/victor/BearVic_Blog/source/img/LCGFS/MX.jpg" alt="Matrix Multiplication"></p>
+<ul>
+<li>Affine Transformations</li>
+<li>projective transformations</li>
+</ul>
+<h1 id="TO-BE-CONTINUE…"><a href="#TO-BE-CONTINUE…" class="headerlink" title="TO BE CONTINUE…"></a>TO BE CONTINUE…</h1>
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/08/SQLite3-NoteBook/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -607,6 +671,10 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -619,21 +687,24 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/spring-study-notes-advanced/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="BearVic">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/Scientific-Python/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Vic's Paradise">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Vic's Paradise" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BearVic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/1.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vic's Paradise">
+    </span>
 
     
       <header class="post-header">
@@ -641,16 +712,8 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/07/14/spring-study-notes-advanced/" itemprop="url">
-                  spring study notes advanced
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/11/06/Scientific-Python/" itemprop="url">Scientific Programming with Python</a></h1>
         
 
         <div class="post-meta">
@@ -660,13 +723,12 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T23:59:51+08:00">
-                2017-07-14
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-06T14:55:12-05:00">2017-11-06</time>
             
 
+            
             
 
             
@@ -679,8 +741,8 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
           
 
           
-
           
+
           
 
           
@@ -691,7 +753,9 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -700,32 +764,53 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
       
         
           
-          概述在之前简单的登录注册实现的基础上，接下来会尝试较完整地实现一个个人博客网站。
-intellij idea上spring的Junit4单元测试的实现正确导入包首先确保导入的包是否正确、齐全。
-示例代码接下来就直接看看代码
-12345678910111213141516171819202122232
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/spring-study-notes-advanced/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="Scientific-Programming-with-Python"><a href="#Scientific-Programming-with-Python" class="headerlink" title="Scientific Programming with Python"></a>Scientific Programming with Python</h1><p><a href="https://github.com/clemsonciti/scientific-python" target="_blank" rel="external">Learn from this GitHub</a></p>
+<h2 id="Create-your-first-package"><a href="#Create-your-first-package" class="headerlink" title="Create your first package"></a>Create your first package</h2><h3 id="1-Create-the-following-files-and-directories"><a href="#1-Create-the-following-files-and-directories" class="headerlink" title="1. Create the following files and directories"></a>1. Create the following files and directories</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">micro/</div><div class="line">├── micro/</div><div class="line">│   ├── __init__.py</div><div class="line">├── README.md</div><div class="line">├── LICENSE.md</div><div class="line">├── setup.py</div></pre></td></tr></table></figure>
+<h3 id="2-Add-the-following-to-setup-py"><a href="#2-Add-the-following-to-setup-py" class="headerlink" title="2. Add the following to setup.py"></a>2. Add the following to <code>setup.py</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">from setuptools import setup</div><div class="line"></div><div class="line">setup(name=&apos;example&apos;,</div><div class="line">    version=&apos;0.1&apos;,</div><div class="line">    description=&apos;The ultimate example&apos;,</div><div class="line">    url=&apos;http://github.com/author/example&apos;,</div><div class="line">    author=&apos;Author Name&apos;,</div><div class="line">    author_email=&apos;author@example.com&apos;,</div><div class="line">    license=&apos;MIT&apos;,</div><div class="line">    packages=[&apos;example&apos;],</div><div class="line">    zip_safe=False)</div></pre></td></tr></table></figure>
+<h3 id="3-Now-from-the-top-level-micro-directory-install-the-package-using-pip"><a href="#3-Now-from-the-top-level-micro-directory-install-the-package-using-pip" class="headerlink" title="3. Now, from the top level micro directory, install the package using pip:"></a>3. Now, from the top level <code>micro</code> directory, install the package using <code>pip</code>:</h3><p><code>$pip install -e .</code></p>
+<h3 id="4-Try-to-import-the-micro-package-from-Python"><a href="#4-Try-to-import-the-micro-package-from-Python" class="headerlink" title="4. Try to import the micro package from Python:"></a>4. Try to import the micro package from Python:</h3><p><code>In [1]: import micro</code></p>
+<h3 id="5-You-should-always-also-have-a-README-md-and-LICENSE-md"><a href="#5-You-should-always-also-have-a-README-md-and-LICENSE-md" class="headerlink" title="5. You should always also have a README.md and LICENSE.md:"></a>5. You should always also have a <code>README.md</code> and <code>LICENSE.md</code>:</h3><ul>
+<li><p><code>LICENSE.md</code>: Explains if/how this software may be used by others. See for examples<br><a href="https://choosealicense.com/" target="_blank" rel="external">https://choosealicense.com/</a> or <a href="https://opensource.guide/legal/" target="_blank" rel="external">https://opensource.guide/legal/</a>.</p>
+</li>
+<li><p><code>README.md</code>: Explains what this sofware does, how to install/use it, etc.,</p>
+</li>
+</ul>
+<h3 id="6-Finally-upload-to-GitHub"><a href="#6-Finally-upload-to-GitHub" class="headerlink" title="6. Finally, upload to GitHub"></a>6. Finally, upload to GitHub</h3><hr>
+<ul>
+<li>init a git for <code>micro</code> in your own computer.</li>
+<li>create a new repository in your GitHub and upload the whole <code>micro</code> into it.</li>
+<li>running the following code to install <code>micro</code> package from the GitHub:<ul>
+<li><code>pip install git+https://github.com/username/micro</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Python-testing"><a href="#Python-testing" class="headerlink" title="Python-testing"></a>Python-testing</h2><h3 id="Function-description"><a href="#Function-description" class="headerlink" title="Function description"></a>Function description</h3><p>so we could see the description when type <code>help(strflip)</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">def strflip(s):</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    strflip: Flip a string</div><div class="line"></div><div class="line">    Parameters</div><div class="line">    ----------</div><div class="line"></div><div class="line">    s : str</div><div class="line">        String to reverse</div><div class="line"></div><div class="line">    Returns</div><div class="line"></div><div class="line">    flipped : str</div><div class="line">        Copy of `s` with characters in reverse order</div><div class="line"></div><div class="line">    &quot;&quot;&quot;</div><div class="line"> </div><div class="line">    flipped = &apos;&apos;</div><div class="line"></div><div class="line">    # Starting from the last character in `s`,</div><div class="line">    # add the character to `flipped`,</div><div class="line">    # and proceed to the previous character in `s`.</div><div class="line">    # Stop whenever we reach the first character.</div><div class="line"></div><div class="line">    i = len(s)</div><div class="line"></div><div class="line">    while True:</div><div class="line">        </div><div class="line">        i = i-1</div><div class="line">        char = s[i]</div><div class="line">        flipped = flipped + char</div><div class="line"></div><div class="line">        # stop if we have reached the first character:</div><div class="line">        </div><div class="line">        if char == s[0]:</div><div class="line">            break</div><div class="line"></div><div class="line">    return flipped</div><div class="line">```  </div><div class="line"></div><div class="line">also, we need to know about ``assert``:</div></pre></td></tr></table></figure>
+<p>assert(strflip(‘ab’) == ‘ba’)<br>assert(strflip(‘mario’) == ‘oiram’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### pytest</div><div class="line"></div><div class="line">create a new .py file with ``test`` prefix.</div><div class="line"></div><div class="line">code as(only show the first error if there exists many) :</div></pre></td></tr></table></figure></p>
+<p>from strflip import strflip</p>
+<p>assert(strflip(‘’) == ‘’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">or</div></pre></td></tr></table></figure></p>
+<p>def test_empty_string():<br>    assert(strflip(‘’) == ‘’)<br>```</p>
+<p>if we want to see the output from these test functions, we could:</p>
+<p><code>pytest -s</code></p>
+<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>using <code>%timeit</code> or <code>%prun</code> in IPYTHON to see the performance of a function.</p>
+
+          
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -735,6 +820,10 @@ intellij idea上spring的Junit4单元测试的实现正确导入包首先确保�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -747,21 +836,24 @@ intellij idea上spring的Junit4单元测试的实现正确导入包首先确保�
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/08/mysql-Guide-Book/">
+  
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="BearVic">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/Git-GitHub/">
 
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Vic's Paradise">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Vic's Paradise" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BearVic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/1.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vic's Paradise">
+    </span>
 
     
       <header class="post-header">
@@ -769,16 +861,8 @@ intellij idea上spring的Junit4单元测试的实现正确导入包首先确保�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/07/08/mysql-Guide-Book/" itemprop="url">
-                  mysql Guide Book
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017/10/30/Git-GitHub/" itemprop="url">Git&GitHub</a></h1>
         
 
         <div class="post-meta">
@@ -788,13 +872,12 @@ intellij idea上spring的Junit4单元测试的实现正确导入包首先确保�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-09T10:36:13+08:00">
-                2017-07-09
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T13:51:32-04:00">2017-10-30</time>
             
 
+            
             
 
             
@@ -807,8 +890,8 @@ intellij idea上spring的Junit4单元测试的实现正确导入包首先确保�
           
 
           
-
           
+
           
 
           
@@ -819,7 +902,9 @@ intellij idea上spring的Junit4单元测试的实现正确导入包首先确保�
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -828,32 +913,45 @@ intellij idea上spring的Junit4单元测试的实现正确导入包首先确保�
       
         
           
-          macOS在终端运行mysql
-$ /usr/local/mysql/bin/mysql -u root -p
-
+            <h1 id="Git-and-GitHub"><a href="#Git-and-GitHub" class="headerlink" title="Git and GitHub"></a>Git and GitHub</h1><hr>
+<p>reference:<a href="http://swcarpentry.github.io/git-novice/" target="_blank" rel="external">Version Control with Git</a>  </p>
+<h2 id="Git-Basic"><a href="#Git-Basic" class="headerlink" title="Git Basic"></a>Git Basic</h2><p>This part include git init, tracking changes, exploring history, commit changes and remove file in git repository.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">git init  //cd to a dir and runing code to create a git</div><div class="line"></div><div class="line">//git configuration</div><div class="line">git config --global user.name &quot;name&quot;</div><div class="line">git config --global user.email &quot;@.com&quot;</div><div class="line">git config --global color.ui &quot;auto&quot;</div><div class="line"></div><div class="line">git config --list  //list configurations</div><div class="line"></div><div class="line">git status  //tracking changes</div><div class="line">git add mars.txt  //adding a file to staging area</div><div class="line">git commit -m &quot;First commit.&quot;  //commit file from staging area to repository with description(required)</div><div class="line"></div><div class="line">git checkout -- &quot;mars.txt&quot;  //discard changes</div><div class="line">git diff  //review changes</div><div class="line">git log  //commit log</div><div class="line"></div><div class="line">//review difference from history version</div><div class="line">git diff HEAD mars.txt</div><div class="line">git diff HEAD~1 mars.txt</div><div class="line"></div><div class="line">//show history version</div><div class="line">git show HEAD~3 mars.txt</div><div class="line">git show HEAD~3:mars.txt</div><div class="line"></div><div class="line">//rollback to history version</div><div class="line">git checkout HEAD~3 mars.txt</div><div class="line"></div><div class="line">//rm file from repository</div><div class="line">git rm jupiter.txt</div><div class="line">git commit -m &quot;delete jupiter.txt&quot;</div></pre></td></tr></table></figure>
+<h2 id="GitIgnore"><a href="#GitIgnore" class="headerlink" title="GitIgnore"></a>GitIgnore</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mkdir results</div><div class="line">touch a.dat b.dat c.dat results/a.out results/b.out</div><div class="line"></div><div class="line">vim .gitignore</div><div class="line"></div><div class="line">--INSERT--</div><div class="line">*.dat</div><div class="line">results/</div><div class="line">:wq</div><div class="line"></div><div class="line">git add .gitignore</div><div class="line">git commit -m &quot;Add the ignore file&quot;</div></pre></td></tr></table></figure>
+<h2 id="Remote-Repository-from-GitHub"><a href="#Remote-Repository-from-GitHub" class="headerlink" title="Remote Repository from GitHub"></a>Remote Repository from GitHub</h2><h3 id="Working-with-Remote-Repository"><a href="#Working-with-Remote-Repository" class="headerlink" title="Working with Remote Repository"></a>Working with Remote Repository</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://github.com/BearVic/planets.git</div><div class="line">git remote</div><div class="line">git remote -v</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<h3 id="Collaborate-with-Other-People"><a href="#Collaborate-with-Other-People" class="headerlink" title="Collaborate with Other People"></a>Collaborate with Other People</h3><ul>
+<li>Host: Settings -&gt; Collaborators -&gt; add username(partner)</li>
+<li>Partner: verify invitation</li>
+<li>Partner: start to work with the project(see codes below)</li>
+<li>Host: <code>git pull origin master</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/wumetal/planets24</div><div class="line"></div><div class="line">git branch</div><div class="line"></div><div class="line">git branch experimental  //new branch</div><div class="line">git checkout experimental  //switch branch</div><div class="line"></div><div class="line">git merge experimental</div><div class="line">//confilct dealing: above &quot;======&quot; is what this branch got, below is the merging one.</div><div class="line">    after alter the conflict, do git add &lt;file&gt;, then git commit w/o any comments.</div><div class="line"></div><div class="line">git branch -d experimental  //delete branch</div></pre></td></tr></table></figure>
+<h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><p>working with others in GitHub</p>
+<ul>
+<li>visit others’ repository which you want to work with</li>
+<li>fork it and you would see it in your own page</li>
+<li>git clone the one in your own page</li>
+<li>start to work(push and pull)</li>
+</ul>
+<h2 id="Work-Flow-in-Git"><a href="#Work-Flow-in-Git" class="headerlink" title="Work Flow in Git"></a>Work Flow in Git</h2><p>working area{mars.txt} –add–&gt;staging area{mars.txt}–commit–&gt;repository</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/08/mysql-Guide-Book/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -863,6 +961,10 @@ $ /usr/local/mysql/bin/mysql -u root -p
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -871,18 +973,13 @@ $ /usr/local/mysql/bin/mysql -u root -p
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
-          
+
           </div>
           
-
-
-          
-
-
 
         </div>
         
@@ -897,60 +994,88 @@ $ /usr/local/mysql/bin/mysql -u root -p
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="BearVic" />
-          <p class="site-author-name" itemprop="name">BearVic</p>
-          <p class="site-description motion-element" itemprop="description">To Be - <br>  364824114@qq.com</p>
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/1.jpg"
+                alt="BearVic" />
+            
+              <p class="site-author-name" itemprop="name">BearVic</p>
+              <p class="site-description motion-element" itemprop="description">To Be - <br>  364824114@qq.com</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
         </div>
-        <nav class="site-state motion-element">
-        
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">24</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
+
+      
 
       
 
@@ -964,38 +1089,54 @@ $ /usr/local/mysql/bin/mysql -u root -p
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">BearVic</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.2</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -1014,64 +1155,61 @@ $ /usr/local/mysql/bin/mysql -u root -p
 
 
 
-  
 
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+
+
 
 
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.2"></script>
+
+
+
+  
+  
 
   
 
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.2"></script>
+
+
+
+  
 
 
 
@@ -1089,22 +1227,39 @@ $ /usr/local/mysql/bin/mysql -u root -p
 
   
 
-  
 
 
 
 
-  
-  
 
-  
 
-  
+
+
 
   
 
+
+
+
+
   
 
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

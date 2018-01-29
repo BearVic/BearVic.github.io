@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+<meta name="description" content="No.1 Basic C++Namespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::cout &amp;lt;&amp;lt; &quot;x is&quot; &amp;lt;&amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6160 (1)">
+<meta property="og:url" content="http://yoursite.com/2018/01/18/6160-1/index.html">
+<meta property="og:site_name" content="Vic's Paradise">
+<meta property="og:description" content="No.1 Basic C++Namespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::cout &amp;lt;&amp;lt; &quot;x is&quot; &amp;lt;&amp;l">
+<meta property="og:updated_time" content="2018-01-24T20:30:40.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6160 (1)">
+<meta name="twitter:description" content="No.1 Basic C++Namespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::cout &amp;lt;&amp;lt; &quot;x is&quot; &amp;lt;&amp;l">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/18/6160-1/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>6160 (1) | Vic's Paradise</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Vic's Paradise</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello World!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/6160-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BearVic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vic's Paradise">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">6160 (1)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-18T00:27:16-05:00">2018-01-18</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="No-1-Basic-C"><a href="#No-1-Basic-C" class="headerlink" title="No.1 Basic C++"></a>No.1 Basic C++</h1><h2 id="Namespaces"><a href="#Namespaces" class="headerlink" title="Namespaces"></a>Namespaces</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span> x = <span class="number">99</span>;  <span class="comment">// ::</span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> Mine &#123;</div><div class="line">    <span class="keyword">int</span> x = <span class="number">17</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> main &#123;</div><div class="line">    <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"x is"</span> &lt;&lt; x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Mine x is"</span> &lt;&lt; Mine::x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"::x is"</span> &lt;&lt; ::x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*output</span></div><div class="line">x is 0</div><div class="line">Mine x is 17</div><div class="line">::x is 99*/</div></pre></td></tr></table></figure>
+<h2 id="Operators-unary-binary-ternary"><a href="#Operators-unary-binary-ternary" class="headerlink" title="Operators: unary, binary, ternary"></a>Operators: unary, binary, ternary</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    srand( time(<span class="number">0</span>) );</div><div class="line">    <span class="keyword">int</span> vel = rand()%<span class="number">100</span> + <span class="number">200</span>;</div><div class="line">    vel = vel*(rand()%<span class="number">2</span>?<span class="number">-1</span>:<span class="number">1</span>);</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"vel is"</span> &lt;&lt; vel &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Other-tips"><a href="#Other-tips" class="headerlink" title="Other tips"></a>Other tips</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> A&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">// const means that a won't be changed within this function. </span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> a;&#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">int</span> a;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Initialization-vs-Assignment"><a href="#Initialization-vs-Assignment" class="headerlink" title="Initialization vs Assignment"></a>Initialization vs Assignment</h2><p>Initialization &gt; Assignment</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Pokemon &#123;</div><div class="line">public:</div><div class="line">  //Initialization</div><div class="line">  Pokemon(int x, int y) : cp(x), hp(y) &#123; &#125;</div><div class="line">  //Assignment</div><div class="line">  Pokemon(int x)&#123; </div><div class="line">      cp = x;</div><div class="line">  &#125;</div><div class="line">  int getCp() const &#123; return cp; &#125;</div><div class="line">  int getHp() const &#123; return hp; &#125;</div><div class="line">private:</div><div class="line">  int cp;</div><div class="line">  int hp;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Constructors"><a href="#Constructors" class="headerlink" title="Constructors"></a>Constructors</h2><ul>
+<li>default</li>
+<li>conversion</li>
+<li>copy</li>
+<li>move</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;cstring&gt;</div><div class="line"></div><div class="line">class Pokemon &#123;</div><div class="line">public:</div><div class="line">  //Default constructor</div><div class="line">  Pokemon() : name(new char[1]) &#123; name[0] = &apos;\0&apos;; &#125;</div><div class="line">  //Conversion constructor</div><div class="line">  Pokemon(const char* n) : name(new char[strlen(n)+1]) &#123; </div><div class="line">    strcpy(name, n);</div><div class="line">  &#125;</div><div class="line">  //Copy constructor (deep copy)</div><div class="line">  Pokemon(const Pokemon&amp; p) : name(new char[strlen(p.name)+1]) &#123; </div><div class="line">    strcpy(name, p.name);</div><div class="line">  &#125;</div><div class="line">  ~Pokemon() &#123; delete [] name; &#125;</div><div class="line">  Pokemon&amp; operator=(const Pokemon&amp; rhs) &#123;</div><div class="line">    if ( this == &amp;rhs ) return *this;</div><div class="line">    delete [] name;</div><div class="line">    name = new char[strlen(rhs.name)+1];</div><div class="line">    strcpy(name, rhs.name);</div><div class="line">    return *this;</div><div class="line">  &#125;</div><div class="line">  const char* getName() const &#123; return name; &#125;</div><div class="line">private:</div><div class="line">  char* name;</div><div class="line">&#125;;</div><div class="line">std::ostream&amp; operator&lt;&lt;(std::ostream&amp; out, const Pokemon&amp; p) &#123;</div><div class="line">  return out &lt;&lt; p.getName();</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">  Pokemon dragonite(&quot;Kilgharrah&quot;);</div><div class="line">  std::cout &lt;&lt; &quot;dragonite &quot; &lt;&lt; dragonite &lt;&lt; std::endl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>rule of three</strong>: Create your own functions of </p>
+<ul>
+<li>deconstructor(“~”)</li>
+<li>copy constructor</li>
+<li>assignment operator(“=”)</li>
+</ul>
+<p>if the class includes pointer member.</p>
+<h3 id="Conversion"><a href="#Conversion" class="headerlink" title="Conversion"></a>Conversion</h3><p>Implicit conversion</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">Pokemon(int x): cp(x)&#123;&#125;</div><div class="line">...</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">    Pokemon weedle;</div><div class="line">    weedle = 28;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>To fix implicit conversion, using <strong>explicit</strong> conversion.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">explicit Pokemon(int x): cp(x)&#123;&#125;</div><div class="line">...</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">    Pokemon weedle;</div><div class="line">    weedle = 28; //error, change to weedle = Pokemon(28);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Error-of-Double-Free-Shallow-Copy"><a href="#Error-of-Double-Free-Shallow-Copy" class="headerlink" title="Error of Double Free: Shallow Copy"></a>Error of Double Free: Shallow Copy</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">// declare meanwhile define, call copy constructor function.</div><div class="line">Pokemon ditto  = charizard;</div><div class="line">...</div><div class="line">...</div><div class="line">// otherwise, call operator(&quot;=&quot;) function.</div><div class="line">Pokemon ditto;</div><div class="line">ditto = charizard;</div><div class="line">...</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>Default copy constructor and operator (=) function are both <strong>shallow copy</strong> functions, which would result in double free error. We need to overwrite these two function.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;cstring&gt;</div><div class="line"></div><div class="line">class Pokemon &#123;</div><div class="line">public:</div><div class="line">  Pokemon() : name(new char[1]) &#123; name[0] = &apos;\0&apos;; &#125;</div><div class="line">  Pokemon(const char* n) : name(new char[strlen(n)+1]) &#123; </div><div class="line">    strcpy(name, n);</div><div class="line">  &#125;</div><div class="line">  Pokemon(const Pokemon&amp; p) : name(new char[strlen(p.name)+1]) &#123; </div><div class="line">    strcpy(name, p.name);</div><div class="line">  &#125;</div><div class="line">  /* Solution:</div><div class="line">  Pokemon&amp; operator=(const Pokemon&amp; rhs) &#123;</div><div class="line">    if ( this == &amp;rhs ) return *this;</div><div class="line">    delete [] name;</div><div class="line">    name = new char[strlen(rhs.name)+1];</div><div class="line">    strcpy(name, rhs.name);</div><div class="line">    return *this;</div><div class="line">  &#125;</div><div class="line">  */</div><div class="line">  ~Pokemon() &#123; delete [] name; &#125;</div><div class="line">  const char* getName() const &#123; return name; &#125;</div><div class="line">private:</div><div class="line">  char* name;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">    Pokemon charizard(&quot;Charizard&quot;);</div><div class="line">    Pokemon ditto;</div><div class="line">    ditto = charizard; //double free error.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/17/8110-1/" rel="next" title="8110 (1)">
+                <i class="fa fa-chevron-left"></i> 8110 (1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/19/TenforFlow-Notes-1/" rel="prev" title="TenforFlow Notes (1)">
+                TenforFlow Notes (1) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/1.jpg"
+                alt="BearVic" />
+            
+              <p class="site-author-name" itemprop="name">BearVic</p>
+              <p class="site-description motion-element" itemprop="description">To Be - <br>  364824114@qq.com</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#No-1-Basic-C"><span class="nav-number">1.</span> <span class="nav-text">No.1 Basic C++</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Namespaces"><span class="nav-number">1.1.</span> <span class="nav-text">Namespaces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operators-unary-binary-ternary"><span class="nav-number">1.2.</span> <span class="nav-text">Operators: unary, binary, ternary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-tips"><span class="nav-number">1.3.</span> <span class="nav-text">Other tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialization-vs-Assignment"><span class="nav-number">1.4.</span> <span class="nav-text">Initialization vs Assignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructors"><span class="nav-number">1.5.</span> <span class="nav-text">Constructors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Conversion"><span class="nav-number">1.5.1.</span> <span class="nav-text">Conversion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-of-Double-Free-Shallow-Copy"><span class="nav-number">1.5.2.</span> <span class="nav-text">Error of Double Free: Shallow Copy</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BearVic</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.2"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

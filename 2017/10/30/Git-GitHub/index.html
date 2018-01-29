@@ -103,25 +103,17 @@
   <meta name="keywords" content="Hexo, NexT" />
 
 
-<meta name="description" content="Git and GitHub
-reference:Version Control with Git  
-Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository.
-123456789101112131415161">
+<meta name="description" content="Git and GitHub reference:Version Control with Git   Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository. 123456789101112131415161">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git&GitHub">
+<meta property="og:title" content="Git&amp;GitHub">
 <meta property="og:url" content="http://yoursite.com/2017/10/30/Git-GitHub/index.html">
-<meta property="og:site_name" content="Vic's Paradise">
-<meta property="og:description" content="Git and GitHub
-reference:Version Control with Git  
-Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository.
-123456789101112131415161">
+<meta property="og:site_name" content="Vic&#39;s Paradise">
+<meta property="og:description" content="Git and GitHub reference:Version Control with Git   Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository. 123456789101112131415161">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-10-30T17:52:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git&GitHub">
-<meta name="twitter:description" content="Git and GitHub
-reference:Version Control with Git  
-Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository.
-123456789101112131415161">
+<meta name="twitter:title" content="Git&amp;GitHub">
+<meta name="twitter:description" content="Git and GitHub reference:Version Control with Git   Git BasicThis part include git init, tracking changes, exploring history, commit changes and remove file in git repository. 123456789101112131415161">
 
 
 
@@ -351,7 +343,7 @@ Git BasicThis part include git init, tracking changes, exploring history, commit
 
       
         <h1 id="Git-and-GitHub"><a href="#Git-and-GitHub" class="headerlink" title="Git and GitHub"></a>Git and GitHub</h1><hr>
-<p>reference:<a href="http://swcarpentry.github.io/git-novice/" target="_blank" rel="external">Version Control with Git</a>  </p>
+<p>reference:<a href="http://swcarpentry.github.io/git-novice/" target="_blank" rel="noopener">Version Control with Git</a>  </p>
 <h2 id="Git-Basic"><a href="#Git-Basic" class="headerlink" title="Git Basic"></a>Git Basic</h2><p>This part include git init, tracking changes, exploring history, commit changes and remove file in git repository.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">git init  //cd to a dir and runing code to create a git</div><div class="line"></div><div class="line">//git configuration</div><div class="line">git config --global user.name &quot;name&quot;</div><div class="line">git config --global user.email &quot;@.com&quot;</div><div class="line">git config --global color.ui &quot;auto&quot;</div><div class="line"></div><div class="line">git config --list  //list configurations</div><div class="line"></div><div class="line">git status  //tracking changes</div><div class="line">git add mars.txt  //adding a file to staging area</div><div class="line">git commit -m &quot;First commit.&quot;  //commit file from staging area to repository with description(required)</div><div class="line"></div><div class="line">git checkout -- &quot;mars.txt&quot;  //discard changes</div><div class="line">git diff  //review changes</div><div class="line">git log  //commit log</div><div class="line"></div><div class="line">//review difference from history version</div><div class="line">git diff HEAD mars.txt</div><div class="line">git diff HEAD~1 mars.txt</div><div class="line"></div><div class="line">//show history version</div><div class="line">git show HEAD~3 mars.txt</div><div class="line">git show HEAD~3:mars.txt</div><div class="line"></div><div class="line">//rollback to history version</div><div class="line">git checkout HEAD~3 mars.txt</div><div class="line"></div><div class="line">//rm file from repository</div><div class="line">git rm jupiter.txt</div><div class="line">git commit -m &quot;delete jupiter.txt&quot;</div></pre></td></tr></table></figure>
 <h2 id="GitIgnore"><a href="#GitIgnore" class="headerlink" title="GitIgnore"></a>GitIgnore</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">mkdir results</div><div class="line">touch a.dat b.dat c.dat results/a.out results/b.out</div><div class="line"></div><div class="line">vim .gitignore</div><div class="line"></div><div class="line">--INSERT--</div><div class="line">*.dat</div><div class="line">results/</div><div class="line">:wq</div><div class="line"></div><div class="line">git add .gitignore</div><div class="line">git commit -m &quot;Add the ignore file&quot;</div></pre></td></tr></table></figure>

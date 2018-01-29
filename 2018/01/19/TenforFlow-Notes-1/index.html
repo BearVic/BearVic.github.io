@@ -103,22 +103,17 @@
   <meta name="keywords" content="Hexo, NexT" />
 
 
-<meta name="description" content="Getting Started with TensorFlowlearn from the official website
-
-Tensors: The central unit of data in TensorFlow is the tensor. A tensor consists of a set of primitive values shaped into an array of an">
+<meta name="description" content="Getting Started with TensorFlowlearn from the official website  Tensors: The central unit of data in TensorFlow is the tensor. A tensor consists of a set of primitive values shaped into an array of an">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TenforFlow Notes (1)">
 <meta property="og:url" content="http://yoursite.com/2018/01/19/TenforFlow-Notes-1/index.html">
-<meta property="og:site_name" content="Vic's Paradise">
-<meta property="og:description" content="Getting Started with TensorFlowlearn from the official website
-
-Tensors: The central unit of data in TensorFlow is the tensor. A tensor consists of a set of primitive values shaped into an array of an">
+<meta property="og:site_name" content="Vic&#39;s Paradise">
+<meta property="og:description" content="Getting Started with TensorFlowlearn from the official website  Tensors: The central unit of data in TensorFlow is the tensor. A tensor consists of a set of primitive values shaped into an array of an">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-01-19T19:54:09.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TenforFlow Notes (1)">
-<meta name="twitter:description" content="Getting Started with TensorFlowlearn from the official website
-
-Tensors: The central unit of data in TensorFlow is the tensor. A tensor consists of a set of primitive values shaped into an array of an">
+<meta name="twitter:description" content="Getting Started with TensorFlowlearn from the official website  Tensors: The central unit of data in TensorFlow is the tensor. A tensor consists of a set of primitive values shaped into an array of an">
 
 
 
@@ -347,7 +342,7 @@ Tensors: The central unit of data in TensorFlow is the tensor. A tensor consists
       
 
       
-        <h1 id="Getting-Started-with-TensorFlow"><a href="#Getting-Started-with-TensorFlow" class="headerlink" title="Getting Started with TensorFlow"></a>Getting Started with TensorFlow</h1><p><a href="https://www.tensorflow.org/get_started/get_started" target="_blank" rel="external">learn from the official website</a></p>
+        <h1 id="Getting-Started-with-TensorFlow"><a href="#Getting-Started-with-TensorFlow" class="headerlink" title="Getting Started with TensorFlow"></a>Getting Started with TensorFlow</h1><p><a href="https://www.tensorflow.org/get_started/get_started" target="_blank" rel="noopener">learn from the official website</a></p>
 <blockquote>
 <p><strong>Tensors</strong>: The central unit of data in TensorFlow is the tensor. A tensor consists of a set of primitive values shaped into an array of any number of dimensions. A tensor’s rank is its number of dimensions.</p>
 <p>You might think of TensorFlow Core programs as consisting of two discrete sections:</p>
@@ -361,8 +356,8 @@ Tensors: The central unit of data in TensorFlow is the tensor. A tensor consists
 <p><strong>Node</strong>: Each node takes zero or more tensors as inputs and produces a tensor as an output.</p>
 <blockquote>
 <p><strong>Constant</strong>: One type of node is a constant. Like all TensorFlow constants, it takes no inputs, and it outputs a value it stores internally.</p>
-<figure class="highlight plain"><figcaption><span>= tf.constant(3.0, dtype=tf.float32)```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; </div><div class="line">&gt; &gt; **PlaceHolder**: A graph can be parameterized to accept external inputs, known as placeholders. A placeholder is a promise to provide a value later.</div><div class="line">&gt; &gt; ```a = tf.placeholder(tf.float32)</div></pre></td></tr></table></figure>
-<p><strong>Variables</strong>: In machine learning we will typically want a model that can take arbitrary inputs, such as the one above. To make the model trainable, we need to be able to modify the graph to get new outputs with the same input. Variables allow us to add trainable parameters to a graph.<br><figure class="highlight plain"><figcaption><span>= tf.Variable([.3], dtype=tf.float32)```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; </div><div class="line">&gt; &gt; Constants are initialized when you call tf.constant, and their value can never change. By contrast, variables are not initialized when you call tf.Variable. To initialize all the variables in a TensorFlow program, you must explicitly call a special operation as follows:</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; </div><div class="line">&gt; &gt; **PlaceHolder**: A graph can be parameterized to accept external inputs, known as placeholders. A placeholder is a promise to provide a value later.</div><div class="line">&gt; &gt; ```a = tf.placeholder(tf.float32)</div></pre></td></tr></table></figure>
+<p><strong>Variables</strong>: In machine learning we will typically want a model that can take arbitrary inputs, such as the one above. To make the model trainable, we need to be able to modify the graph to get new outputs with the same input. Variables allow us to add trainable parameters to a graph.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; </div><div class="line">&gt; &gt; Constants are initialized when you call tf.constant, and their value can never change. By contrast, variables are not initialized when you call tf.Variable. To initialize all the variables in a TensorFlow program, you must explicitly call a special operation as follows:</div><div class="line">&gt; &gt;</div></pre></td></tr></table></figure></p>
 </blockquote>
 </blockquote>
 <p>init = tf.global_variables_initializer()<br>sess.run(init)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; &gt; </div><div class="line">&gt; &gt; **tf.assign**: A variable is initialized to the value provided to tf.Variable but can be changed using operations like tf.assign.</div><div class="line">&gt; </div><div class="line">&gt; **Session**: To actually evaluate the nodes, we must run the computational graph within a session. A session encapsulates the control and state of the TensorFlow runtime.</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>

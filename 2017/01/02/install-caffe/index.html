@@ -107,8 +107,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="install caffe">
 <meta property="og:url" content="http://yoursite.com/2017/01/02/install-caffe/index.html">
-<meta property="og:site_name" content="Vic's Paradise">
+<meta property="og:site_name" content="Vic&#39;s Paradise">
 <meta property="og:description" content="这本课程中本人自学了caffe框架的用法。caffe是个很好的工具，特别是针对图像处理相关的卷积神经网络。但是本人的电脑系统为macOS，在参照官方文档时候出现问题并得不到解决，似乎是因为系统版本的缘故。后来就索性安装了一个ubuntu的虚拟机，分配了4G内存，两个core。跑官方mnist的例子需要13分钟左右。caffe在ubuntu系统下的安装比较简单，因为显卡问题我没有装GPU，安装基本参">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-01-02T12:09:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="install caffe">
@@ -341,7 +342,7 @@
       
 
       
-        <p>这本课程中本人自学了caffe框架的用法。caffe是个很好的工具，特别是针对图像处理相关的卷积神经网络。但是本人的电脑系统为macOS，在参照官方文档时候出现问题并得不到解决，似乎是因为系统版本的缘故。后来就索性安装了一个ubuntu的虚拟机，分配了4G内存，两个core。跑官方mnist的例子需要13分钟左右。<br>caffe在ubuntu系统下的安装比较简单，因为显卡问题我没有装GPU，安装基本参照下面的链接网址。安装时候请注意最好换个源下载，因为官方的源速度实在太慢了。装了大半天基本都是在等待下载。<a href="http://hmybmny.com/2016/09/change-sources/" target="_blank" rel="external">换源方法</a></p>
+        <p>这本课程中本人自学了caffe框架的用法。caffe是个很好的工具，特别是针对图像处理相关的卷积神经网络。但是本人的电脑系统为macOS，在参照官方文档时候出现问题并得不到解决，似乎是因为系统版本的缘故。后来就索性安装了一个ubuntu的虚拟机，分配了4G内存，两个core。跑官方mnist的例子需要13分钟左右。<br>caffe在ubuntu系统下的安装比较简单，因为显卡问题我没有装GPU，安装基本参照下面的链接网址。安装时候请注意最好换个源下载，因为官方的源速度实在太慢了。装了大半天基本都是在等待下载。<a href="http://hmybmny.com/2016/09/change-sources/" target="_blank" rel="noopener">换源方法</a></p>
 <h2 id="Install-with-CPU"><a href="#Install-with-CPU" class="headerlink" title="Install with CPU"></a>Install with CPU</h2><h3 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt update</div><div class="line">sudo apt upgrade</div><div class="line">sudo apt install -y build-essential cmake git pkg-config</div><div class="line">sudo apt install -y libprotobuf-dev libleveldb-dev libsnappy-dev \</div><div class="line">                    libopencv-dev libhdf5-serial-dev protobuf-compiler</div><div class="line">sudo apt install -y --no-install-recommends libboost-all-dev</div></pre></td></tr></table></figure>
 <blockquote>
 <p>如果使用 OpenBlas 代替默认的 ATLAS的话，需要将 libatlas-base-dev 改为 libopenblas-dev</p>
@@ -362,7 +363,7 @@
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cd ..</div><div class="line">make all -j $(($(nproc) + 1))</div><div class="line">make test</div><div class="line">make runtest</div><div class="line">make pycaffe</div><div class="line">make distribute</div><div class="line"></div><div class="line">#user 是你的用户名</div><div class="line">echo &apos;export PYTHONPATH=/home/user/caffe/python:$PYTHONPATH&apos; &gt;&gt; ~/.bashrc</div></pre></td></tr></table></figure>
 <h3 id="重启终端"><a href="#重启终端" class="headerlink" title="重启终端"></a>重启终端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python</div><div class="line">&gt;&gt;&gt;import caffe </div><div class="line">&gt;&gt;&gt;               # 没报错就成功了</div></pre></td></tr></table></figure>
 <p>至此，caffe就算安装完成了，接下来就愉快的开始使用caffe吧。</p>
-<h3 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h3><p><a href="http://hmybmny.com/2016/10/install-caffe-on-ubuntu-16-dot-04-with-gpu/" target="_blank" rel="external">http://hmybmny.com/2016/10/install-caffe-on-ubuntu-16-dot-04-with-gpu/</a></p>
+<h3 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h3><p><a href="http://hmybmny.com/2016/10/install-caffe-on-ubuntu-16-dot-04-with-gpu/" target="_blank" rel="noopener">http://hmybmny.com/2016/10/install-caffe-on-ubuntu-16-dot-04-with-gpu/</a></p>
 
       
     </div>

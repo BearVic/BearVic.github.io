@@ -345,9 +345,16 @@
       
         
           
-            <p>reference:<a href="http://python.jobbole.com/82760/" target="_blank" rel="external">Python 快速教程（标准库14）：数据库 (sqlite3)</a></p>
+          reference:Python 快速教程（标准库14）：数据库 (sqlite3)
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/08/SQLite3-NoteBook/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -466,100 +473,18 @@
       
         
           
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在之前简单的登录注册实现的基础上，接下来会尝试较完整地实现一个个人博客网站。</p>
-<h1 id="intellij-idea上spring的Junit4单元测试的实现"><a href="#intellij-idea上spring的Junit4单元测试的实现" class="headerlink" title="intellij idea上spring的Junit4单元测试的实现"></a>intellij idea上spring的Junit4单元测试的实现</h1><h2 id="正确导入包"><a href="#正确导入包" class="headerlink" title="正确导入包"></a>正确导入包</h2><p>首先确保导入的包是否正确、齐全。</p>
-<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><p>接下来就直接看看代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">@RunWith(SpringJUnit4ClassRunner.class)</div><div class="line">@ContextConfiguration(locations = &#123;&quot;file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml&quot;&#125;)</div><div class="line">public class UserRepositoryTest &#123;</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    private UserRepository userRepository;</div><div class="line"></div><div class="line">    private UsersEntity usersEntity=new UsersEntity();</div><div class="line"></div><div class="line">    @Test</div><div class="line">    public void findByUsername() throws Exception &#123;</div><div class="line"></div><div class="line">        usersEntity=userRepository.findByUsername(&quot;abc&quot;);</div><div class="line">        System.out.println(usersEntity.getUsername());</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Test</div><div class="line">//    @Transactional</div><div class="line">//    @Rollback</div><div class="line">    public void addUser() throws Exception&#123;</div><div class="line"></div><div class="line">        UsersEntity newUser = new UsersEntity();</div><div class="line">        newUser.setBlognum(0);</div><div class="line">        newUser.setPassword(&quot;456&quot;);</div><div class="line">        newUser.setUsername(&quot;def&quot;);</div><div class="line"></div><div class="line">        userRepository.saveAndFlush(newUser);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h2><ul>
-<li>@RunWith: 让代码段运行与spring测试环境。</li>
-<li>@ContextConfiguration: 用来指定加载的Spring配置文件的位置,会加载默认配置文件。该注解有以下两个常用的属性：locations：可以通过该属性手工指定 Spring 配置文件所在的位置，可以指定一个或多个 Spring 配置文件用，分开。如下所示： @ContextConfiguration(locations={“aa/aa.xml”,” aa/bb.xml”}) inheritLocations：是否要继承父测试用例类中的 Spring 配置文件，默认为 true。前缀若为<strong>“classpath:”</strong>则搜索默认路径下的配置文件，由于我的配置文件不在默认路径下，所以前缀为<strong>“file:”</strong>。</li>
-<li>@Transactional 和 @Rollback: 分别用于 开启事务 以及 事务回滚。在测试中加上这两个标签，则测试中对数据库所做的操作将会操作一次后默认回滚。</li>
-</ul>
-<hr>
-<h2 id="2017-07-21-更新"><a href="#2017-07-21-更新" class="headerlink" title="2017-07-21 更新"></a>2017-07-21 更新</h2><h1 id="spring和spring-MVC的区别"><a href="#spring和spring-MVC的区别" class="headerlink" title="spring和spring MVC的区别"></a>spring和spring MVC的区别</h1><p>简而言之，spring是容器，而springMVC是框架。打个比方，打篮球的时候可以在水泥地可以在木质板地，这就是容器，而在水泥地或木质板地上打篮球或羽毛球，这就是框架。（框架部分可能比喻不太恰当）</p>
-<h2 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h2><p>spring有两个主要的概念：IoC（Inverse of Control）, AOP(Aspect Oriented Programming)</p>
-<h3 id="spring-IoC"><a href="#spring-IoC" class="headerlink" title="spring IoC"></a>spring IoC</h3><p>我看百度百科上说，依赖注入是其实现方式之一。</p>
-<h3 id="spring-AOP"><a href="#spring-AOP" class="headerlink" title="spring AOP"></a>spring AOP</h3><p>面向切面编程，我没用到。</p>
-<h2 id="springMVC"><a href="#springMVC" class="headerlink" title="springMVC"></a>springMVC</h2><p><img src="/img/springnotebook/springMVCControlFlow.png" alt="springMVC Control Flow"></p>
-<p>其控制流程如上所示。这就构成了MVC的框架结构。</p>
-<h1 id="myblog的简单实现"><a href="#myblog的简单实现" class="headerlink" title="myblog的简单实现"></a>myblog的简单实现</h1><ul>
-<li><p>前端用的vue.js框架，用了点jsp。后台是spring+springMVC+Hibernate，数据库操作的实现用了spring data接口。</p>
-</li>
-<li><p>因为只是简单实现，我将业务逻辑都放在Controller里了，所以在接下来的具体介绍，我按Model(数据库操作),View(前端页面操作),Control(具体业务逻辑及数据转发响应)来说明(并不是严格按照真正的MVC概念来介绍)。</p>
-</li>
-<li><p>网站仅实现了用户登录，及登录用户对博文增删改查的简单操作。</p>
-</li>
-</ul>
-<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>数据库配置参加上一篇文章，这里我们介绍具体代码部分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Repository</div><div class="line">public interface BlogRepository extends JpaRepository&lt;BlogsEntity, Integer&gt; &#123;</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">    @Query(value = &quot;select title from blogs LIMIT ?1,?2&quot;, nativeQuery = true)</div><div class="line">    List&lt;String&gt; findByBlogLimit(int param1, int param2);</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码已经很清晰了，带上标签<strong>@Query</strong>使用原生的mysql语句进行数据库操作。</p>
-<p>顺带一提，这里的<strong>LIMIT</strong>可以返回指定序数的数据。</p>
-<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>这个部分我使用了最近比较流行的vue.js框架，基本介绍我看心情更新博文。这里我先截取几个我认为比较好用的功能来说明下。</p>
-<h3 id="登录部分代码"><a href="#登录部分代码" class="headerlink" title="登录部分代码"></a>登录部分代码</h3><p>这里拿登录部分的代码做例子。</p>
-<p>以下是html部分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;sidebar&quot; class=&quot;sidebar&quot; v-model=&quot;isLogin&quot;&gt;</div><div class="line">                    &lt;div v-if=&quot;!isLogin&quot;&gt;</div><div class="line">                        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">                            &lt;input type=&quot;text&quot; placeholder=&quot;username&quot; style=&quot;color:#000000&quot; v-model=&quot;user.username&quot;&gt;&lt;br&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">                            &lt;input type=&quot;password&quot; placeholder=&quot;password&quot; style=&quot;color:#000000&quot; v-model=&quot;user.password&quot;&gt;&lt;br&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">                            &lt;button style=&quot;color:#000000&quot; @click=&quot;login&quot;&gt;login&lt;/button&gt;</div><div class="line">                        &lt;/div&gt;</div><div class="line">                    &lt;/div&gt;</div><div class="line">                    &lt;div v-else&gt;</div><div class="line">                        &lt;h3&gt;welcome!&lt;/h3&gt;&lt;br&gt;</div><div class="line">                        &lt;form action=&quot;/newblog&quot; method=&quot;get&quot; style=&quot;color:#000000&quot;&gt;</div><div class="line">                            &lt;button @click=&quot;logout&quot;&gt;logout&lt;/button&gt;</div><div class="line">                            &lt;button type=&quot;submit&quot;&gt;new blog&lt;/button&gt;</div><div class="line">                        &lt;/form&gt;</div><div class="line">                    &lt;/div&gt;</div><div class="line">                &lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>再看看对应的js代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">var sideBar = new Vue(&#123;</div><div class="line">        el: &apos;#sidebar&apos;,</div><div class="line">        data: &#123;</div><div class="line">            isLogin: false,</div><div class="line">            user: &#123;</div><div class="line">                username: &apos;&apos;,</div><div class="line">                password: &apos;&apos;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        mounted: function () &#123;</div><div class="line">            this.islogin()</div><div class="line">        &#125;,</div><div class="line">        methods: &#123;</div><div class="line">            islogin: function () &#123;</div><div class="line">                this.$http.get(&quot;/islogin&quot;).then(function (response) &#123;</div><div class="line">                    this.isLogin = response.data.islogin;</div><div class="line"></div><div class="line">                &#125;, function (response) &#123;</div><div class="line"></div><div class="line">                &#125;)</div><div class="line">            &#125;,</div><div class="line"></div><div class="line">            login: function () &#123;</div><div class="line">                this.$http.get(&quot;/login&quot;, &#123;params: &#123;&apos;username&apos;: this.user.username, &apos;password&apos;: this.user.password&#125;&#125;)</div><div class="line">                    .then(function (response) &#123;</div><div class="line">                        this.isLogin = response.data.islogin;</div><div class="line">                        this.isLogin == true ? alert(&quot;welcome!&quot;) : alert(&quot;login failed!&quot;);</div><div class="line">                    &#125;, function (response) &#123;</div><div class="line">                        alert(response.data.islogin + &quot;login failed!&quot; + this.user.username + this.user.password)</div><div class="line">                    &#125;)</div><div class="line">            &#125;,</div><div class="line">            logout: function () &#123;</div><div class="line">                this.$http.get(&quot;/logout&quot;).then(function (response) &#123;</div><div class="line">                    alert(&quot;logout success!&quot;);</div><div class="line">                    this.isLogin = false;</div><div class="line"></div><div class="line">                &#125;, function (response) &#123;</div><div class="line">                    alert(&quot;network error!&quot;)</div><div class="line">                &#125;)</div><div class="line">            &#125;,</div><div class="line">            newBlog: function () &#123;</div><div class="line">                this.$http.get(&quot;/newblog&quot;).then(function (response) &#123;</div><div class="line">                    alert(response.status)</div><div class="line"></div><div class="line">                &#125;, function (response) &#123;</div><div class="line">                    alert(response.status)</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-<h3 id="代码说明-1"><a href="#代码说明-1" class="headerlink" title="代码说明"></a>代码说明</h3><p>首先，在js代码中新建Vue对象，Vue对象中主要有三个部分:el,data,methods。</p>
-<ul>
-<li><strong>el</strong>:将对象与html页面中的某一个组件绑定。</li>
-<li><strong>data</strong>:Vue对象的数据部分。</li>
-<li><strong>methods</strong>:在方法里面定义方法函数。</li>
-</ul>
-<p>除了上面这三个，还有created,mounted之类的钩子函数以及watch等。我用到了mounted这个钩子函数，是要在页面初始化时同时向服务器取一些数据动态地显示在页面上。</p>
-<p>其次，上面向后台动态交换数据使用了vue-resource库。具体使用参见如下代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">this.$http.get(&quot;/login&quot;, &#123;params: &#123;&apos;username&apos;: this.user.username, &apos;password&apos;: this.user.password&#125;&#125;)</div><div class="line">                    .then(function (response) &#123;</div><div class="line">                    //这里是请求成功后的代码，可以从response中取得返回数据</div><div class="line">                    &#125;, function (response) &#123;</div><div class="line">                    //请求失败的代码</div><div class="line">                    &#125;)</div></pre></td></tr></table></figure>
-<p>由上可见，”/login”是请求的url地址，params是附带的参数。</p>
-<p>最后在html中用到的vue.js标签有:v-if,v-else,v-model,v-on。</p>
-<ul>
-<li>v-if和v-else:就是在html页面做条件判断显示。</li>
-<li>v-model:用于将页面组件与数据做动态绑定。</li>
-<li>v-on: <em>v-on:click=””</em> 缩写为 <em>@click=””</em>, 事件响应函数。</li>
-</ul>
-<h3 id="业务逻辑几点说明"><a href="#业务逻辑几点说明" class="headerlink" title="业务逻辑几点说明"></a>业务逻辑几点说明</h3><ul>
-<li>加载页面时，由钩子函数mounted向服务器查询登录状态，若已经登录将isLogin置为true，反之false。</li>
-<li>html页面相应组件中由v-if和v-else对isLogin进行条件判断并选择渲染对应<code>&lt;div&gt;</code>组件显示给用户。</li>
-<li>将<code>&lt;div&gt;</code>组件通过<code>v-model=&quot;isLogin&quot;</code>与Vue对象中的<em>isLogin</em>进行双向绑定并实时感应该值变化并作出相应改变。</li>
-<li>其他的话，就是正常的登录流程，这里不再详述。</li>
-</ul>
-<h3 id="最后还有几点说明"><a href="#最后还有几点说明" class="headerlink" title="最后还有几点说明"></a>最后还有几点说明</h3><ul>
-<li>用到的都是vue.js最基本的功能，更高级点的像自定义组件,vue-router,vuex都没有用到。</li>
-<li>方便起见，我用到的全部request请求都是get方式的。</li>
-<li>官方表示不再更新维护vue-resource,并给我们推荐了axios。</li>
-<li>在点击博文标题查看文章具体内容的时候，其实是向后台发送一个链接请求，后台收到请求，同时返回一个空的页面和博文标题及内容的数据。我在做这个处理的时候不知道如何用vue.js接收这个数据，卡了好久，最后只好用jsp页面实现这一块功能。jsp页面可以用request来获取后台返回ModelAndView中附带的数据。</li>
-<li>分页功能借鉴网上某位博主的，但是页面关了之后就找不到了&gt;.&lt;，见谅，然后我会找时间把这一功能实现分享下。</li>
-</ul>
-<h2 id="Control"><a href="#Control" class="headerlink" title="Control"></a>Control</h2><p>我在控制器中包含了全部的业务逻辑处理。但都是些基本操作（上一篇都能找到用法）。以下就提几点上一篇没提到的用法。</p>
-<h3 id="后台返回json数据"><a href="#后台返回json数据" class="headerlink" title="后台返回json数据"></a>后台返回json数据</h3><p>方式有好几种，我这边就介绍我用的这种。</p>
-<ul>
-<li>首先要配置相关的环境。</li>
-<li>然后在方法上边加上<em>@ResponseBody</em>标签。</li>
-<li>如果只是单纯返回数据，可以新建<code>Map&lt;String,Object&gt; modelMap</code>对象，将数据put到Map里面，最后返回，会自动解析为json格式的数据。</li>
-<li>如果同时返回页面和数据，可以新建<code>ModelAndView</code>对象，.setViewName()方法设置返回的页面，.addObject()方法添加返回的数据。</li>
-</ul>
-<h3 id="保存用户登录状态"><a href="#保存用户登录状态" class="headerlink" title="保存用户登录状态"></a>保存用户登录状态</h3><p>这个东西卡了我好久好久。最后我用了<strong>@SessionAttributes</strong>配合<strong>@ModelAttribute</strong>两个标签，将用户登录状态保存到session中。具体用法如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">@Controller</div><div class="line">@SessionAttributes(value = &quot;user&quot;)</div><div class="line">public class UserController &#123;</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    private UserRepository userRepository;</div><div class="line"></div><div class="line">    @ModelAttribute(&quot;user&quot;)</div><div class="line">    public UsersEntity initUsersEntity() &#123;</div><div class="line">        UsersEntity usersEntity = new UsersEntity();</div><div class="line">        return usersEntity;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/login&quot;, method = RequestMethod.GET)</div><div class="line">    @ResponseBody</div><div class="line">    public Map&lt;String, Object&gt; login(@RequestParam(&quot;username&quot;) String username,</div><div class="line">                                     @RequestParam(&quot;password&quot;) String password,</div><div class="line">                                     HttpSession httpSession,</div><div class="line">                                     @ModelAttribute(&quot;user&quot;) UsersEntity curUser) &#123;</div><div class="line">        Map&lt;String, Object&gt; modelMap = new HashMap&lt;&gt;();</div><div class="line">        UsersEntity usersEntity = userRepository.findByUsername(username);</div><div class="line">        if (usersEntity == null || !password.equals(usersEntity.getPassword())) &#123;</div><div class="line">            modelMap.put(&quot;islogin&quot;, false);</div><div class="line">        &#125; else &#123;</div><div class="line">            modelMap.put(&quot;islogin&quot;, true);</div><div class="line">            curUser.setUsername(username);</div><div class="line">            curUser.setPassword(password);</div><div class="line">        &#125;</div><div class="line">        return modelMap;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码说明:</p>
-<ul>
-<li><strong>@SessionAttributes</strong>标签只能放在类上，指定对象名<code>value=&quot;user&quot;</code>。</li>
-<li>类中用<code>public UsersEntity initUsersEntity()</code>函数对user对象进行初始化，并在该函数上加上<strong>@ModelAttribute</strong>标注。</li>
-<li>在函数中使用时，使用<strong>@ModelAttribute</strong>标签在参数中引入。引入的该对象是类，则在函数中对类的数据进行修改也会直接覆盖存在session中的该类对象。</li>
-<li>一开始只想用boolean对象存入session中，但是如上引入函数，却无法修改其值，我想可能是@SessionAttributes标签里需要指明数据类型吧（我没试过）。</li>
-<li>需要在函数参数中加入<code>HttpSession</code>对象，不然浏览器那边就报错了。不知道什么原因。</li>
-<li>需要清空登录状态时，参数引入<strong>SessionStatus</strong>对象，使用SessionStatus.setComplete()方法，清空session中的数据即可。</li>
-</ul>
-<h1 id="最后再说几句"><a href="#最后再说几句" class="headerlink" title="最后再说几句"></a>最后再说几句</h1><ul>
-<li>整个网站我只实现了最基本的功能，用到的框架等也只使用了最基本的功能。进阶的话，需要再系统地学习框架知识及原理，规范编码格式、目录结构等，再参加参加大型的项目研发才行。</li>
-<li>整个网站的实现并没有具体的项目参考，都是按照我自己的想法设计并实现的。但是具体的实现知识细节参考了很多百度谷歌上的东西，由于东西零碎且没有保存相关网站，因此这里就不列出参考链接了。</li>
-<li>vue.js和javascript是好东西啊。我以前基本没接触过，稍微看看也能拿来写（渣）项目了，难怪那么多人学。</li>
-<li><em>注意！</em> <strong>注意！</strong> <strong><em>注意！</em></strong> 重要的事情说三遍。我写这个网站的时候，吃了很多环境配置的亏。虽然使用的maven环境，通过xml导入相关依赖的包。但是我之前参考的那个环境配置，它导入的包就很有问题，导致我编写代码时候有些功能思来想去找不到问题所在，最后发现是导包的错。！！！</li>
-<li>网站整体的逻辑及实现都是很简单的但是就是在有些细节方面卡了好久百度不到谷歌不到这时候就好希望有个人能教我就好了！！</li>
-<li>网站页面设计使用了<strong>RapidWeaver 7</strong>，这个软件还不错，提供了框架和样式，但是不够灵活，不能自由地加入按钮啊之类的。我还试过<strong>AxureRP 8</strong>，这个相对就灵活多了，但是没有提供基本的框架样式（或者是收费的？没注意），就放弃了。</li>
-<li>网站还有很多BUG之类的，因为只是当做兴趣学习写的，就不管了。:P</li>
-</ul>
-<p><a href="https://github.com/BearVic/myblog" target="_blank" rel="external">我的github地址</a></p>
-<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
-          
+          概述在之前简单的登录注册实现的基础上，接下来会尝试较完整地实现一个个人博客网站。
+intellij idea上spring的Junit4单元测试的实现正确导入包首先确保导入的包是否正确、齐全。
+示例代码接下来就直接看看代码
+12345678910111213141516171819202122232
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/14/spring-study-notes-advanced/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -678,11 +603,18 @@
       
         
           
-            <h2 id="macOS在终端运行mysql"><a href="#macOS在终端运行mysql" class="headerlink" title="macOS在终端运行mysql"></a>macOS在终端运行mysql</h2><ul>
-<li>$ /usr/local/mysql/bin/mysql -u root -p</li>
-</ul>
+          macOS在终端运行mysql
+$ /usr/local/mysql/bin/mysql -u root -p
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/09/mysql-Guide-Book/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -801,169 +733,19 @@
       
         
           
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本篇为vue.js的简单入门。<br>vue.js是时下热门的javascript MVVM(Model-View-ViewModel)库，简单好用。</p>
-<p>参考链接  </p>
-<p><a href="http://www.cnblogs.com/keepfool/p/5619070.html" target="_blank" rel="external">Vue.js——60分钟快速入门</a><br><a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="external">官方中文教程</a></p>
-<h1 id="HelloWorld入门示例"><a href="#HelloWorld入门示例" class="headerlink" title="HelloWorld入门示例"></a>HelloWorld入门示例</h1><p>废话不多说，先来个Hello World。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Vue.js Learning&lt;/title&gt;</div><div class="line"></div><div class="line">    &lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">    &#123;&#123;message&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    new Vue(&#123;</div><div class="line">        el: &apos;#app&apos;,</div><div class="line">        data: &#123;message: &quot;Hello World!&quot;&#125;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">        el: &apos;#app&apos;,</div><div class="line">        data: &#123;message: &quot;Hello World!&quot;&#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-<p>这段代码中包含了我们所需要的信息，如下表所示:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">el</th>
-<th style="text-align:center"><code>&lt;div id=&quot;app&quot;&gt; &lt;/div&gt;</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">data</td>
-<td style="text-align:center">{message:”Hello World!”}</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>el</strong> 对应html中的标签元素，即<strong>View</strong>  </li>
-<li><strong>data</strong> 对应的data，即我们需要操作的<strong>Model</strong></li>
-</ul>
-<p>若将上述<strong>app</strong>标签中的代码改成如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">    &lt;input type=&quot;text&quot; v-model=&quot;message&quot;/&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>如此就实现了View和Model的<strong>双向绑定</strong>，将message绑定到文本框，当更改文本框的值时，<code>&lt;p&gt;&lt;/p&gt;</code>中的内容也会被更新。</p>
-<h1 id="Vue-js常用指令"><a href="#Vue-js常用指令" class="headerlink" title="Vue.js常用指令"></a>Vue.js常用指令</h1><table>
-<thead>
-<tr>
-<th style="text-align:left">指令</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">v-if</td>
-<td style="text-align:left">判断为true,则将后面元素渲染到html中，false则不</td>
-</tr>
-<tr>
-<td style="text-align:left">v-show</td>
-<td style="text-align:left">类似v-if，true,false都渲染，但是修改css属性</td>
-</tr>
-<tr>
-<td style="text-align:left">v-else</td>
-<td style="text-align:left">必须跟在v-if或v-show后面，若在v-if后面则根据if正确与否再决定是否渲染，v-show后则都渲染</td>
-</tr>
-<tr>
-<td style="text-align:left">v-for</td>
-<td style="text-align:left">v-for=”item in items” 大概就这样了</td>
-</tr>
-<tr>
-<td style="text-align:left">v-bind</td>
-<td style="text-align:left">将元素与Vue实例绑定,可用于修改标签中属性的值，如id</td>
-</tr>
-<tr>
-<td style="text-align:left">v-on</td>
-<td style="text-align:left">实现事件监听功能，调用对应的函数</td>
-</tr>
-</tbody>
-</table>
-<h1 id="表格创建的例子"><a href="#表格创建的例子" class="headerlink" title="表格创建的例子"></a>表格创建的例子</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; xmlns:v-on=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;xiaodemo&lt;/title&gt;</div><div class="line"></div><div class="line">    &lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;fieldset&gt;</div><div class="line">        &lt;legend&gt;</div><div class="line">            Create New Person</div><div class="line">        &lt;/legend&gt;</div><div class="line">        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">            &lt;label&gt;Name:&lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; v-model=&quot;newPerson.name&quot;/&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">            &lt;label&gt;Age:&lt;/label&gt;</div><div class="line">            &lt;input type=&quot;text&quot; v-model=&quot;newPerson.age&quot;/&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">            &lt;label&gt;Gender:&lt;/label&gt;</div><div class="line">            &lt;select v-model=&quot;newPerson.gender&quot;&gt;</div><div class="line">                &lt;option value=&quot;Male&quot;&gt;Male&lt;/option&gt;</div><div class="line">                &lt;option value=&quot;Female&quot;&gt;Female&lt;/option&gt;</div><div class="line">            &lt;/select&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;form-group&quot;&gt;</div><div class="line">            &lt;button v-on:click=&quot;createPerson&quot;&gt;Create&lt;/button&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/fieldset&gt;</div><div class="line">    &lt;table&gt;</div><div class="line">        &lt;thead&gt;</div><div class="line">        &lt;tr&gt;</div><div class="line">            &lt;th&gt;Name&lt;/th&gt;</div><div class="line">            &lt;th&gt;Age&lt;/th&gt;</div><div class="line">            &lt;th&gt;Gender&lt;/th&gt;</div><div class="line">            &lt;th&gt;Delete&lt;/th&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">        &lt;/thead&gt;</div><div class="line">        &lt;tbody&gt;</div><div class="line">        &lt;tr v-for=&quot;person in people&quot;&gt;</div><div class="line">            &lt;td&gt;&#123;&#123;person.name&#125;&#125;&lt;/td&gt;</div><div class="line">            &lt;td&gt;&#123;&#123;person.age&#125;&#125;&lt;/td&gt;</div><div class="line">            &lt;td&gt;&#123;&#123;person.gender&#125;&#125;&lt;/td&gt;</div><div class="line">            &lt;td :class=&quot;&apos;text-center&apos;&quot;&gt;</div><div class="line">                &lt;button @click=&quot;deletePerson($index)&quot;&gt;Delete&lt;/button&gt;</div><div class="line">            &lt;/td&gt;</div><div class="line">        &lt;/tr&gt;</div><div class="line">        &lt;/tbody&gt;</div><div class="line">    &lt;/table&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var vm = new Vue(&#123;</div><div class="line">        el: &quot;#app&quot;,</div><div class="line">        data: &#123;</div><div class="line">            newPerson: &#123;</div><div class="line">                name: &apos;&apos;,</div><div class="line">                age: 0,</div><div class="line">                gender: &apos;Male&apos;</div><div class="line">            &#125;,</div><div class="line">            people: [&#123;</div><div class="line">                name: &apos;Jack&apos;,</div><div class="line">                age: 30,</div><div class="line">                gender: &apos;Male&apos;</div><div class="line">            &#125;, &#123;</div><div class="line">                name: &apos;Tracy&apos;,</div><div class="line">                age: 22,</div><div class="line">                gender: &apos;Female&apos;</div><div class="line">            &#125;]</div><div class="line">        &#125;,</div><div class="line">        methods: &#123;</div><div class="line">            createPerson: function () &#123;</div><div class="line">                this.people.push(this.newPerson);</div><div class="line">                this.newPerson = &#123;name: &apos;&apos;, age: 0, gender: &apos;Male&apos;&#125;</div><div class="line">            &#125;,</div><div class="line">            deletePerson: function (index) &#123;</div><div class="line">                this.people.splice(index, 1);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<script src="https://unpkg.com/vue"></script>
-<div id="app">
-    <fieldset>
-        <legend>
-            Create New Person
-        </legend>
-        <div class="form-group">
-            <label>Name:</label>
-            <input type="text" v-model="newPerson.name">
-        </div>
-        <div class="form-group">
-            <label>Age:</label>
-            <input type="text" v-model="newPerson.age">
-        </div>
-        <div class="form-group">
-            <label>Gender:</label>
-            <select v-model="newPerson.gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <button v-on:click="createPerson">Create</button>
-        </div>
-    </fieldset>
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="person in people">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td :class="'text-center'">
-                <button @click="deletePerson($index)">Delete</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
-</div>
-<script>
-    var vm = new Vue({
-        el: "#app",
-        data: {
-            newPerson: {
-                name: '',
-                age: 0,
-                gender: 'Male'
-            },
-            people: [{
-                name: 'Jack',
-                age: 30,
-                gender: 'Male'
-            }, {
-                name: 'Tracy',
-                age: 22,
-                gender: 'Female'
-            }]
-        },
-        methods: {
-            createPerson: function () {
-                this.people.push(this.newPerson);
-                this.newPerson = {name: '', age: 0, gender: 'Male'}
-            },
-            deletePerson: function (index) {
-                this.people.splice(index, 1);
-            }
-        }
-    })
-</script>
-
-
-<p>不造为啥数据不显示 奇了怪了 算了 不管了</p>
-<hr>
-<p>更新事件:2017-07-30</p>
-<h1 id="分页的例子"><a href="#分页的例子" class="headerlink" title="分页的例子"></a>分页的例子</h1><p>代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;!--声明不是 HTML 标签；它是指示 web 浏览器关于页面使用哪个 HTML 版本进行编写的指令。--&gt;</div><div class="line">&lt;!--&lt;!DOCTYPE html&gt;表示html5版本--&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line"></div><div class="line">    &lt;!--&lt;head&gt; 标签用于定义文档的头部，它是所有头部元素的容器。--&gt;</div><div class="line">    &lt;!--&lt;head&gt; 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等等。--&gt;</div><div class="line">    &lt;!--文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web 中的位置以及和其他文档的关系等。--&gt;</div><div class="line">    &lt;!--绝大多数文档头部包含的数据都不会真正作为内容显示给读者。--&gt;</div><div class="line"></div><div class="line">    &lt;meta name=&quot;viewport&quot;</div><div class="line">          content=&quot;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;/&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!--&lt;meta&gt; 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。--&gt;</div><div class="line">    &lt;!--&lt;meta&gt; 标签位于文档的头部，不包含任何内容。&lt;meta&gt; 标签的属性定义了与文档相关联的名称/值对。--&gt;</div><div class="line"></div><div class="line">    &lt;title&gt;&lt;/title&gt;</div><div class="line">    &lt;!--&lt;title&gt; 定义文档的标题，它是 head 部分中唯一必需的元素。--&gt;</div><div class="line">    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;/&gt;</div><div class="line">    &lt;meta name=&quot;description&quot; content=&quot;&quot;/&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">    &lt;!--定义和用法--&gt;</div><div class="line">    &lt;!--&lt;script&gt; 标签用于定义客户端脚本，比如 JavaScript。--&gt;</div><div class="line">    &lt;!--script 元素既可以包含脚本语句，也可以通过 src 属性指向外部脚本文件。--&gt;</div><div class="line">    &lt;!--必需的 type 属性规定脚本的 MIME(Multipurpose Internet Mail Extensions) 类型。--&gt;</div><div class="line">    &lt;!--JavaScript 的常见应用时图像操作、表单验证以及动态内容更新。--&gt;</div><div class="line"></div><div class="line">    &lt;style&gt;</div><div class="line"></div><div class="line">        /*&lt;style&gt; 标签用于为 HTML 文档定义样式信息。*/</div><div class="line">        /*在 style 中，您可以规定在浏览器中如何呈现 HTML 文档。*/</div><div class="line">        /*type 属性是必需的，定义 style 元素的内容。唯一可能的值是 &quot;text/css&quot;。*/</div><div class="line">        /*style 元素位于 head 部分中。*/</div><div class="line"></div><div class="line">        .page-bar &#123;</div><div class="line">            margin: 40px;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ul, li &#123;</div><div class="line">            margin: 0px;</div><div class="line">            padding: 0px;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        li &#123;</div><div class="line">            list-style: none</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .page-bar li:first-child &gt; a &#123;</div><div class="line">            margin-left: 0px</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .page-bar a &#123;</div><div class="line">            border: 1px solid #ddd;</div><div class="line">            text-decoration: none;</div><div class="line">            position: relative;</div><div class="line">            float: left;</div><div class="line">            padding: 6px 12px;</div><div class="line">            margin-left: -1px;</div><div class="line">            line-height: 1.42857143;</div><div class="line">            color: #337ab7;</div><div class="line">            cursor: pointer</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .page-bar a:hover &#123;</div><div class="line">            background-color: #eee;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .page-bar a.banclick &#123;</div><div class="line">            cursor: not-allowed;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .page-bar .active a &#123;</div><div class="line">            color: #fff;</div><div class="line">            cursor: default;</div><div class="line">            background-color: #337ab7;</div><div class="line">            border-color: #337ab7;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        .page-bar i &#123;</div><div class="line">            font-style: normal;</div><div class="line">            color: #d44950;</div><div class="line">            margin: 0px 4px;</div><div class="line">            font-size: 12px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">&lt;!--body 元素定义文档的主体。--&gt;</div><div class="line">&lt;!--body 元素包含文档的所有内容（比如文本、超链接、图像、表格和列表等等。）--&gt;</div><div class="line"></div><div class="line">&lt;div class=&quot;page-bar&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!--定义和用法--&gt;</div><div class="line">    &lt;!--&lt;div&gt; 可定义文档中的分区或节（division/section）。--&gt;</div><div class="line">    &lt;!--&lt;div&gt; 标签可以把文档分割为独立的、不同的部分。它可以用作严格的组织工具，并且不使用任何格式与其关联。--&gt;</div><div class="line">    &lt;!--如果用 id 或 class 来标记 &lt;div&gt;，那么该标签的作用会变得更加有效。--&gt;</div><div class="line">    &lt;!--用法--&gt;</div><div class="line">    &lt;!--&lt;div&gt; 是一个块级元素。这意味着它的内容自动地开始一个新行。实际上，换行是 &lt;div&gt; 固有的唯一格式表现。可以通过 &lt;div&gt; 的 class 或 id 应用额外的样式。--&gt;</div><div class="line">    &lt;!--不必为每一个 &lt;div&gt; 都加上类或 id，虽然这样做也有一定的好处。--&gt;</div><div class="line">    &lt;!--可以对同一个 &lt;div&gt; 元素应用 class 或 id 属性，但是更常见的情况是只应用其中一种。这两者的主要差异是，class 用于元素组（类似的元素，或者可以理解为某一类元素），而 id 用于标识单独的唯一的元素。--&gt;</div><div class="line"></div><div class="line">    &lt;ul&gt;</div><div class="line"></div><div class="line">        &lt;!--&lt;ul&gt; 标签定义无序列表。--&gt;</div><div class="line"></div><div class="line">        &lt;li v-if=&quot;cur&gt;1&quot;&gt;&lt;a @click=&quot;cur--,pageClick()&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line"></div><div class="line">        &lt;!--定义和用法--&gt;</div><div class="line">        &lt;!--&lt;li&gt; 标签定义列表项目。--&gt;</div><div class="line">        &lt;!--&lt;li&gt; 标签可用在有序列表 (&lt;ol&gt;) 和无序列表 (&lt;ul&gt;) 中。--&gt;</div><div class="line"></div><div class="line">        &lt;li v-if=&quot;cur==1&quot;&gt;&lt;a class=&quot;banclick&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line"></div><div class="line">        &lt;!--定义和用法--&gt;</div><div class="line">        &lt;!--&lt;a&gt; 标签定义超链接，用于从一张页面链接到另一张页面。--&gt;</div><div class="line">        &lt;!--&lt;a&gt; 元素最重要的属性是 href 属性，它指示链接的目标。--&gt;</div><div class="line"></div><div class="line">        &lt;li v-for=&quot;index in indexs&quot; :class=&quot;&#123; &apos;active&apos;: cur == index&#125;&quot;&gt;</div><div class="line">            &lt;a @click=&quot;btnClick(index)&quot;&gt;&#123;&#123; index &#125;&#125;&lt;/a&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">        &lt;li v-if=&quot;cur!=all&quot;&gt;&lt;a @click=&quot;cur++,pageClick()&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li v-if=&quot;cur == all&quot;&gt;&lt;a class=&quot;banclick&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a&gt;共&lt;i&gt;&#123;&#123;all&#125;&#125;&lt;/i&gt;页&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    var pageBar = new Vue(&#123;</div><div class="line">        el: &apos;.page-bar&apos;,</div><div class="line">        data: &#123;</div><div class="line">            all: 8, //总页数</div><div class="line">            cur: 1//当前页码</div><div class="line">        &#125;,</div><div class="line">//        watch: &#123;</div><div class="line">//            cur: function (oldValue, newValue) &#123;</div><div class="line">//                console.log(arguments);</div><div class="line">//            &#125;</div><div class="line">//        &#125;,</div><div class="line">//        使用computed后，这里的watch就显得多余了</div><div class="line"></div><div class="line">        methods: &#123;</div><div class="line">            btnClick: function (data) &#123;//页码点击事件</div><div class="line">                if (data != this.cur) &#123;</div><div class="line">                    this.cur = data</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">//            pageClick: function () &#123;</div><div class="line">//                console.log(&apos;现在在&apos; + this.cur + &apos;页&apos;);</div><div class="line">//            &#125;</div><div class="line">//            点击下一页页码的改变是随着cur数值的改变而改变，因此这里的点击事件可以填充额外的函数</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        computed: &#123;</div><div class="line">            indexs: function () &#123;</div><div class="line">                var left = 1;</div><div class="line">                var right = this.all;</div><div class="line">                var ar = [];</div><div class="line">                if (this.all &gt;= 5) &#123;</div><div class="line">                    if (this.cur &gt; 3 &amp;&amp; this.cur &lt; this.all - 2) &#123;</div><div class="line">                        left = this.cur - 2;</div><div class="line">                        right = this.cur + 2</div><div class="line">                    &#125; else &#123;</div><div class="line">                        if (this.cur &lt;= 3) &#123;</div><div class="line">                            left = 1;</div><div class="line">                            right = 5</div><div class="line">                        &#125; else &#123;</div><div class="line">                            right = this.all;</div><div class="line">                            left = this.all - 4</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                while (left &lt;= right) &#123;</div><div class="line">                    ar.push(left);</div><div class="line">                    left++</div><div class="line">                &#125;</div><div class="line">                return ar</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>代码注释中包括了对html标签的说明。<br>下面为vue.js中computed和methods以及watcher的区别做下简要介绍。</p>
-<h2 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h2><p>直接先看个例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">HTML:</div><div class="line">&lt;div id=&quot;example&quot;&gt;</div><div class="line">  &lt;p&gt;Original message: &quot;&#123;&#123; message &#125;&#125;&quot;&lt;/p&gt;</div><div class="line">  &lt;p&gt;Computed reversed message: &quot;&#123;&#123; reversedMessage &#125;&#125;&quot;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">JS:</div><div class="line">var vm = new Vue(&#123;</div><div class="line">  el: &apos;#example&apos;,</div><div class="line">  data: &#123;</div><div class="line">    message: &apos;Hello&apos;</div><div class="line">  &#125;,</div><div class="line">  computed: &#123;</div><div class="line">    // a computed getter</div><div class="line">    reversedMessage: function () &#123;</div><div class="line">      // `this` points to the vm instance</div><div class="line">      return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>结果：<br>Original message: “Hello”<br>Computed reversed message: “olleH”<br>这里我们声明了一个计算属性 reversedMessage 。我们提供的函数将用作属性 vm.reversedMessage 的 getter 。</p>
-<p>你可以打开浏览器的控制台，自行修改例子中的 vm 。 vm.reversedMessage 的值始终取决于 vm.message 的值。 </p>
-<p>你可以像绑定普通属性一样在模板中绑定计算属性。 Vue 知道 vm.reversedMessage 依赖于 vm.message ，因此当 vm.message 发生改变时，所有依赖于 vm.reversedMessage 的绑定也会更新。而且最妙的是我们已经以声明的方式创建了这种依赖关系：计算属性的 getter 是没有副作用，这使得它易于测试和推理。</p>
-<h2 id="Computed-vs-Methods"><a href="#Computed-vs-Methods" class="headerlink" title="Computed vs Methods"></a>Computed vs Methods</h2><p>我们可以将同一函数定义为一个 method 而不是一个计算属性。对于最终的结果，两种方式确实是相同的。然而，不同的是计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。</p>
-<p>我们为什么需要缓存？假设我们有一个性能开销比较大的的计算属性 A ，它需要遍历一个极大的数组和做大量的计算。然后我们可能有其他的计算属性依赖于 A 。如果没有缓存，我们将不可避免的多次执行 A 的 getter！如果你不希望有缓存，请用 method 替代。</p>
-<h2 id="Computed-vs-Watched"><a href="#Computed-vs-Watched" class="headerlink" title="Computed vs Watched"></a>Computed vs Watched</h2><p>Vue 确实提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：watch 属性。当你有一些数据需要随着其它数据变动而变动时，你很容易滥用 watch——特别是如果你之前使用过 AngularJS。然而，通常更好的想法是使用 computed 属性而不是命令式的 watch 回调。</p>
-<p>O__O “… 以上的话，就当做我已经理解了。</p>
-<h2 id="Watchers"><a href="#Watchers" class="headerlink" title="Watchers"></a>Watchers</h2><p>虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的 watcher 。这是为什么 Vue 提供一个更通用的方法通过 watch 选项，来响应数据的变化。当你想要在数据变化响应时，执行异步操作或开销较大的操作，这是很有用的。</p>
-<p>使用 watch 选项允许我们执行异步操作（访问一个 API），限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这是计算属性无法做到的。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://cn.vuejs.org/v2/guide/computed.html#Computed-属性-vs-Watched-属性" target="_blank" rel="external">以上分析参考自官方对计算属性的介绍</a><br><a href="http://www.cnblogs.com/moqiutao/p/6394681.html" target="_blank" rel="external">vuejs2.0实现一个简单的分页</a></p>
-<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>thank you!~</p>
-
-          
+          概述本篇为vue.js的简单入门。vue.js是时下热门的javascript MVVM(Model-View-ViewModel)库，简单好用。
+参考链接  
+Vue.js——60分钟快速入门官方中文教程
+HelloWorld入门示例废话不多说，先来个Hello World。
+1234567891
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/07/vue.js-Study-Notes/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1082,73 +864,17 @@
       
         
           
-            <h1 id="spring-spring-mvc-hibernate实现简单登录注册网站"><a href="#spring-spring-mvc-hibernate实现简单登录注册网站" class="headerlink" title="spring+spring mvc+hibernate实现简单登录注册网站"></a>spring+spring mvc+hibernate实现简单登录注册网站</h1><h2 id="spring的一些概念"><a href="#spring的一些概念" class="headerlink" title="spring的一些概念"></a>spring的一些概念</h2><h3 id="响应流程"><a href="#响应流程" class="headerlink" title="响应流程"></a>响应流程</h3><p><img src="/img/springnotebook/springarche.jpg" alt="response"></p>
-<h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><p>依赖注入(Dependency Injection, DI)也被称为控制反转(Inversion of Control, IoC)。</p>
-<h4 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h4><p>如果调用者采用new方法创建被调用者以实现两个或多个对象的组合，简单说就是一个类的一段方法代码里若需要new很多个对象，就会导致代码耦合度高难调试。为此，引入了依赖注入的概念（传统方法有使用工厂模式，还是麻烦）,<br>即一个类不需要查找或实例化（new）它们所依赖的类，对象间的依赖关系是在对象创建时由负责协调项目中各个对象的外部容器（spring）来提供并管理。也就是强调了对象间的某种依赖关系是由容器在运行期间注入调用者的，控制程序间关系的实现交给外部的容器来完成。<br>就我的理解，说白了，就是把类对象转化成全局变量放在一个仓库中由spring进行统一的管理。</p>
-<h4 id="最直观的表现"><a href="#最直观的表现" class="headerlink" title="最直观的表现"></a>最直观的表现</h4><p>定义处:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@Repository</div><div class="line">public interface UserRepository extends JpaRepository&lt;UserEntity,Integer&gt; &#123;</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>使用处:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    @Autowired</div><div class="line">    UserRepository userRepository;</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>通过annotation的方式，<strong><em>@Repository</em></strong> 把其下定义的接口丢入仓库，再由 <strong><em>@Autowired</em></strong> 自动装配到需要使用到的代码部分。</p>
-<h3 id="spring-ApplicationContext容器"><a href="#spring-ApplicationContext容器" class="headerlink" title="spring ApplicationContext容器"></a>spring ApplicationContext容器</h3><p><a href="http://wiki.jikexueyuan.com/project/spring/ioc-container/spring-application-context-container.html" target="_blank" rel="external">Spring ApplicationContext 容器(极客学院)</a></p>
-<h3 id="spring-aop"><a href="#spring-aop" class="headerlink" title="spring aop"></a>spring aop</h3><p>AOP（Aspect Oriented Programming），即面向切面编程，可以说是OOP（Object Oriented Programming，面向对象编程）的补充和完善。</p>
-<p>简单的说，就是定义一些方法As并规定一些条件，另外的某些类某些方法Bs若满足这些条件，此前定义的那些方法As就会自动执行。</p>
-<h2 id="简单登录注册网站的实现"><a href="#简单登录注册网站的实现" class="headerlink" title="简单登录注册网站的实现"></a>简单登录注册网站的实现</h2><p><a href="https://my.oschina.net/gaussik/blog/385697" target="_blank" rel="external">参考的这个网站</a></p>
-<h3 id="相关环境"><a href="#相关环境" class="headerlink" title="相关环境"></a>相关环境</h3><ul>
-<li>intellij idea 2016</li>
-<li>spring + spring mvc + hibernate</li>
-<li>JDK 1.8</li>
-<li>mysql</li>
-<li>maven</li>
-<li>tomcat</li>
-</ul>
-<h3 id="spring环境配置"><a href="#spring环境配置" class="headerlink" title="spring环境配置"></a>spring环境配置</h3><h4 id="通过maven导入依赖的包"><a href="#通过maven导入依赖的包" class="headerlink" title="通过maven导入依赖的包"></a>通过maven导入依赖的包</h4><p>创建maven web项目后，编辑<strong><em>pom.xml</em></strong>文件，导入spring项目所需依赖的包。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;</div><div class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</div><div class="line">  &lt;groupId&gt;com.vic&lt;/groupId&gt;</div><div class="line">  &lt;artifactId&gt;springlogin&lt;/artifactId&gt;</div><div class="line">  &lt;packaging&gt;war&lt;/packaging&gt;</div><div class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</div><div class="line">  &lt;name&gt;springlogin Maven Webapp&lt;/name&gt;</div><div class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</div><div class="line"></div><div class="line">  &lt;properties&gt;</div><div class="line">    &lt;spring.version&gt;4.2.6.RELEASE&lt;/spring.version&gt;</div><div class="line">    &lt;hibernate.version&gt;5.1.0.Final&lt;/hibernate.version&gt;</div><div class="line">  &lt;/properties&gt;</div><div class="line"></div><div class="line">  &lt;dependencies&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line"></div><div class="line">    &lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.springframework.data&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;spring-data-jpa&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;1.10.1.RELEASE&lt;/version&gt;</div><div class="line">    &lt;/dependency&gt;</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">  &lt;/dependencies&gt;</div><div class="line">  &lt;build&gt;</div><div class="line">    &lt;finalName&gt;springlogin&lt;/finalName&gt;</div><div class="line">    &lt;plugins&gt;</div><div class="line">      &lt;plugin&gt;</div><div class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</div><div class="line">        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</div><div class="line">        &lt;configuration&gt;</div><div class="line">          &lt;source&gt;1.8&lt;/source&gt;</div><div class="line">          &lt;target&gt;1.8&lt;/target&gt;</div><div class="line">        &lt;/configuration&gt;</div><div class="line">      &lt;/plugin&gt;</div><div class="line">    &lt;/plugins&gt;</div><div class="line">  &lt;/build&gt;</div><div class="line">&lt;/project&gt;</div></pre></td></tr></table></figure>
-<p>以上主要是通过解析 <strong><dependencies></dependencies></strong> 标签导入依赖包。</p>
-<h4 id="在web-xml中注册servlet"><a href="#在web-xml中注册servlet" class="headerlink" title="在web.xml中注册servlet"></a>在web.xml中注册servlet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;servlet&gt;</div><div class="line">        &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</div><div class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">    &lt;/servlet&gt;</div><div class="line"></div><div class="line">    &lt;servlet-mapping&gt;</div><div class="line">        &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;</div><div class="line">        &lt;url-pattern&gt;/&lt;/url-pattern&gt;</div><div class="line">    &lt;/servlet-mapping&gt;</div></pre></td></tr></table></figure>
-<h4 id="在WEB-INF文件夹下新建mvc-dispatcher-servlet-xml配置文件"><a href="#在WEB-INF文件夹下新建mvc-dispatcher-servlet-xml配置文件" class="headerlink" title="在WEB-INF文件夹下新建mvc-dispatcher-servlet.xml配置文件"></a>在WEB-INF文件夹下新建mvc-dispatcher-servlet.xml配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!--指明 controller 所在包，并扫描其中的注解--&gt;</div><div class="line">    &lt;context:component-scan base-package=&quot;com.vic.controller&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;!-- 静态资源(js、image等)的访问 --&gt;</div><div class="line">    &lt;mvc:default-servlet-handler/&gt;</div><div class="line"></div><div class="line">    &lt;!-- 开启注解 --&gt;</div><div class="line">    &lt;mvc:annotation-driven/&gt;</div><div class="line"></div><div class="line">    &lt;!--ViewResolver 视图解析器--&gt;</div><div class="line">    &lt;!--用于支持Servlet、JSP视图解析--&gt;</div><div class="line">    &lt;bean id=&quot;jspViewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;</div><div class="line">        &lt;property name=&quot;viewClass&quot; value=&quot;org.springframework.web.servlet.view.JstlView&quot;/&gt;</div><div class="line">        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/pages/&quot;/&gt;</div><div class="line">        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!--数据库配置--&gt;</div><div class="line">    &lt;bean id=&quot;entityManagerFactory&quot; class=&quot;org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean&quot;&gt;</div><div class="line">        &lt;property name=&quot;persistenceUnitName&quot; value=&quot;defaultPersistenceUnit&quot;/&gt;</div><div class="line">        &lt;property name=&quot;packagesToScan&quot; value=&quot;com.vic.model&quot; /&gt;</div><div class="line">        &lt;property name=&quot;jpaVendorAdapter&quot;&gt;</div><div class="line">            &lt;bean class=&quot;org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter&quot;/&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">        &lt;property name=&quot;jpaProperties&quot;&gt;</div><div class="line">            &lt;props&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql://localhost:3306/(database name)?useSSL=false&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.connection.username&quot;&gt;(username)&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.connection.password&quot;&gt;(password)&lt;/prop&gt;</div><div class="line">                &lt;prop key=&quot;hibernate.show_sql&quot;&gt;false&lt;/prop&gt;</div><div class="line">                ...</div><div class="line">                ...</div><div class="line">        &lt;/property&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!-- 表示JPA Repository所在的包 --&gt;</div><div class="line">    &lt;jpa:repositories base-package=&quot;com.vic.repository&quot;/&gt;</div><div class="line"></div><div class="line"></div><div class="line">    &lt;!-- 事务管理 --&gt;</div><div class="line">    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.jpa.JpaTransactionManager&quot;&gt;</div><div class="line">        &lt;property name=&quot;entityManagerFactory&quot; ref=&quot;entityManagerFactory&quot;/&gt;</div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!-- 开启事务管理注解 --&gt;</div><div class="line">    &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;</div></pre></td></tr></table></figure>
-<h4 id="我的文件结构"><a href="#我的文件结构" class="headerlink" title="我的文件结构"></a>我的文件结构</h4><p><img src="/img/springnotebook/wenjianjiegou.jpg" alt="我的文件结构"></p>
-<h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><ul>
-<li>首先在mysql里创建所需的表，然后在项目中<br><strong><em>Add Frameword Support–&gt;J2EE Persistence</em></strong>    </li>
-<li>项目左侧会出现<strong><em>Persistence</em></strong>，右键<br><strong><em>Generate Persistence Mapping–&gt;By Database Schema</em></strong>    </li>
-<li>再进行相关设置，最后idea就会根据数据库中的表自动生成model中对应的entity类。</li>
-</ul>
-<h3 id="repository"><a href="#repository" class="headerlink" title="repository"></a>repository</h3><p>在repository包中新建UserRepository接口，放进仓库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@Repository</div><div class="line">public interface UserRepository extends JpaRepository&lt;UserEntity,Integer&gt; &#123;</div><div class="line"></div><div class="line"></div><div class="line">    @Query(value = &quot;select * from user u where u.username=?1&quot;,nativeQuery = true)</div><div class="line">    UserEntity findByUsername(String username);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong><em>JpaRepository</em></strong>本身就提供一些基本的数据库操作方法，例如</p>
-<ul>
-<li>findAll()</li>
-<li>saveAndFlush(entity)</li>
-<li>…</li>
-</ul>
-<p>我们还可以在接口内自定义数据库操作方法，如上所示。</p>
-<p><code>@Query(value = &quot;select * from user u where u.username=?1&quot;,nativeQuery = true)</code><br>其中<strong><em>@Query</em></strong>支持原生的mysql语句操作。</p>
-<h3 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h3><p>在controller包中新建LoginController</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">@Controller</div><div class="line">public class LoginController &#123;</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    UserRepository userRepository;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/&quot;, method = RequestMethod.GET)</div><div class="line">    public String index() &#123;</div><div class="line">        return &quot;index&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/login&quot;,method = RequestMethod.GET)</div><div class="line">    public String login()&#123;</div><div class="line">        return &quot;/login&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/loginG&quot;, method = RequestMethod.GET)</div><div class="line">    public String loginG(@RequestParam(&quot;username&quot;) String username,</div><div class="line">                        @RequestParam(&quot;password&quot;) String password) &#123;</div><div class="line">        UserEntity user = userRepository.findByUsername(username);</div><div class="line">        if (user == null)</div><div class="line">            return &quot;/loginfail&quot;;</div><div class="line">        else if (!user.getPassword().equals(password))</div><div class="line">            return &quot;/loginfail&quot;;</div><div class="line">        else</div><div class="line">            return &quot;/loginsuccess&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/signup&quot;, method = RequestMethod.GET)</div><div class="line">    public String signUp() &#123;</div><div class="line">        return &quot;/addUser&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @RequestMapping(value = &quot;/signupP&quot;, method = RequestMethod.POST)</div><div class="line">    public String signUPP(@ModelAttribute(&quot;user&quot;) UserEntity userEntity) &#123;</div><div class="line">        userRepository.saveAndFlush(userEntity);</div><div class="line">        return &quot;/loginsuccess&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>首先需要<strong><em>@Controller</em></strong>注明控制器</li>
-<li>接着通过<strong><em>@Autowired</em></strong>从仓库中取到<strong><em>userRepository</em></strong>对象</li>
-<li>然后通过<strong><em>@RequestMapping</em></strong>将http请求映射到对应函数方法</li>
-<li>最后return到相应的.jsp网页</li>
-</ul>
-<p>（note. 数据库相关操作由<strong><em>userRepository</em></strong>完成）</p>
-<h4 id="login-jsp"><a href="#login-jsp" class="headerlink" title="login.jsp"></a>login.jsp</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;title&gt;Login Page&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;form action=&quot;/loginG&quot; method=&quot;get&quot;&gt;</div><div class="line">    &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; placeholder=&quot;username&quot;&gt;</div><div class="line">    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;password&quot;&gt;</div><div class="line">    &lt;button type=&quot;submit&quot;&gt;login&lt;/button&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;a href=&quot;/signup&quot; type=&quot;button&quot;&gt;sign up&lt;/a&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="前端向后端传值的方法"><a href="#前端向后端传值的方法" class="headerlink" title="前端向后端传值的方法"></a>前端向后端传值的方法</h3><h4 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h4><p>举个栗子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value = &quot;/.../&#123;id&#125;&quot;, method = RequestMethod.GET)</div><div class="line">    public String Func(@PathVariable int id) &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h4 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h4><p>对应括号中的属性名获取值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value = &quot;/loginG&quot;, method = RequestMethod.GET)</div><div class="line">    public String loginG(@RequestParam(&quot;username&quot;) String username,</div><div class="line">                        @RequestParam(&quot;password&quot;) String password) &#123;</div><div class="line">        UserEntity user = userRepository.findByUsername(username);</div><div class="line">        if (user == null)</div><div class="line">            return &quot;/loginfail&quot;;</div><div class="line">        else if (!user.getPassword().equals(password))</div><div class="line">            return &quot;/loginfail&quot;;</div><div class="line">        else</div><div class="line">            return &quot;/loginsuccess&quot;;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h4 id="ModelAttribute"><a href="#ModelAttribute" class="headerlink" title="@ModelAttribute"></a>@ModelAttribute</h4><p>直接通过form传递一个entity值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value = &quot;/signupP&quot;, method = RequestMethod.POST)</div><div class="line">    public String signUPP(@ModelAttribute(&quot;user&quot;) UserEntity userEntity) &#123;</div><div class="line">        userRepository.saveAndFlush(userEntity);</div><div class="line">        return &quot;/loginsuccess&quot;;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h3 id="intellij-idea版本控制"><a href="#intellij-idea版本控制" class="headerlink" title="intellij idea版本控制"></a>intellij idea版本控制</h3><h4 id="从github网站将项目导入idea"><a href="#从github网站将项目导入idea" class="headerlink" title="从github网站将项目导入idea"></a>从github网站将项目导入idea</h4><ul>
-<li>新建项目选择 <strong><em>Check out from version control–&gt;github</em></strong></li>
-</ul>
-<h4 id="idea新建的项目分享到github上"><a href="#idea新建的项目分享到github上" class="headerlink" title="idea新建的项目分享到github上"></a>idea新建的项目分享到github上</h4><ul>
-<li><strong>VCS–&gt;import into version control–&gt;share on github</strong></li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>界面简陋这里就不献丑了。整个spring框架只是学了点皮毛，参照别人的经验教训恰巧能实现最基本的用户登录注册功能而已。不够系统，spring的很多特性没有涉及，实现功能的很多方法也没掌握。若要进一步深入学习的话，还是要下一番苦功夫，踏踏实实地写一个项目来的实在。</p>
-<p><a href="https://github.com/BearVic/Spring_Hibernate_Login" target="_blank" rel="external">我的github项目地址</a></p>
-
-          
+          spring+spring mvc+hibernate实现简单登录注册网站spring的一些概念响应流程
+依赖注入依赖注入(Dependency Injection, DI)也被称为控制反转(Inversion of Control, IoC)。
+简单介绍如果调用者采用new方法创建被调用者以实现两
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/23/spring-study-notes/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

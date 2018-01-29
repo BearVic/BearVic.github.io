@@ -345,30 +345,15 @@
       
         
           
-            <p>这本课程中本人自学了caffe框架的用法。caffe是个很好的工具，特别是针对图像处理相关的卷积神经网络。但是本人的电脑系统为macOS，在参照官方文档时候出现问题并得不到解决，似乎是因为系统版本的缘故。后来就索性安装了一个ubuntu的虚拟机，分配了4G内存，两个core。跑官方mnist的例子需要13分钟左右。<br>caffe在ubuntu系统下的安装比较简单，因为显卡问题我没有装GPU，安装基本参照下面的链接网址。安装时候请注意最好换个源下载，因为官方的源速度实在太慢了。装了大半天基本都是在等待下载。<a href="http://hmybmny.com/2016/09/change-sources/" target="_blank" rel="external">换源方法</a></p>
-<h2 id="Install-with-CPU"><a href="#Install-with-CPU" class="headerlink" title="Install with CPU"></a>Install with CPU</h2><h3 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt update</div><div class="line">sudo apt upgrade</div><div class="line">sudo apt install -y build-essential cmake git pkg-config</div><div class="line">sudo apt install -y libprotobuf-dev libleveldb-dev libsnappy-dev \</div><div class="line">                    libopencv-dev libhdf5-serial-dev protobuf-compiler</div><div class="line">sudo apt install -y --no-install-recommends libboost-all-dev</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果使用 OpenBlas 代替默认的 ATLAS的话，需要将 libatlas-base-dev 改为 libopenblas-dev</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt install -y libatlas-base-dev </div><div class="line">sudo apt install -y libgflags-dev libgoogle-glog-dev liblmdb-dev</div><div class="line">sudo apt install -y python-pip python-dev python-numpy python-scipy</div></pre></td></tr></table></figure>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/</div><div class="line">git clone https://github.com/BVLC/caffe.git</div><div class="line">cd caffe/</div><div class="line">cp Makefile.config.example Makefile.config</div><div class="line">vim Makefile.config</div></pre></td></tr></table></figure>
-<ul>
-<li>取消注释  </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CPU_ONLY := 1    </div><div class="line">WITH\_PYTHON\_LAYER := 1</div></pre></td></tr></table></figure>
-<ul>
-<li>如果选择 CPU 安装的话，最好使用 OpenBlas 代替默认的 ATLAS，因为 OpenBlas 对 CPU 多线程支持很好，能加快一点速度算一点吧。修改<br><code>BLAS := open</code></li>
-<li>并运行以下命令（使用 OpenBlas 的情况下）<br><code>echo &#39;export OPENBLAS_NUM_THREADS=4&#39; &gt;&gt; ~/.bashrc</code></li>
-<li>修改  </li>
-</ul>
-<p><code>INCLUDE_DIRS := $(PYTHON_INCLUDE)  /usr/local/include /usr/include/hdf5/serial</code><br><code>LIBRARY_DIRS := $(PYTHON_LIB)  /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial</code></p>
-<h3 id="安装-make-pycaffe-所需的库"><a href="#安装-make-pycaffe-所需的库" class="headerlink" title="安装 make pycaffe 所需的库"></a>安装 make pycaffe 所需的库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd python</div><div class="line">sudo -H pip2 install -r requirements.txt</div></pre></td></tr></table></figure>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cd ..</div><div class="line">make all -j $(($(nproc) + 1))</div><div class="line">make test</div><div class="line">make runtest</div><div class="line">make pycaffe</div><div class="line">make distribute</div><div class="line"></div><div class="line">#user 是你的用户名</div><div class="line">echo &apos;export PYTHONPATH=/home/user/caffe/python:$PYTHONPATH&apos; &gt;&gt; ~/.bashrc</div></pre></td></tr></table></figure>
-<h3 id="重启终端"><a href="#重启终端" class="headerlink" title="重启终端"></a>重启终端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">python</div><div class="line">&gt;&gt;&gt;import caffe </div><div class="line">&gt;&gt;&gt;               # 没报错就成功了</div></pre></td></tr></table></figure>
-<p>至此，caffe就算安装完成了，接下来就愉快的开始使用caffe吧。</p>
-<h3 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h3><p><a href="http://hmybmny.com/2016/10/install-caffe-on-ubuntu-16-dot-04-with-gpu/" target="_blank" rel="external">http://hmybmny.com/2016/10/install-caffe-on-ubuntu-16-dot-04-with-gpu/</a></p>
-
-          
+          这本课程中本人自学了caffe框架的用法。caffe是个很好的工具，特别是针对图像处理相关的卷积神经网络。但是本人的电脑系统为macOS，在参照官方文档时候出现问题并得不到解决，似乎是因为系统版本的缘故。后来就索性安装了一个ubuntu的虚拟机，分配了4G内存，两个core。跑官方mnist的例子需
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/02/install-caffe/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -487,17 +472,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/29/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

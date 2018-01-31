@@ -103,18 +103,18 @@
   <meta name="keywords" content="CPP," />
 
 
-<meta name="description" content="Notebook of CPPNamespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::cout &amp;lt;&amp;lt; &quot;x is&quot; &amp;lt;&amp;">
+<meta name="description" content="Notebook of CPPNamespaces and OperatorsNamespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::co">
 <meta name="keywords" content="CPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6160 (1)">
 <meta property="og:url" content="http://yoursite.com/2018/01/18/6160-1/index.html">
 <meta property="og:site_name" content="Vic&#39;s Paradise">
-<meta property="og:description" content="Notebook of CPPNamespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::cout &amp;lt;&amp;lt; &quot;x is&quot; &amp;lt;&amp;">
+<meta property="og:description" content="Notebook of CPPNamespaces and OperatorsNamespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::co">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-30T21:22:15.760Z">
+<meta property="og:updated_time" content="2018-01-31T00:24:03.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6160 (1)">
-<meta name="twitter:description" content="Notebook of CPPNamespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::cout &amp;lt;&amp;lt; &quot;x is&quot; &amp;lt;&amp;">
+<meta name="twitter:description" content="Notebook of CPPNamespaces and OperatorsNamespaces123456789101112131415161718#include&amp;lt;iostream&amp;gt;int x = 99;  // ::namespace Mine &amp;#123;    int x = 17;&amp;#125;int main &amp;#123;    int x = 0;    std::co">
 
 
 
@@ -215,7 +215,7 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
         </li>
       
         
@@ -227,13 +227,13 @@
         
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
         </li>
       
 
@@ -304,7 +304,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-18T00:27:16-05:00">2018-01-18</time>
             
@@ -324,7 +324,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CPP/" itemprop="url" rel="index"><span itemprop="name">CPP</span></a></span>
@@ -372,8 +372,8 @@
       
 
       
-        <h1 id="Notebook-of-CPP"><a href="#Notebook-of-CPP" class="headerlink" title="Notebook of CPP"></a>Notebook of CPP</h1><h2 id="Namespaces"><a href="#Namespaces" class="headerlink" title="Namespaces"></a>Namespaces</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span> x = <span class="number">99</span>;  <span class="comment">// ::</span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> Mine &#123;</div><div class="line">    <span class="keyword">int</span> x = <span class="number">17</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> main &#123;</div><div class="line">    <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"x is"</span> &lt;&lt; x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Mine x is"</span> &lt;&lt; Mine::x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"::x is"</span> &lt;&lt; ::x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*output</span></div><div class="line">x is 0</div><div class="line">Mine x is 17</div><div class="line">::x is 99*/</div></pre></td></tr></table></figure>
-<h2 id="Operators-unary-binary-ternary"><a href="#Operators-unary-binary-ternary" class="headerlink" title="Operators: unary, binary, ternary"></a>Operators: unary, binary, ternary</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    srand( time(<span class="number">0</span>) );</div><div class="line">    <span class="keyword">int</span> vel = rand()%<span class="number">100</span> + <span class="number">200</span>;</div><div class="line">    vel = vel*(rand()%<span class="number">2</span>?<span class="number">-1</span>:<span class="number">1</span>);</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"vel is"</span> &lt;&lt; vel &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="Notebook-of-CPP"><a href="#Notebook-of-CPP" class="headerlink" title="Notebook of CPP"></a>Notebook of CPP</h1><h2 id="Namespaces-and-Operators"><a href="#Namespaces-and-Operators" class="headerlink" title="Namespaces and Operators"></a>Namespaces and Operators</h2><h3 id="Namespaces"><a href="#Namespaces" class="headerlink" title="Namespaces"></a>Namespaces</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span> x = <span class="number">99</span>;  <span class="comment">// ::</span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> Mine &#123;</div><div class="line">    <span class="keyword">int</span> x = <span class="number">17</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> main &#123;</div><div class="line">    <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"x is"</span> &lt;&lt; x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Mine x is"</span> &lt;&lt; Mine::x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"::x is"</span> &lt;&lt; ::x &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*output</span></div><div class="line">x is 0</div><div class="line">Mine x is 17</div><div class="line">::x is 99*/</div></pre></td></tr></table></figure>
+<h3 id="Operators-unary-binary-ternary"><a href="#Operators-unary-binary-ternary" class="headerlink" title="Operators: unary, binary, ternary"></a>Operators: unary, binary, ternary</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    srand( time(<span class="number">0</span>) );</div><div class="line">    <span class="keyword">int</span> vel = rand()%<span class="number">100</span> + <span class="number">200</span>;</div><div class="line">    vel = vel*(rand()%<span class="number">2</span>?<span class="number">-1</span>:<span class="number">1</span>);</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"vel is"</span> &lt;&lt; vel &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Constructors"><a href="#Constructors" class="headerlink" title="Constructors"></a>Constructors</h2><p>Anytime the declaration calls the construtors.</p>
 <ul>
 <li>default</li>
@@ -414,7 +414,27 @@
 <li>vec.reserve()</li>
 <li>Vector<number> vec(4)</number></li>
 </ul>
-
+<h2 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h2><p>reference: </p>
+<ul>
+<li><a href="http://www.zkt.name/dan-li-mo-shi-singleton-ji-c-shi-xian/" target="_blank" rel="noopener">单例模式(Singleton)及其C++实现</a></li>
+<li><a href="https://sourcemaking.com/design_patterns/singleton" target="_blank" rel="noopener">Singleton Design Pattern</a></li>
+</ul>
+<h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><ul>
+<li>Ensure a class has only one instance, and provide a global point of access to it.</li>
+<li>Encapsulated “just-in-time initialization” or “initialization on first use”.</li>
+</ul>
+<p><strong>Tips</strong></p>
+<ul>
+<li>All <strong>constructors</strong> and <strong>operator=</strong> should not be used, and then can be declared in the <strong>private</strong> part. Do not implement.</li>
+<li>Return reference (<strong>static Singleton&amp; instance</strong>) instead of <strong>pointer</strong> in case of being deleted by outside user.</li>
+</ul>
+<h3 id="Meyers-Singleton"><a href="#Meyers-Singleton" class="headerlink" title="Meyers Singleton"></a>Meyers Singleton</h3><ul>
+<li>Init instance the first time call Instance()</li>
+<li>Thread safety.</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Singleton&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">static</span> Singleton&amp; <span class="title">Instance</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">static</span> Singleton instance;</div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    Singleton();</div><div class="line">    ~Singleton();</div><div class="line">    Singleton(<span class="keyword">const</span> Singleton&amp;);</div><div class="line">    Singleton&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Singleton&amp;);    </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="Lazy-Singleton"><a href="#Lazy-Singleton" class="headerlink" title="Lazy Singleton"></a>Lazy Singleton</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// .h file</span></div><div class="line"><span class="keyword">class</span> Singleton  </div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="function"><span class="keyword">static</span> Singleton&amp; <span class="title">Instance</span><span class="params">()</span></span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (instance_ == <span class="literal">NULL</span>)</div><div class="line">            &#123;</div><div class="line">                instance_ = <span class="keyword">new</span> Singleton;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> *instance_;</div><div class="line">         &#125;</div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        Singleton()；</div><div class="line">        ~Singleton()；</div><div class="line">        Singleton(<span class="keyword">const</span> Singleton&amp;);</div><div class="line">        Singleton&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Singleton&amp;);</div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        <span class="keyword">static</span> Singleton* instance_;</div><div class="line">&#125;;</div><div class="line"><span class="comment">// .cpp file</span></div><div class="line">Singleton* Singleton::instance_ = <span class="number">0</span>;</div></pre></td></tr></table></figure>
+<h3 id="Eager-Singleton"><a href="#Eager-Singleton" class="headerlink" title="Eager Singleton"></a>Eager Singleton</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// .h file</span></div><div class="line"><span class="keyword">class</span> Singleton  </div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="function"><span class="keyword">static</span> Singleton&amp; <span class="title">Instance</span><span class="params">()</span></span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> instance;</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        Singleton();</div><div class="line">        ~Singleton();</div><div class="line">        Singleton(<span class="keyword">const</span> Singleton&amp;);</div><div class="line">        Singleton&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Singleton&amp;);</div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        <span class="keyword">static</span> Singleton instance;</div><div class="line">&#125;</div><div class="line"><span class="comment">// .cpp file</span></div><div class="line">Singleton Singleton::instance;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -517,10 +537,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -544,8 +564,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -559,8 +579,12 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">categories</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -592,8 +616,10 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">tags</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -628,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Notebook-of-CPP"><span class="nav-number">1.</span> <span class="nav-text">Notebook of CPP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Namespaces"><span class="nav-number">1.1.</span> <span class="nav-text">Namespaces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operators-unary-binary-ternary"><span class="nav-number">1.2.</span> <span class="nav-text">Operators: unary, binary, ternary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructors"><span class="nav-number">1.3.</span> <span class="nav-text">Constructors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Conversion"><span class="nav-number">1.3.1.</span> <span class="nav-text">Conversion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-of-Double-Free-Shallow-Copy"><span class="nav-number">1.3.2.</span> <span class="nav-text">Error of Double Free: Shallow Copy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-char-getName-const-return-name"><span class="nav-number">1.3.3.</span> <span class="nav-text">const char* getName() const { return name; }</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator-Overload"><span class="nav-number">1.3.4.</span> <span class="nav-text">Operator Overload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialization-vs-Assignment"><span class="nav-number">1.4.</span> <span class="nav-text">Initialization vs Assignment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Something-about-“new“"><span class="nav-number">1.4.1.</span> <span class="nav-text">Something about “new“</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantage-of-Init-over-Assign"><span class="nav-number">1.4.2.</span> <span class="nav-text">Advantage of Init over Assign</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vector"><span class="nav-number">1.5.</span> <span class="nav-text">Vector</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Notebook-of-CPP"><span class="nav-number">1.</span> <span class="nav-text">Notebook of CPP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Namespaces-and-Operators"><span class="nav-number">1.1.</span> <span class="nav-text">Namespaces and Operators</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Namespaces"><span class="nav-number">1.1.1.</span> <span class="nav-text">Namespaces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operators-unary-binary-ternary"><span class="nav-number">1.1.2.</span> <span class="nav-text">Operators: unary, binary, ternary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructors"><span class="nav-number">1.2.</span> <span class="nav-text">Constructors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Conversion"><span class="nav-number">1.2.1.</span> <span class="nav-text">Conversion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-of-Double-Free-Shallow-Copy"><span class="nav-number">1.2.2.</span> <span class="nav-text">Error of Double Free: Shallow Copy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-char-getName-const-return-name"><span class="nav-number">1.2.3.</span> <span class="nav-text">const char* getName() const { return name; }</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operator-Overload"><span class="nav-number">1.2.4.</span> <span class="nav-text">Operator Overload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialization-vs-Assignment"><span class="nav-number">1.3.</span> <span class="nav-text">Initialization vs Assignment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Something-about-“new“"><span class="nav-number">1.3.1.</span> <span class="nav-text">Something about “new“</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantage-of-Init-over-Assign"><span class="nav-number">1.3.2.</span> <span class="nav-text">Advantage of Init over Assign</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vector"><span class="nav-number">1.4.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Singleton"><span class="nav-number">1.5.</span> <span class="nav-text">Singleton</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent"><span class="nav-number">1.5.1.</span> <span class="nav-text">Intent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Meyers-Singleton"><span class="nav-number">1.5.2.</span> <span class="nav-text">Meyers Singleton</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lazy-Singleton"><span class="nav-number">1.5.3.</span> <span class="nav-text">Lazy Singleton</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Eager-Singleton"><span class="nav-number">1.5.4.</span> <span class="nav-text">Eager Singleton</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -662,7 +688,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

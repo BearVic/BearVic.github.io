@@ -103,24 +103,24 @@
   <meta name="keywords" content="Hexo, NexT" />
 
 
-<meta name="description" content="I have to admit that the Xcode is not very human-centered… Set Working DirectoryProduct -&amp;gt; Scheme -&amp;gt; Edit Scheme -&amp;gt; Run -&amp;gt; Options -&amp;gt; Working Directory">
+<meta name="description" content="Makefile QuickStartDefinition: A makefile is a file containing a set of directives used with the make build automation tool.  (from Wikipedia) Main Versions GNU make BSD make) Microsoft nmake  Makefil">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode tips">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/Xcode-tips/index.html">
+<meta property="og:title" content="Makefile QuickStart">
+<meta property="og:url" content="http://yoursite.com/2018/03/16/Makefile-QuickStart/index.html">
 <meta property="og:site_name" content="Vic&#39;s Paradise">
-<meta property="og:description" content="I have to admit that the Xcode is not very human-centered… Set Working DirectoryProduct -&amp;gt; Scheme -&amp;gt; Edit Scheme -&amp;gt; Run -&amp;gt; Options -&amp;gt; Working Directory">
+<meta property="og:description" content="Makefile QuickStartDefinition: A makefile is a file containing a set of directives used with the make build automation tool.  (from Wikipedia) Main Versions GNU make BSD make) Microsoft nmake  Makefil">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-09T00:17:15.394Z">
+<meta property="og:updated_time" content="2018-03-16T18:03:24.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode tips">
-<meta name="twitter:description" content="I have to admit that the Xcode is not very human-centered… Set Working DirectoryProduct -&amp;gt; Scheme -&amp;gt; Edit Scheme -&amp;gt; Run -&amp;gt; Options -&amp;gt; Working Directory">
+<meta name="twitter:title" content="Makefile QuickStart">
+<meta name="twitter:description" content="Makefile QuickStartDefinition: A makefile is a file containing a set of directives used with the make build automation tool.  (from Wikipedia) Main Versions GNU make BSD make) Microsoft nmake  Makefil">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/08/Xcode-tips/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/16/Makefile-QuickStart/"/>
 
 
 
@@ -129,7 +129,7 @@
     sidebar: "",
   };
 </script>
-  <title>Xcode tips | Vic's Paradise</title>
+  <title>Makefile QuickStart | Vic's Paradise</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/08/Xcode-tips/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/Makefile-QuickStart/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BearVic">
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Xcode tips</h1>
+          <h1 class="post-title" itemprop="name headline">Makefile QuickStart</h1>
         
 
         <div class="post-meta">
@@ -305,7 +305,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T19:12:44-05:00">2018-01-08</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T14:02:44-04:00">2018-03-16</time>
             
 
             
@@ -323,9 +323,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/08/Xcode-tips/#comments" itemprop="discussionUrl">
+                <a href="/2018/03/16/Makefile-QuickStart/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/08/Xcode-tips/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/03/16/Makefile-QuickStart/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -353,8 +353,36 @@
       
 
       
-        <p>I have to admit that the Xcode is not very human-centered…</p>
-<h2 id="Set-Working-Directory"><a href="#Set-Working-Directory" class="headerlink" title="Set Working Directory"></a>Set Working Directory</h2><p>Product -&gt; Scheme -&gt; Edit Scheme -&gt; Run -&gt; Options -&gt; Working Directory </p>
+        <h1 id="Makefile-QuickStart"><a href="#Makefile-QuickStart" class="headerlink" title="Makefile QuickStart"></a>Makefile QuickStart</h1><p><strong>Definition</strong>: A makefile is a file containing a set of directives used with the make build automation tool.  (from <a href="https://en.wikipedia.org/wiki/Makefile" target="_blank" rel="noopener">Wikipedia</a>)</p>
+<h2 id="Main-Versions"><a href="#Main-Versions" class="headerlink" title="Main Versions"></a>Main Versions</h2><ul>
+<li><a href="https://www.gnu.org/software/make/" target="_blank" rel="noopener">GNU make</a></li>
+<li><a href="https://www.freebsd.org/cgi/man.cgi?make(1" target="_blank" rel="noopener">BSD make</a>)</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/dd9y37ha.aspx" target="_blank" rel="noopener">Microsoft nmake</a></li>
+</ul>
+<h2 id="Makefile-Grammars"><a href="#Makefile-Grammars" class="headerlink" title="Makefile Grammars"></a>Makefile Grammars</h2><h3 id="Basic-Format"><a href="#Basic-Format" class="headerlink" title="Basic Format"></a>Basic Format</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># this is a comment</div><div class="line"># in case target be ignored, add the following</div><div class="line"># .PHONY: &lt;target&gt;</div><div class="line"></div><div class="line">&lt;target&gt; : &lt;prerequisites&gt;</div><div class="line">[tab] &lt;commands&gt;</div><div class="line"></div><div class="line"># use &apos;.RECIPEPREFIX = [operator]&apos; to replace [tab]</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>target</strong>:<ul>
+<li>filename(s), the one(s) to be constructed</li>
+<li>name of a operation</li>
+<li><strong>phony target</strong>: If current dir has one file with the same name as the operation, this operation would be ignored. In case, add <figure class="highlight plain"><figcaption><span><target>```</target></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- **prerequisites**: Check if the files or operations exist</div><div class="line">- **commands**: Tell how, consists of line(s) of Shell instructions</div><div class="line"></div><div class="line">### Learn from a example</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="Var"><a href="#Var" class="headerlink" title="Var"></a>Var</h1><p>CXX = g++<br>OBJS = \<br>    student.o \<br>    one.o \<br>    main.o<br>EXEC = run</p>
+<h1 id="var-fetch-var"><a href="#var-fetch-var" class="headerlink" title="$(var): fetch var"></a>$(var): fetch var</h1><p>%.o: %.cpp %.h<br>    @# This line won’t be printed<br>    $(CXX)  -c $&lt; -o $@</p>
+<p>$(EXEC): $(OBJS)<br>    $(CXX) -o $@ $(OBJS) </p>
+<p>clean:<br>    rm -rf $(OBJS)<br>    rm -rf $(EXEC)<br>```</p>
+<ul>
+<li>Every commands would be printed, plus ‘@’ prefix to avoid</li>
+<li>Wildcard: (*), (?), […], (%)</li>
+<li>Assignment: =, :=, ?=, +=</li>
+<li>Automatic Variables: <ul>
+<li>$@: indicate the target</li>
+<li>$&lt;: indicate the first prerequisite</li>
+</ul>
+</li>
+</ul>
+<p>More about <strong><em>if-statement, functions</em></strong> in <a href="https://www.kancloud.cn/kancloud/make-command/45594" target="_blank" rel="noopener">Make 命令教程</a> </p>
 
       
     </div>
@@ -379,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/Scientific-Python/" rel="next" title="Scientific Programming with Python">
-                <i class="fa fa-chevron-left"></i> Scientific Programming with Python
+              <a href="/2018/01/19/TenforFlow-Notes-1/" rel="next" title="TenforFlow Notes (1)">
+                <i class="fa fa-chevron-left"></i> TenforFlow Notes (1)
               </a>
             
           </div>
@@ -388,10 +416,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/19/TenforFlow-Notes-1/" rel="prev" title="TenforFlow Notes (1)">
-                TenforFlow Notes (1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-Working-Directory"><span class="nav-number">1.</span> <span class="nav-text">Set Working Directory</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile-QuickStart"><span class="nav-number">1.</span> <span class="nav-text">Makefile QuickStart</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-Versions"><span class="nav-number">1.1.</span> <span class="nav-text">Main Versions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Makefile-Grammars"><span class="nav-number">1.2.</span> <span class="nav-text">Makefile Grammars</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Format"><span class="nav-number">1.2.1.</span> <span class="nav-text">Basic Format</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Var"><span class="nav-number">2.</span> <span class="nav-text">Var</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#var-fetch-var"><span class="nav-number">3.</span> <span class="nav-text">$(var): fetch var</span></a></li></ol></div>
             
 
           </div>
@@ -697,9 +721,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/01/08/Xcode-tips/';
-        this.page.identifier = '2018/01/08/Xcode-tips/';
-        this.page.title = 'Xcode tips';
+        this.page.url = 'http://yoursite.com/2018/03/16/Makefile-QuickStart/';
+        this.page.identifier = '2018/03/16/Makefile-QuickStart/';
+        this.page.title = 'Makefile QuickStart';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
